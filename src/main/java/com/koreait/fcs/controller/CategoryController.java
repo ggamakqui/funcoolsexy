@@ -24,11 +24,12 @@ public class CategoryController {
 	
 	private CategoryCommand categoryCommand;
 	
+	/*
 	@RequestMapping("/")
 	public String goIndex() { 
 		return "index";
 	}
-	
+	*/
 	@RequestMapping("categoryListPage")
 	public String categoryListPage(Model model) {
 		categoryCommand = new CategoryListCommand();

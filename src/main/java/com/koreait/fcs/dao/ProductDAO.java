@@ -10,14 +10,14 @@ public interface ProductDAO {
 	public ArrayList<ProductDTO> selectProductListByCategory(int cNo);
 	
 	// 번호별 product 불러오기
-	
+	public ProductDTO selectProductBypNo(int pNo);
 	
 	// product 추가하기
-	public int insertProduct();
+	public int insertProduct(int pNo, String pName, int pPrice, String pSize, int pCategory, int pGender, String pCompany, String saveFilename1, String saveFilename2, String pDescription, int pStock);
 	
 	// product 수정하기
-	public int updateProduct();
+	public int updateProduct(String pName, int pPrice, String pSize, int pCategory, int pGender, String pCompany, String saveFilename1, String saveFilename2, String pDescription, int pStock, int pNo);
 	
 	// product 삭제하기
-	public int deleteProduct();
+	public int deleteProduct(int pNo);
 }

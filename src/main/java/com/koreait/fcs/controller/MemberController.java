@@ -32,12 +32,13 @@ public class MemberController {
 	private SqlSession sqlSession;
 	private MemberCommand memberCommand; //@Autowired로 처리되는 대상이 아니다
 	
-	
+	/*
 	//단순이동
 	@RequestMapping("/")
 	public String goIndex() {
 		return "index";
 	}
+	*/
 	
 	@RequestMapping("index")
 	public String index() {

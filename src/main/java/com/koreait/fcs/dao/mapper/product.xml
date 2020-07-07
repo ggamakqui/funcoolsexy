@@ -5,13 +5,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.koreait.fcs.dao.ProductDAO">
 	<insert id="insertProduct">
+		INSERT INTO C_PRODUCT (PNO, PNAME, PPRICE, PSIZE, PCATEGORY, PGENDER, PCOMPANY, PTHUMBNAIL, PFILENAME, PDESCRIPTION, PSTOCK, PREGDATE)
+		VALUES (C_PRODUCT_SEQ.NEXTVAL, #{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6}, #{param7}, #{param8}, #{param9}, #{param10}, SYSDATE)
 	</insert>
 	<update id="updateProduct">
+		UPDATE C_PRODUCT
+		SET PNAME = #{param1}, PPRICE = #{param2}, PSIZE = #{param3}, PCATEGORY = #{param4}, PGENDER = #{param5}, PCOMPANY = #{param6}, PTHUMBNAIL = #{param7}, PFILENAME = #{param8}, PDESCRIPTION = #{param9}, PSTOCK = #{param10}
+		WHERE PNO = #{param11}
 	</update>
 	<delete id="deleteProduct">
+		DELETE FROM C_PRODUCT
+		WHERE PNO = #{param1}
 	</delete>
 	<select id="selectProductListByCategory" resultType="com.koreait.fcs.dto.ProductDTO">
 		SELECT * FROM C_PROPUCT
 		WHERE PCATEGORY = #{param1}
+	</select>
+	<select id="selectProductBypNo" resultType="com.koreait.fcs.dto.ProductDTO">
+		SELECT * FROM C_PRODUCT
+		WHERE CNO = #{cNo}
 	</select>
 </mapper>
