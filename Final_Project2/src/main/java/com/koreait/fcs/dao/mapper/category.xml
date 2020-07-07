@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.koreait.fcs.dao.CategoryDAO">
+	
+	<select id="selectProductListByMaleBrandCommand1" resultType="com.koreait.fcs.dto.ProductDTO">
+		
+		SELECT P.PNO, P.PNAME, P.PPRICE, P.PSIZE, P.PCATEGORY, P.PGENDER, P.PCOMPANY, P.PTHUMBNAIL, P.PFILENAME, P.PDESCRIPTION, P.PSTOCK, P.PREGDATE 
+		FROM C_PRODUCT P, C_CATEGORY C WHERE P.PCATEGORY = C.CNO AND P.PGENDER = 1 AND P.PCOMPANY = #{param1}
+		
+	</select>
+	
+	<select id="selectProductListByMaleBrandCommand2" resultType="com.koreait.fcs.dto.ProductDTO">
+		
+		SELECT * FROM (SELECT ROWNUM AS RN, A.* FROM ((SELECT P.PNO, P.PNAME, P.PPRICE, P.PSIZE, P.PCATEGORY, P.PGENDER, P.PCOMPANY, P.PTHUMBNAIL, P.PFILENAME, P.PDESCRIPTION, P.PSTOCK, P.PREGDATE 
+		FROM C_PRODUCT P, C_CATEGORY C WHERE P.PCATEGORY = C.CNO AND P.PGENDER = 1 AND P.PCOMPANY = #{param1} ORDER BY P.PNO) A))
+		WHERE RN BETWEEN #{param2} AND #{param3} 
+		
+	</select>
+	
+	<select id="selectProductListByFemaleBrandCommand1" resultType="com.koreait.fcs.dto.ProductDTO">
+		SELECT P.PNO, P.PNAME, P.PPRICE, P.PSIZE, P.PCATEGORY, P.PGENDER, P.PCOMPANY, P.PTHUMBNAIL, P.PFILENAME, P.PDESCRIPTION, P.PSTOCK, P.PREGDATE 
+		FROM C_PRODUCT P, C_CATEGORY C WHERE P.PCATEGORY = C.CNO AND P.PGENDER = 2 AND P.PCOMPANY = #{param1}
+	</select>
+	
+	
+	<select id="selectProductListByFemaleBrandCommand2" resultType="com.koreait.fcs.dto.ProductDTO">
+		SELECT * FROM (SELECT ROWNUM AS RN, A.* FROM ((SELECT P.PNO, P.PNAME, P.PPRICE, P.PSIZE, P.PCATEGORY, P.PGENDER, P.PCOMPANY, P.PTHUMBNAIL, P.PFILENAME, P.PDESCRIPTION, P.PSTOCK, P.PREGDATE 
+		FROM C_PRODUCT P, C_CATEGORY C WHERE P.PCATEGORY = C.CNO AND P.PGENDER = 2 AND P.PCOMPANY = #{param1} ORDER BY P.PNO) A))
+		WHERE RN BETWEEN #{param2} AND #{param3} 
+	</select>
+	
+	<select id="selectProductByMaleCategory1" resultType="com.koreait.fcs.dto.ProductDTO">
+		SELECT PNO, PNAME, PPRICE, PSIZE, PCATEGORY, PGENDER, PCOMPANY, PTHUMBNAIL, PFILENAME, PDESCRIPTION, PSTOCK, PREGDATE 
+		FROM C_PRODUCT WHERE PCATEGORY = #{param1} AND PGENDER = 1
+	</select>
+	
+	<select id="selectProductByMaleCategory2" resultType="com.koreait.fcs.dto.ProductDTO">
+		SELECT * FROM (SELECT ROWNUM AS RN, A.* FROM ((SELECT PNO, PNAME, PPRICE, PSIZE, PCATEGORY, PGENDER, PCOMPANY, PTHUMBNAIL, PFILENAME, PDESCRIPTION, PSTOCK, PREGDATE 
+		FROM C_PRODUCT WHERE PCATEGORY = #{param1} AND PGENDER = 1 ORDER BY PNO) A))
+		WHERE RN BETWEEN #{param2} AND #{param3} 
+	</select>
+	
+	<select id="selectProductByFemaleCategory1" resultType="com.koreait.fcs.dto.ProductDTO">
+		SELECT PNO, PNAME, PPRICE, PSIZE, PCATEGORY, PGENDER, PCOMPANY, PTHUMBNAIL, PFILENAME, PDESCRIPTION, PSTOCK, PREGDATE 
+		FROM C_PRODUCT WHERE PCATEGORY = #{param1} AND PGENDER = 2
+	</select>
+	
+	<select id="selectProductByFemaleCategory2" resultType="com.koreait.fcs.dto.ProductDTO">
+		SELECT * FROM (SELECT ROWNUM AS RN, A.* FROM ((SELECT PNO, PNAME, PPRICE, PSIZE, PCATEGORY, PGENDER, PCOMPANY, PTHUMBNAIL, PFILENAME, PDESCRIPTION, PSTOCK, PREGDATE 
+		FROM C_PRODUCT WHERE PCATEGORY = #{param1} AND PGENDER = 2 ORDER BY PNO) A))
+		WHERE RN BETWEEN #{param2} AND #{param3} 
+	</select>
+	
+	<select id="selectProductEtc1" resultType="com.koreait.fcs.dto.ProductDTO">
+		SELECT PNO, PNAME, PPRICE, PSIZE, PCATEGORY, PGENDER, PCOMPANY, PTHUMBNAIL, PFILENAME, PDESCRIPTION, PSTOCK, PREGDATE 
+		FROM C_PRODUCT WHERE PCATEGORY = #{pCategory}
+	</select>
+	
+	<select id="selectProductEtc2" resultType="com.koreait.fcs.dto.ProductDTO">
+		SELECT * FROM (SELECT ROWNUM AS RN, A.* FROM ((SELECT PNO, PNAME, PPRICE, PSIZE, PCATEGORY, PGENDER, PCOMPANY, PTHUMBNAIL, PFILENAME, PDESCRIPTION, PSTOCK, PREGDATE 
+		FROM C_PRODUCT WHERE PCATEGORY = #{param1} ORDER BY PNO) A))
+		WHERE RN BETWEEN #{param2} AND #{param3} 
+	</select>
+	
+	<!-- 카테고리 드롭다운 불러오기 -->
+	
+	<select id="selectMaleBrandList" resultType="com.koreait.fcs.dto.ProductDTO">
+		SELECT DISTINCT PCOMPANY FROM C_PRODUCT WHERE PGENDER = 1 ORDER BY PCOMPANY
+	</select>
+	
+	<select id="selectFemaleBrandList" resultType="com.koreait.fcs.dto.ProductDTO">
+		SELECT DISTINCT PCOMPANY FROM C_PRODUCT WHERE PGENDER = 2 ORDER BY PCOMPANY
+	</select>
+	
+	<select id="selectMaleCategoryList" resultType="com.koreait.fcs.dto.CategoryDTO">
+		SELECT CNO, CNAME FROM C_CATEGORY WHERE CNO <![CDATA[<]]> 21 ORDER BY CNO
+	</select>
+	
+	<select id="selectFemaleCategoryList" resultType="com.koreait.fcs.dto.CategoryDTO">
+		SELECT CNO, CNAME FROM C_CATEGORY WHERE CNO <![CDATA[>]]> 20 AND CNO <![CDATA[<]]> 31 ORDER BY CNO
+	</select>
+	
+	<select id="selectEtcCategoryList" resultType="com.koreait.fcs.dto.CategoryDTO">
+		SELECT CNO, CNAME FROM C_CATEGORY WHERE CNO <![CDATA[>]]> 30 ORDER BY CNO
+	</select>
+
+	
+</mapper>
