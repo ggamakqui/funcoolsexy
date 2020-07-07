@@ -41,7 +41,7 @@
 	<input type="button" value="메인으로 가기" onclick="location.href='index'">
 	<br/><br/>
 
-	<div class="lefted">전체 ${totalRecord}개</div>
+	<div class="lefted">전체 ${totalRecord}개  ssssss</div>
 	<table>
 		<thead>
 			<tr>
