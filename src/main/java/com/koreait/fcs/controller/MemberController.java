@@ -15,12 +15,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.koreait.fcs.command.Command;
 import com.koreait.fcs.command.member.DeleteMember;
 import com.koreait.fcs.command.member.EmailAuthCommand;
 import com.koreait.fcs.command.member.ListMember;
 import com.koreait.fcs.command.member.LoginMemberCommand;
 import com.koreait.fcs.command.member.LogoutMemberCommand;
-import com.koreait.fcs.command.member.MemberCommand;
 import com.koreait.fcs.command.member.MemberViewByAdminPage;
 import com.koreait.fcs.command.member.UpdateByAdmin;
 import com.koreait.fcs.dao.MemberDAO;
@@ -30,7 +30,7 @@ import com.koreait.fcs.dto.MemberDTO;
 public class MemberController {
 	@Autowired
 	private SqlSession sqlSession;
-	private MemberCommand memberCommand; //@Autowired로 처리되는 대상이 아니다
+	private Command memberCommand; //@Autowired로 처리되는 대상이 아니다
 	
 	/*
 	//단순이동

@@ -7,9 +7,10 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
 
+import com.koreait.fcs.command.Command;
 import com.koreait.fcs.dao.MemberDAO;
 
-public class UpdateByAdmin implements MemberCommand {
+public class UpdateByAdmin implements Command {
 
 	@Override
 	public void execute(SqlSession sqlSession, Model model) {

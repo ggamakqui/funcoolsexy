@@ -9,7 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.koreait.fcs.command.category.CategoryCommand;
+import com.koreait.fcs.command.Command;
 import com.koreait.fcs.command.category.CategoryDeleteCommand;
 import com.koreait.fcs.command.category.CategoryInsertCommand;
 import com.koreait.fcs.command.category.CategoryListCommand;
@@ -22,7 +22,7 @@ public class CategoryController {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	private CategoryCommand categoryCommand;
+	private Command categoryCommand;
 	
 	/*
 	@RequestMapping("/")

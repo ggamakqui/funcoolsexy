@@ -8,9 +8,10 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.koreait.fcs.command.Command;
 import com.koreait.fcs.dao.CategoryDAO;
 
-public class CategoryDeleteCommand implements CategoryCommand {
+public class CategoryDeleteCommand implements Command {
 
 	@Override
 	public void execute(SqlSession sqlSession, Model model) {

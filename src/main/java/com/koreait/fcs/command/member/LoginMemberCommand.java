@@ -11,10 +11,11 @@ import javax.servlet.http.HttpSession;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
 
+import com.koreait.fcs.command.Command;
 import com.koreait.fcs.dao.MemberDAO;
 import com.koreait.fcs.dto.MemberDTO;
 
-public class LoginMemberCommand implements MemberCommand {
+public class LoginMemberCommand implements Command {
 
 	@Override
 	public void execute(SqlSession sqlSession, Model model) {

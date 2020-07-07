@@ -10,9 +10,10 @@ import javax.servlet.http.HttpSession;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
 
+import com.koreait.fcs.command.Command;
 import com.koreait.fcs.dto.MemberDTO;
 
-public class LogoutMemberCommand implements MemberCommand {
+public class LogoutMemberCommand implements Command {
 
 	@Override
 	public void execute(SqlSession sqlSession, Model model) {
