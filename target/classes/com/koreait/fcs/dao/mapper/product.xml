@@ -18,7 +18,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE PNO = #{param1}
 	</delete>
 	<select id="selectProductListByCategory" resultType="com.koreait.fcs.dto.ProductDTO">
-		SELECT * FROM C_PROPUCT
+		SELECT * FROM C_PRODUCT
 		WHERE PCATEGORY = #{param1}
 	</select>
 	<select id="selectProductBypNo" resultType="com.koreait.fcs.dto.ProductDTO">

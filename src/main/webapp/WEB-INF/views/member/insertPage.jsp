@@ -6,10 +6,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="resources/css/default.css"> 
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<link rel="stylesheet" type="text/css" href="resources/css/index.css">
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script type="text/javascript">
-	
+
+
 	//ajax
 	$(document).ready(function(){
 
@@ -170,11 +174,87 @@
 
 <body>
 
-<div class="sign-up-box">
-	<form id='f'  method="POST">
-		<table>
-			<tbody>
-				<tr>
+<a href="#contents" class="skip">본문바로가기</a>
+	<header id="header">
+		<h1><a href="#a"><img src="https://ifh.cc/g/Wi9B4Q.png" alt="fcs"></a></h1>
+		<h2 class="hide">대메뉴</h2>
+		<div id="lnb">
+			<nav>
+				<ul>
+				<li><a href="#a">남성 브랜드</a>
+					<ul>
+				<li><a href="#a">ROUGE</a></li>
+					<li><a href="#a">NOIR</a></li>
+                    <li><a href="#a">BLANC</a></li>
+                    <li><a href="#a">VERT</a></li>
+                    <li><a href="#a">ARGENT</a></li>
+					</ul>
+				</li>
+				<li><a href="#a"> 여성 브랜드</a>
+					<ul>
+					<li><a href="#a">ROUGE</a></li>
+					<li><a href="#a">NOIR</a></li>
+                    <li><a href="#a">BLANC</a></li>
+                    <li><a href="#a">VERT</a></li>
+                    <li><a href="#a">ARGENT</a></li>
+					</ul>
+				</li>
+				<li><a href="#a">남성</a>
+					<ul>
+					 <li><a href="#a">Jacket</a></li>
+					<li><a href="#a">Shirts</a></li>
+					<li><a href="#a">Sute</a></li>
+                    <li><a href="#a">Pants</a></li>
+                    <li><a href="#a">Knit/Tee</a></li>  
+					</ul>
+				</li>
+				<li><a href="#a">여성</a>
+					<ul>
+                    <li><a href="#a">Jacket</a></li>
+					<li><a href="#a">Dress</a></li>
+					<li><a href="#a">Blouse</a></li>
+                    <li><a href="#a">Skirts</a></li>
+                    <li><a href="#a">Pants</a></li>
+                    <li><a href="#a">Knit/Tee</a></li>
+					</ul>
+				</li>
+				<li><a href="#a">ect</a>
+					<ul>
+					<li><a href="#a">Bag(Backpack)</a></li>
+					<li><a href="#a">Bag(Shoulder)</a></li>
+					<li><a href="#a">Belt</a></li>
+					<li><a href="#a">Shoes</a></li>
+					</ul>
+				</li>
+				</ul>
+			</nav>
+			<div></div>
+		</div>
+		<h2 class="hide">회원</h2>
+		<ul>
+		<li><a href="#a">LOGIN</a></li>
+		<li><a href="#a">JOIN</a></li>
+		</ul>
+		<div class="visual"><img src="https://ifh.cc/g/aFF3mM.jpg" alt=""></div>
+	</header>
+
+	<main>
+	
+        <div class="contents">
+            <h2 class="h2">FCS 회원가입</h2>
+            <p>Fun하고 Cool 하고 Sexy하게<br>회원이 되시면 FCS만의 혜택과 서비스를 누릴 수 있습니다.</p>
+   
+            
+           
+           <h2 class="h2">회원정보 입력</h2>
+	                <div class="input_group">
+	                    <table class="input_type">
+	                        <colgroup>
+	                            <col width="170px">
+	                            <col width="*">
+	                        </colgroup>
+	                        <tbody>
+	                           <tr>
 					<td>아이디</td>
 					<td>
 						<input id="mId" type="text" name="mId" autocomplete="off"/>
@@ -227,7 +307,8 @@
 				</tr>
 				<tr>
 					<td>우편번호</td>
-					<td><input type="text" id="mPost" name="mPost"><input type="button" onclick="execDaumPostcode()" value="우편번호 찾기"><br></td>
+					<td><input type="text" id="mPost" name="mPost">  
+                        <input type="button" onclick="execDaumPostcode()" value="우편번호 찾기"><br></td>
 				</tr>
 				<tr>
 					<td>도로명주소</td>
@@ -236,27 +317,58 @@
 				<tr>
 					<td>지번주소</td>
 					<td>
-						<input type="text" id="mAddr2" name="mAddr2" placeholder="지번주소">
+						<input type="text" id="mAddr2" name="mAddr2" placeholder="지번주소" >
 						<span id="guide" style="color:#999;display:none"></span>
 					</td>
 				</tr>
 				<tr>
 					<td>상세주소</td>
-					<td><input type="text" id="mAddr3" name="mAddr3" placeholder="상세주소"></td>
+					<td><input type="text" id="mAddr3" name="mAddr3" placeholder="상세주소" style="width: 430px;"></td>
 				</tr>
-			</tbody>
-			<tfoot>
-				<tr>
-					<td colspan="2">
-						<input id="signUpBtn" type="button" value="회원가입" />
-						<input id="clearBtn" type="reset" value="입력취소" />
-					</td>
-				</tr>
-			</tfoot>
-		</table>
-	</form>
+	                   </tbody>
+	                    </table>
+	                </div>
+	           
+            
+            <br><br><div class="btn_center">
+                <a href="#a" class="btn_type1">회원가입</a>
+                <a href="#a" class="btn_type2">가입 취소</a>
+            </div>
+        </div>
+	</main>
 	<br/><br/>
 	<div id="findIdResult"></div>  <!-- AJAX 처리 결과가 나타나는 위치이다. -->
 </div>
+<footer>
+		<div class="clear">
+			<a href="#header">TOP</a>
+			<div class="left">
+				<div>
+					<a href="#a">개인정보처리방침</a>
+					<a href="#a">이용약관</a>
+					<a href="#a">이메일무단수집거부</a>
+					<a href="#a">사이트맵</a>
+				</div>
+				<p>
+					FCS(주)<span></span>사업자번호 : 111-22-33333<span></span>대표자 : @@@<br>
+					서강로 136 아이비타워 2층 fcs <span></span>02-1234-5678<span></span>Copyright © 2020 NULL Corporation., All rights reserved.
+				</p>
+			</div>
+			<div class="right">
+				<select>
+				<option>FAMILY SITE</option>
+				<option>FAMILY SITE</option>
+				<option>FAMILY SITE</option>
+				<option>FAMILY SITE</option>
+				<option>FAMILY SITE</option>
+				<option>FAMILY SITE</option>
+				<option>FAMILY SITE</option>
+				</select>
+			</div>
+		</div>
+	</footer>
+
+
+
 </body>
 </html>

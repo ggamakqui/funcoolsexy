@@ -28,15 +28,16 @@ public class ProductController {
 		
 		@RequestMapping("productInsertPage")
 		public String goUploadPage() {
-			return "productInsertPage";
+			return "product/productInsertPage";
 		}
 		
 		
 		@RequestMapping("productListPage")
-		public String productListPage(Model model) {
+		public String productListPage(HttpServletRequest request,Model model) {
+			model.addAttribute("request", request);
 			productCommand = new ProductListCommand();
 			productCommand.execute(sqlSession, model);
-			return "productListPage";
+			return "product/productListPage";
 		}
 		
 		

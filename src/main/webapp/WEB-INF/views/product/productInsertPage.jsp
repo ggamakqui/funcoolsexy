@@ -17,7 +17,6 @@
 <body>
 	<form method="post" enctype="multipart/form-data">
 	
-		pNo  <input type="text" name="pNo"/><br/>
 		pName <input type="text" name="pName"/><br/>
 		pPrice <input type="text" name="pPrice"/><br/>
 		pSize <input type="text" name="pSize"/><br/>

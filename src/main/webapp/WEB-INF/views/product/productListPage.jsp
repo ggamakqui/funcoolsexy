@@ -9,6 +9,7 @@
 </head>
 <body>
 	
+	<a href="productInsertPage">새 상품 등록하기</a>
 	<table border="1">
 	
 		<thead>

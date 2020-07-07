@@ -18,7 +18,6 @@ public class ProductInsertCommand implements ProductCommand {
 		Map<String, Object> map = model.asMap();
 		MultipartHttpServletRequest mr = (MultipartHttpServletRequest) map.get("mr");
 		
-		int pNo = Integer.parseInt(mr.getParameter("pNo"));
 		String pName = mr.getParameter("pName");
 		int pPrice = Integer.parseInt(mr.getParameter("pPrice"));
 		String pSize = mr.getParameter("pSize");
@@ -77,7 +76,7 @@ public class ProductInsertCommand implements ProductCommand {
 			// 3) DB에 저장하기
 			// iWriter, iTitle, iContent, saveFilename
 			ProductDAO pDAO = sqlSession.getMapper(ProductDAO.class);
-			pDAO.insertProduct(pNo, pName, pPrice, pSize, pCategory, pGender, pCompany, saveFilename1, saveFilename2, pDescription, pStock);
+			pDAO.insertProduct(pName, pPrice, pSize, pCategory, pGender, pCompany, saveFilename1, saveFilename2, pDescription, pStock);
 			
 		}catch (Exception e) {
 			e.printStackTrace();
