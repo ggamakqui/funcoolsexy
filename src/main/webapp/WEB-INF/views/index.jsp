@@ -35,6 +35,7 @@
 			<a href="adminPage">관리 페이지</a>
 		</c:if>
 	</c:if>
+	<a href="listPage">공지사항</a>
 	<h3><a href="qnaList?pNo=10000">상품문의 게시판</a></h3>
 </body>
 </html>
