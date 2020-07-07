@@ -26,12 +26,6 @@ public class ProductController {
 		
 		private ProductCommand productCommand;
 		
-		
-		@RequestMapping("/")
-		public String goIndex() {
-			return "index";
-		}
-		
 		@RequestMapping("productInsertPage")
 		public String goUploadPage() {
 			return "productInsertPage";
