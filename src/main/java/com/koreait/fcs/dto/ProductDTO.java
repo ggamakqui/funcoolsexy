@@ -5,8 +5,8 @@ import java.sql.Date;
 public class ProductDTO {
 	
 	// Field
-	private int pNo, pPrice, pCategory, pGender, pStock;
-	private String pName, pSize, pCompany, pThumbnail, pFilename, pDescription;
+	private int pNo, pPrice, pCategory, pGender, pStock1, pStock2, pStock3;
+	private String pName, pCompany, pThumbnail, pFilename, pDescription;
 	private Date pRegdate;
 	
 	// Constructor
@@ -14,24 +14,24 @@ public class ProductDTO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ProductDTO(int pNo, int pPrice, int pCategory, int pGender, int pStock, String pName, String pSize,
-			String pCompany, String pThumbnail, String pFilename, String pDescription, Date pRegdate) {
+	public ProductDTO(int pNo, int pPrice, int pCategory, int pGender, int pStock1, int pStock2, int pStock3,
+			String pName, String pCompany, String pThumbnail, String pFilename, String pDescription, Date pRegdate) {
 		super();
 		this.pNo = pNo;
 		this.pPrice = pPrice;
 		this.pCategory = pCategory;
 		this.pGender = pGender;
-		this.pStock = pStock;
+		this.pStock1 = pStock1;
+		this.pStock2 = pStock2;
+		this.pStock3 = pStock3;
 		this.pName = pName;
-		this.pSize = pSize;
 		this.pCompany = pCompany;
 		this.pThumbnail = pThumbnail;
 		this.pFilename = pFilename;
 		this.pDescription = pDescription;
 		this.pRegdate = pRegdate;
 	}
-	
-	// Method
+
 	public int getpNo() {
 		return pNo;
 	}
@@ -64,12 +64,28 @@ public class ProductDTO {
 		this.pGender = pGender;
 	}
 
-	public int getpStock() {
-		return pStock;
+	public int getpStock1() {
+		return pStock1;
 	}
 
-	public void setpStock(int pStock) {
-		this.pStock = pStock;
+	public void setpStock1(int pStock1) {
+		this.pStock1 = pStock1;
+	}
+
+	public int getpStock2() {
+		return pStock2;
+	}
+
+	public void setpStock2(int pStock2) {
+		this.pStock2 = pStock2;
+	}
+
+	public int getpStock3() {
+		return pStock3;
+	}
+
+	public void setpStock3(int pStock3) {
+		this.pStock3 = pStock3;
 	}
 
 	public String getpName() {
@@ -78,14 +94,6 @@ public class ProductDTO {
 
 	public void setpName(String pName) {
 		this.pName = pName;
-	}
-
-	public String getpSize() {
-		return pSize;
-	}
-
-	public void setpSize(String pSize) {
-		this.pSize = pSize;
 	}
 
 	public String getpCompany() {
@@ -127,6 +135,8 @@ public class ProductDTO {
 	public void setpRegdate(Date pRegdate) {
 		this.pRegdate = pRegdate;
 	}
+
+	
 	
 	
 	

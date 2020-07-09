@@ -9,9 +9,10 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.koreait.fcs.command.Command;
 import com.koreait.fcs.dao.ProductDAO;
 
-public class ProductUpdateCommand implements ProductCommand {
+public class ProductUpdateCommand implements Command {
 
 	@Override
 	public void execute(SqlSession sqlSession, Model model) {
@@ -23,14 +24,18 @@ public class ProductUpdateCommand implements ProductCommand {
 		int pNo = Integer.parseInt(mr.getParameter("pNo"));
 		String pName = mr.getParameter("pName");
 		int pPrice = Integer.parseInt(mr.getParameter("pPrice"));
-		String pSize = mr.getParameter("pSize");
 		int pCategory = Integer.parseInt(mr.getParameter("pCategory"));
 		int pGender = Integer.parseInt(mr.getParameter("pGender"));
-		int pStock = Integer.parseInt(mr.getParameter("pStock"));
+		int pStock1 = Integer.parseInt(mr.getParameter("pStock1"));	// s사이즈
+		int pStock2 = Integer.parseInt(mr.getParameter("pStock2"));	// m사이즈
+		int pStock3 = Integer.parseInt(mr.getParameter("pStock3"));	// l사이즈
 		String pCompany = mr.getParameter("pCompany");
 		String pDescription = mr.getParameter("pDescription");
 		MultipartFile pThumbnail = mr.getFile("pThumbnail");	// 썸네일
-		MultipartFile pFilename = mr.getFile("pFilename");
+		MultipartFile pFilename = mr.getFile("pFilename");		// 상세이미지
+		
+
+		
 		
 		String originpThumbnail = pThumbnail.getOriginalFilename();
 		String originpFilename = pFilename.getOriginalFilename();
@@ -79,10 +84,11 @@ public class ProductUpdateCommand implements ProductCommand {
 			// 삽입 결과를 redirect로 넘기기 때문에
 			// model을 이용하면 중간에 넘긴 값이 사라진다.
 			// 그래서 model 대신 rttr을 사용한다.
-			rttr.addFlashAttribute("updateResult", pDAO.updateProduct(pName, pPrice, pSize, pCategory, pGender, pCompany, saveFilename1, saveFilename2, pDescription, pStock, pNo));
+			rttr.addFlashAttribute("updateResult", pDAO.updateProduct(pName, pPrice, pCategory, pGender, pCompany, saveFilename1, saveFilename2, pDescription, pStock1, pStock2, pStock3, pNo));
 			rttr.addFlashAttribute("beUpdated", true);
 			// 수정 결과를 productListPage.jsp에 넘기는데, 수정 후에만 productListPage.jsp 에서 수정 결과를 검사할 수 있도록
 			// 수정 후에 이동한 것이라는 "변수"를 하나 더 넘겨준다.
+			model.addAttribute("pCategory", pCategory);
 			
 		}catch (Exception e) {
 			e.printStackTrace();

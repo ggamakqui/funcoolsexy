@@ -8,27 +8,28 @@ import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.koreait.fcs.command.Command;
 import com.koreait.fcs.dao.ProductDAO;
 
-public class ProductInsertCommand implements ProductCommand {
-
+public class ProductInsertCommand implements Command {
 	@Override
 	public void execute(SqlSession sqlSession, Model model) {
 		
 		Map<String, Object> map = model.asMap();
 		MultipartHttpServletRequest mr = (MultipartHttpServletRequest) map.get("mr");
-		
 		String pName = mr.getParameter("pName");
 		int pPrice = Integer.parseInt(mr.getParameter("pPrice"));
-		String pSize = mr.getParameter("pSize");
 		int pCategory = Integer.parseInt(mr.getParameter("pCategory"));
 		int pGender = Integer.parseInt(mr.getParameter("pGender"));
-		int pStock = Integer.parseInt(mr.getParameter("pStock"));
+		int pStock1 = Integer.parseInt(mr.getParameter("pStock1"));	// s사이즈
+		int pStock2 = Integer.parseInt(mr.getParameter("pStock2"));	// m사이즈
+		int pStock3 = Integer.parseInt(mr.getParameter("pStock3"));	// l사이즈
 		String pCompany = mr.getParameter("pCompany");
 		String pDescription = mr.getParameter("pDescription");
 		MultipartFile pThumbnail = mr.getFile("pThumbnail");	// 썸네일
 		MultipartFile pFilename = mr.getFile("pFilename");		// 상세이미지
 		
+		mr.setAttribute("pCategory", pCategory);
 		// 업로드 할 파일의 이름 / 확장자 분리하기
 		// 동일한 이름을 가진 파일이 업로드 되지 않도록 직접 파일 이름을 수정해서 올린다
 		
@@ -76,7 +77,8 @@ public class ProductInsertCommand implements ProductCommand {
 			// 3) DB에 저장하기
 			// iWriter, iTitle, iContent, saveFilename
 			ProductDAO pDAO = sqlSession.getMapper(ProductDAO.class);
-			pDAO.insertProduct(pName, pPrice, pSize, pCategory, pGender, pCompany, saveFilename1, saveFilename2, pDescription, pStock);
+			pDAO.insertProduct(pName, pPrice, pCategory, pGender, pCompany, saveFilename1, saveFilename2, pDescription, pStock1, pStock2, pStock3);
+			model.addAttribute("pCategory", pCategory);
 			
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -86,5 +88,6 @@ public class ProductInsertCommand implements ProductCommand {
 		
 
 	}
+	
 
 }

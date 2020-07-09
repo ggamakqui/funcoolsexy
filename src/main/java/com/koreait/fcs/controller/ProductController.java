@@ -12,11 +12,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import com.koreait.fcs.command.product.ProductCommand;
+import com.koreait.fcs.command.Command;
 import com.koreait.fcs.command.product.ProductDeleteCommand;
-import com.koreait.fcs.command.product.ProductListCommand;
-import com.koreait.fcs.command.product.ProductUpdateCommand;
+import com.koreait.fcs.command.product.ProductDetailImageUpdateCommand;
 import com.koreait.fcs.command.product.ProductInsertCommand;
+import com.koreait.fcs.command.product.ProductInsertWithNoDetailImageCommand;
+import com.koreait.fcs.command.product.ProductInsertWithNoThumbnailCommand;
+import com.koreait.fcs.command.product.ProductListCommand;
+import com.koreait.fcs.command.product.ProductThumbnailUpdateCommand;
+import com.koreait.fcs.command.product.ProductUpdateCommand;
+import com.koreait.fcs.command.product.ProductUpdateWithNoImageCommand;
+import com.koreait.fcs.command.product.SelectProductDetailCommand;
 
 @Controller
 public class ProductController {
@@ -24,11 +30,21 @@ public class ProductController {
 		@Autowired
 		private SqlSession sqlSession;
 		
-		private ProductCommand productCommand;
+		private Command productCommand;
 		
 		@RequestMapping("productInsertPage")
 		public String goUploadPage() {
 			return "product/productInsertPage";
+		}
+		
+		@RequestMapping("productUpdatePage")
+		public String goProductUpdatePage(HttpServletRequest request, Model model) {
+			
+			model.addAttribute("request", request);
+			productCommand = new SelectProductDetailCommand();
+			productCommand.execute(sqlSession, model);
+			return "product/productUpdatePage";
+			
 		}
 		
 		
@@ -42,22 +58,53 @@ public class ProductController {
 		
 		
 		@RequestMapping(value="productInsert", method=RequestMethod.POST)
-		public String multiUpload(MultipartHttpServletRequest mr, Model model) {
-			
-			// 1. 업로드 없는 경우 : HttpServletRequest request
-			// 2. 업로드 있는 경우 : MultipartHttpServletRequest mr
-			
+		public String productInsert(MultipartHttpServletRequest mr, Model model) {
 			model.addAttribute("mr", mr);
 			productCommand = new ProductInsertCommand();
+			productCommand.execute(sqlSession, model);
+			return "redirect:productListPage";
+		}
+		@RequestMapping(value="insertProductWithNoThumbnail", method=RequestMethod.POST)
+		public String insertProductWithNoThumbnail(MultipartHttpServletRequest mr, Model model) {
+			model.addAttribute("mr", mr);
+			productCommand = new ProductInsertWithNoThumbnailCommand();
+			productCommand.execute(sqlSession, model);
+			return "redirect:productListPage";
+		}
+		@RequestMapping(value="insertProductWithNoDetailImage", method=RequestMethod.POST)
+		public String insertProductWithNoDetailImage(MultipartHttpServletRequest mr, Model model) {
+			model.addAttribute("mr", mr);
+			productCommand = new ProductInsertWithNoDetailImageCommand();
 			productCommand.execute(sqlSession, model);
 			return "redirect:productListPage";
 		}
 		
 		
 		@RequestMapping(value="productUpdate", method=RequestMethod.POST)
-		public String productUpdate(HttpServletRequest request, Model model) {
-			model.addAttribute("request", request);
+		public String productUpdate(MultipartHttpServletRequest mr, Model model) {
+			model.addAttribute("mr", mr);
 			productCommand = new ProductUpdateCommand();
+			productCommand.execute(sqlSession, model);
+			return "redirect:productListPage";
+		}
+		@RequestMapping(value="productUpdateWithNoImage", method=RequestMethod.POST)
+		public String productUpdateWithNoImage(MultipartHttpServletRequest mr, Model model) {
+			model.addAttribute("mr", mr);
+			productCommand = new ProductUpdateWithNoImageCommand();
+			productCommand.execute(sqlSession, model);
+			return "redirect:productListPage";
+		}
+		@RequestMapping(value="productDetailImageUpdate", method=RequestMethod.POST)
+		public String productDetailImageUpdate(MultipartHttpServletRequest mr, Model model) {
+			model.addAttribute("mr", mr);
+			productCommand = new ProductDetailImageUpdateCommand();
+			productCommand.execute(sqlSession, model);
+			return "redirect:productListPage";
+		}
+		@RequestMapping(value="productThumbnailUpdate", method=RequestMethod.POST)
+		public String productThumbnailUpdate(MultipartHttpServletRequest mr, Model model) {
+			model.addAttribute("mr", mr);
+			productCommand = new ProductThumbnailUpdateCommand();
 			productCommand.execute(sqlSession, model);
 			return "redirect:productListPage";
 		}
