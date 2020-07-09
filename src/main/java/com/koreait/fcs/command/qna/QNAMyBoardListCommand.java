@@ -1,6 +1,5 @@
 package com.koreait.fcs.command.qna;
 
-
 import java.util.List;
 import java.util.Map;
 
@@ -13,30 +12,29 @@ import org.springframework.ui.Model;
 import com.koreait.fcs.command.Command;
 import com.koreait.fcs.common.QNAPageMaker;
 import com.koreait.fcs.dao.QNABoardDAO;
+import com.koreait.fcs.dto.MemberDTO;
 import com.koreait.fcs.dto.QNABoardDTO;
 
-public class QNABoardListCommand implements Command {
+public class QNAMyBoardListCommand implements Command {
 
 	@Override
 	public void execute(SqlSession sqlSession, Model model) {
-		// TODO Auto-generated method stub
 		Map<String, Object> map = model.asMap();
-		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		HttpServletRequest request = (HttpServletRequest)map.get("request");
 		int pNo = Integer.parseInt(request.getParameter("pNo"));
-		
 		String page = request.getParameter("page");
-		if(page==null || page.isEmpty()) {
-			page="1";
+		if (page == null || page.isEmpty()) {
+			page = "1";
 		}
-		//page를 알아야 가져올 list의 begin 과 end 를 알 수 있다.
-		int recordPerPage = 5; //board, bbs, guestbook, member 등 모두 
-		int beginRecord = (Integer.parseInt(page)-1)*recordPerPage+1;
-		int endRecord = beginRecord+recordPerPage-1;
-			
-		QNABoardDAO qDAO = sqlSession.getMapper(QNABoardDAO.class);
-		List<QNABoardDTO> list = qDAO.qnaBoardList(beginRecord, endRecord, pNo);
+		int recordPerPage = 5;  // board, bbs, guestbook, member 등 모두 다른 값을 줄 수 있다.
+		int beginRecord = (Integer.parseInt(page) - 1) * recordPerPage + 1;
+		int endRecord = beginRecord + recordPerPage - 1;
 		
-		int totalRecord = qDAO.getTotalRecord(pNo);
+		String mId = request.getParameter("mId");
+		
+		QNABoardDAO qDAO = sqlSession.getMapper(QNABoardDAO.class);
+		List<QNABoardDTO> list = qDAO.qnaMyBoardList(beginRecord, endRecord, pNo, mId);
+		int totalRecord = qDAO.getMyTotalRecord(pNo, mId);
 		String pageView = QNAPageMaker.getPageView("qnaList", Integer.parseInt(page), recordPerPage, totalRecord, pNo);
 		
 		model.addAttribute("page", page);
@@ -47,11 +45,6 @@ public class QNABoardListCommand implements Command {
 		
 		HttpSession session = request.getSession();
 		session.removeAttribute("open");
-		
-		
-
 	}
 
 }
-
-

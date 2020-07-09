@@ -1,16 +1,18 @@
 package com.koreait.fcs.dto;
 
+import java.sql.Date;
 
 public class QNABoardDTO {
 	int qNo, qRef, qStep, qDepth, qDelete, pNo;
-	String qTitle, qContent, qCategory, qPw, mId;
+	String qTitle, qContent, qPw, mId;
+	Date qRegdate;
 	
 	public QNABoardDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public QNABoardDTO(int qNo, int qRef, int qStep, int qDepth, int qDelete, int pNo, String qTitle, String qContent,
-			String qCategory, String qPw, String mId) {
+			String qPw, String mId, Date qRegdate) {
 		super();
 		this.qNo = qNo;
 		this.qRef = qRef;
@@ -20,9 +22,9 @@ public class QNABoardDTO {
 		this.pNo = pNo;
 		this.qTitle = qTitle;
 		this.qContent = qContent;
-		this.qCategory = qCategory;
 		this.qPw = qPw;
 		this.mId = mId;
+		this.qRegdate = qRegdate;
 	}
 
 	public int getqNo() {
@@ -89,14 +91,6 @@ public class QNABoardDTO {
 		this.qContent = qContent;
 	}
 
-	public String getqCategory() {
-		return qCategory;
-	}
-
-	public void setqCategory(String qCategory) {
-		this.qCategory = qCategory;
-	}
-
 	public String getqPw() {
 		return qPw;
 	}
@@ -111,6 +105,14 @@ public class QNABoardDTO {
 
 	public void setmId(String mId) {
 		this.mId = mId;
+	}
+
+	public Date getqRegdate() {
+		return qRegdate;
+	}
+
+	public void setqRegdate(Date qRegdate) {
+		this.qRegdate = qRegdate;
 	}
 	
 	
