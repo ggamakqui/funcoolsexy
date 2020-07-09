@@ -10,9 +10,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
 
 import com.koreait.fcs.command.Command;
-import com.koreait.fcs.common.QNAPageMaker;
+import com.koreait.fcs.common.QNAMyPageMaker;
 import com.koreait.fcs.dao.QNABoardDAO;
-import com.koreait.fcs.dto.MemberDTO;
 import com.koreait.fcs.dto.QNABoardDTO;
 
 public class QNAMyBoardListCommand implements Command {
@@ -35,7 +34,7 @@ public class QNAMyBoardListCommand implements Command {
 		QNABoardDAO qDAO = sqlSession.getMapper(QNABoardDAO.class);
 		List<QNABoardDTO> list = qDAO.qnaMyBoardList(beginRecord, endRecord, pNo, mId);
 		int totalRecord = qDAO.getMyTotalRecord(pNo, mId);
-		String pageView = QNAPageMaker.getPageView("qnaList", Integer.parseInt(page), recordPerPage, totalRecord, pNo);
+		String pageView = QNAMyPageMaker.getPageView("myBoardListPage", Integer.parseInt(page), recordPerPage, totalRecord, pNo, mId);
 		
 		model.addAttribute("page", page);
 		model.addAttribute("list", list);

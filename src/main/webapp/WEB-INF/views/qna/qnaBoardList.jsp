@@ -38,8 +38,8 @@
 	<form>	
 		<!-- 로그인하면 게시글을 작성할 수 있다. -->
 		<input type="hidden" name="pNo" value="${pNo}" />
-		<input type="hidden" name="mId" value="${mId}"/>
 		<c:if test="${loginDTO ne null}">
+			<input type="hidden" name="mId" value="${loginDTO.mId}"/>
 			<input type="button" value="새 게시글 작성하기" onclick="fn_boardInsertPage(this.form)" />
 			<input type="button" value="내 게시글 보기" onclick="fn_myBoardListPage(this.form)" />
 		</c:if>		

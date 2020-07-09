@@ -23,13 +23,12 @@ public class QNABoardListCommand implements Command {
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		int pNo = Integer.parseInt(request.getParameter("pNo"));
-		
 		String page = request.getParameter("page");
+		
 		if(page==null || page.isEmpty()) {
 			page="1";
 		}
-		//page를 알아야 가져올 list의 begin 과 end 를 알 수 있다.
-		int recordPerPage = 5; //board, bbs, guestbook, member 등 모두 
+		int recordPerPage = 5; 
 		int beginRecord = (Integer.parseInt(page)-1)*recordPerPage+1;
 		int endRecord = beginRecord+recordPerPage-1;
 			

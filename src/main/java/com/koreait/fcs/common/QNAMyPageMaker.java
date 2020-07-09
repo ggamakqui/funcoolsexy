@@ -1,9 +1,9 @@
 package com.koreait.fcs.common;
 
 
-public class QNAPageMaker {
+public class QNAMyPageMaker {
 
-	public static String getPageView(String path, int page, int recordPerPage, int totalRecord, int pNo) {
+	public static String getPageView(String path, int page, int recordPerPage, int totalRecord, int pNo, String mId) {
 		
 		StringBuffer sb = new StringBuffer();
 		
@@ -42,7 +42,7 @@ public class QNAPageMaker {
 		if ( beginPageOfBlock < pagePerBlock ) {
 			sb.append("<span style='color: lightgray;'>◀</span>&nbsp;&nbsp;");
 		} else {
-			sb.append("<a href='" + path + "?page=" + (beginPageOfBlock - 1) +"&pNo=" + pNo +  "'>◀</a>&nbsp;&nbsp;");
+			sb.append("<a href='" + path + "?page=" + (beginPageOfBlock - 1) +"&pNo=" + pNo + "&mId=" + mId + "'>◀</a>&nbsp;&nbsp;");
 		}
 		
 		// 페이지 번호 표시
@@ -53,7 +53,7 @@ public class QNAPageMaker {
 			if ( p == page ) {
 				sb.append("<span style='color: lightgray;'>" + p + "</span>&nbsp;&nbsp;");
 			} else {
-				sb.append("<a href='" + path + "?page=" + p +"&pNo=" + pNo + "'>" + p + "</a>&nbsp;&nbsp;");
+				sb.append("<a href='" + path + "?page=" + p +"&pNo=" + pNo + "&mId=" + mId + "'>" + p + "</a>&nbsp;&nbsp;");
 			}
 		}
 		
@@ -64,7 +64,7 @@ public class QNAPageMaker {
 		if ( endPageOfBlock == totalPage ) {
 			sb.append("<span style='color: lightgray;'>▶</span>");
 		} else {
-			sb.append("<a href='" + path + "?page=" + (endPageOfBlock + 1) + "&pNo=" + pNo + "'>▶</a>");
+			sb.append("<a href='" + path + "?page=" + (endPageOfBlock + 1) + "&pNo=" + pNo + "&mId=" + mId + "'>▶</a>");
 		}
 		
 		return sb.toString();

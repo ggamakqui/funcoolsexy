@@ -86,7 +86,7 @@ public class QNABoardController {
 	   model.addAttribute("request", request);
 	   qnaBoardCommand = new QNAMyBoardListCommand();
 	   qnaBoardCommand.execute(sqlSession, model);
-	   return "redirect:qnaList";
+	   return "qna/qnaBoardList";
    }
 
 }
