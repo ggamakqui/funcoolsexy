@@ -20,7 +20,6 @@
 		아이디 <input type="text" value="${mDTO.mId }" name="mId" readonly><br>
 		이름 <input type="text" value="${mDTO.mName }" name="mName"><br>
 		이메일 <input type="text" value="${mDTO.mEmail }" name="mEmail" readonly><br>
-		비밀번호 <input type="text" value="${mDTO.mPw }" name="mPw"><br>		
 		<input type="hidden" value="${mDTO.mNo }" name="mNo">
 		<input type="submit" value="수정하기">
 		<input type="button" value="삭제하기" onclick="fn_memberDelete(this.form)">
