@@ -5,7 +5,7 @@
 header.index { padding: 0 30px 30px;}
 
 header { padding: 0 30px 55px; background: linear-gradient(to right, #000000, #000000 50%, #f2f2f2 50%, #f2f2f2);} /* 배경 검정 흰색*/
-header .visual img { width: 100%;} /*이미지 사이즈*/
+header .visual img { width: 100%; height: 400px;} /*이미지 사이즈*/
 header h1 { position: absolute; left:30px; top: 0; z-index: 31;}/*투명 내비바*/
 header > ul { display: flex; position: absolute; right: 30px; top: 0; z-index: 30; width: 170px; background: #f2f2f2;} /*배경 흰선 파란선 윗부분 절단*/
 header > ul li { flex: 1; padding: 0 0 0 18px; line-height: 70px; }/*로그인 박스*/
@@ -23,7 +23,7 @@ header #lnb nav > ul > li { display: inline-block; position: relative;}
     /*내비바 하단메뉴 정렬*/
 header.index { padding: 0 30px 30px;}
 
-header #lnb nav > ul > li > a { display: block; position: relative; width: 160px; height: 69px; font-size: 18px; color:#fff; line-height: 69px;} /*내비바 폰트 색*/
+header #lnb nav > ul > li > a { display: block; position: relative; width: 160px; height: 69px; font-size: 24px; color:#fff; line-height: 69px;} /*내비바 폰트 색*/
     
 header #lnb nav > ul > li > a:after { content: ""; position: absolute; left:50%; bottom: -1px; width:0; height: 2px; background: #fff; transition: all 0.5s;} /*상단 메뉴 밑줄효과*/
 header #lnb nav > ul > li:hover > a:after  { left: 0; width: 100%;}
@@ -64,13 +64,34 @@ footer > div .right:after { content: ""; position: absolute; right: 20px; top:50
 
 .btn_center { text-align: center;}
 label + .btn_center { padding: 65px 0 0;}
-.btn_type1 { display: inline-block; width: 120px; height:45px; background: #000; text-align: center; line-height: 45px; color:#fff; font-size: 13px;}
-
+.btn_type1 { display: inline-block; width: 120px; height:45px; background: #000; text-align: center; line-height: 45px; color:#fff; font-size: 13px; border: 1px solid black;}
 .btn_type2 { display: inline-block; width: 120px; height:45px; background: #FFF; text-align: center; line-height: 45px; color:#000; font-size: 13px; border: 1px solid black;}
 
 
+.btn_type1:hover { background-color: darkgray;  }
+.btn_type2:hover { background-color: lightgray;  }
 
 
+
+/* 회원가입 버튼  */
+
+
+*{box-sizing: border-box;} /* 로그인과 아이디 비밀번호 찾기 부분 */
+.top-blank-content {width: 500px; margin: auto; padding: 100px; text-align: center;}
+.content { height: 70vh; padding: 20px; }
+.login-form { width: 500px; padding: 20px; margin: 0 auto; }
+.screen-out {display: none; }
+.login-input , .find-input { width: 100%;  padding: 20px 10px;  box-sizing: border-box;  border: 0.5px solid lightgray;  margin-bottom: 5px; } 
+.input-btn  { width: 100%; padding: 20px 10px;  border-radius: 5px; background-color: black; font-size: 1.2em; margin-top: 50px; margin: inherit;  color: white; }
+.input-btn:hover { background-color: darkgray; color: white;  border: 2px solid black; }
+
+.find-info { color: white; }
+.find-info .find-info-text { color: white; text-decoration: none; }
+.find-info .find-info-text:hover { color: black; font-weight: bold; }
+      
+.find-btn { background-color: white; font-size: 16px; border: none; }
+      
+    
 
 
 

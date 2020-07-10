@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+
+<jsp:include page="../template/header.jsp" />
+
+<div class="visual"><img src="resources/images/qna.jpg" alt=""></div>
+</header>
+<main>
 <script type="text/javascript">
 	// 전체 목록으로 이동
 	function fn_boardListPage(f) {
@@ -33,7 +34,7 @@
 </head>
 <body>
 
-<div class="board-list-box">
+<div class="content">
 
 	<form>	
 		<!-- 로그인하면 게시글을 작성할 수 있다. -->
@@ -118,5 +119,7 @@
 		</tfoot>
 	</table>
 </div>
-</body>
-</html>
+</main>
+	<%@ include file="../template/footer.jsp" %>
+	
+	

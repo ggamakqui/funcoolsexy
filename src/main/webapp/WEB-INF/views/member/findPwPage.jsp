@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<jsp:include page="../template/header.jsp">
+	<jsp:param value="비밀번호 찾기" name="title" />
+</jsp:include>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
 
@@ -24,35 +24,48 @@
 	}
 	
 </script>
-</head>
-<body>
-<div class="find-pw-box">
-	<form method="POST">
-		<table>
-			<tbody>
-				<tr>
-					<td>아이디</td>
-					<td><input id="mId" type="text" name="mId" autofocus /></td>
-				</tr>
-				<tr>
-					<td>이메일</td>
-					<td><input id="mEmail" type="text" name="mEmail" autofocus /></td>
-				</tr>
-			</tbody>
-			<tfoot>
-				<tr>
-					<td colspan="2">
-						<input id="findPwBtn" type="button" value="비밀번호 찾기" onclick="findPw(this.form)"/>
-						&nbsp;&nbsp;
-						<input type="button" value="로그인하러 가기" onclick="location.href='loginPage'" />
-					</td>
-				</tr>
-			</tfoot>
-		</table>
-	</form>
-	<br/><br/>
-	<div id="findIdResult"></div>  <!-- AJAX 처리 결과가 나타나는 위치이다. -->
-</div>
-</body>
+<div class="visual"><img src="https://ifh.cc/g/aFF3mM.jpg" alt=""></div>
+</header>
 
-</html>
+    <main>
+	
+            <div class="contents">
+                <h2 class="h2">FCS 비밀번호 찾기</h2>
+                <p> 가입하신 아이디와 이메일을 입력해 주세요.</p>
+
+                  <div class="content">
+            <form method="post">
+              
+               <table class="login-form">
+				<tbody>
+                    <tr>				
+                        <td colspan="2"><input id="mId" class="find-input" type="text" name="mId" placeholder="아이디"  autofocus /></td>
+                    </tr>              
+                    <tr>						
+						<td colspan="2"><input id="mEmail"  class="find-input" type="text" name="mEmail" placeholder="가입 당시 이메일" autofocus></td>
+					</tr>							
+				</tbody>
+				<tfoot>
+					<tr>
+						<td colspan="2">
+							<input type="button" class="input-btn" value="비밀번호 찾기" onclick="fn_login(this.form)">	
+							<br><br>                                      
+							<input type="button" class="find-btn" value="아이디 찾기" onclick="location.href='findIdPage'">&nbsp; |&nbsp;
+						<input type="button" class="find-btn" value="로그인하러 가기" onclick="location.href='loginPage'">
+						</td>
+					</tr>
+				</tfoot>
+			</table>        
+               
+            </form>
+                      
+                      
+                      
+        </div>
+
+        </div>
+	</main>
+
+<%@ include file="../template/footer.jsp" %>
+
+

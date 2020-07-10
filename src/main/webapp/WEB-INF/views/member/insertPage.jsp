@@ -1,17 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="resources/css/default.css"> 
-<link rel="stylesheet" type="text/css" href="resources/css/style.css">
-<link rel="stylesheet" type="text/css" href="resources/css/index.css">
+<jsp:include page="../template/header.jsp">
+	<jsp:param value="회원가입" name="title" />
+</jsp:include>
+
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script type="text/javascript">
+<script type="text/javascript">
 
 
 	//ajax
@@ -170,73 +167,9 @@
         }).open();
     }
 	</script>
-</head>
 
-<body>
-
-<a href="#contents" class="skip">본문바로가기</a>
-	<header id="header">
-		<h1><a href="#a"><img src="https://ifh.cc/g/Wi9B4Q.png" alt="fcs"></a></h1>
-		<h2 class="hide">대메뉴</h2>
-		<div id="lnb">
-			<nav>
-				<ul>
-				<li><a href="#a">남성 브랜드</a>
-					<ul>
-				<li><a href="#a">ROUGE</a></li>
-					<li><a href="#a">NOIR</a></li>
-                    <li><a href="#a">BLANC</a></li>
-                    <li><a href="#a">VERT</a></li>
-                    <li><a href="#a">ARGENT</a></li>
-					</ul>
-				</li>
-				<li><a href="#a"> 여성 브랜드</a>
-					<ul>
-					<li><a href="#a">ROUGE</a></li>
-					<li><a href="#a">NOIR</a></li>
-                    <li><a href="#a">BLANC</a></li>
-                    <li><a href="#a">VERT</a></li>
-                    <li><a href="#a">ARGENT</a></li>
-					</ul>
-				</li>
-				<li><a href="#a">남성</a>
-					<ul>
-					 <li><a href="#a">Jacket</a></li>
-					<li><a href="#a">Shirts</a></li>
-					<li><a href="#a">Sute</a></li>
-                    <li><a href="#a">Pants</a></li>
-                    <li><a href="#a">Knit/Tee</a></li>  
-					</ul>
-				</li>
-				<li><a href="#a">여성</a>
-					<ul>
-                    <li><a href="#a">Jacket</a></li>
-					<li><a href="#a">Dress</a></li>
-					<li><a href="#a">Blouse</a></li>
-                    <li><a href="#a">Skirts</a></li>
-                    <li><a href="#a">Pants</a></li>
-                    <li><a href="#a">Knit/Tee</a></li>
-					</ul>
-				</li>
-				<li><a href="#a">ect</a>
-					<ul>
-					<li><a href="#a">Bag(Backpack)</a></li>
-					<li><a href="#a">Bag(Shoulder)</a></li>
-					<li><a href="#a">Belt</a></li>
-					<li><a href="#a">Shoes</a></li>
-					</ul>
-				</li>
-				</ul>
-			</nav>
-			<div></div>
-		</div>
-		<h2 class="hide">회원</h2>
-		<ul>
-		<li><a href="#a">LOGIN</a></li>
-		<li><a href="#a">JOIN</a></li>
-		</ul>
-		<div class="visual"><img src="https://ifh.cc/g/aFF3mM.jpg" alt=""></div>
-	</header>
+<div class="visual"><img src="https://ifh.cc/g/aFF3mM.jpg" alt=""></div>
+</header>
 
 	<main>
 	
@@ -331,44 +264,12 @@
 	           
             
             <br><br><div class="btn_center">
-                <a href="#a" class="btn_type1">회원가입</a>
-                <a href="#a" class="btn_type2">가입 취소</a>
+            	<input type="button" class="btn_type1" value="회원가입" />           	
+            	<input type="button" class="btn_type2" value="입력취소" />
             </div>
         </div>
 	</main>
 	<br/><br/>
 	<div id="findIdResult"></div>  <!-- AJAX 처리 결과가 나타나는 위치이다. -->
 </div>
-<footer>
-		<div class="clear">
-			<a href="#header">TOP</a>
-			<div class="left">
-				<div>
-					<a href="#a">개인정보처리방침</a>
-					<a href="#a">이용약관</a>
-					<a href="#a">이메일무단수집거부</a>
-					<a href="#a">사이트맵</a>
-				</div>
-				<p>
-					FCS(주)<span></span>사업자번호 : 111-22-33333<span></span>대표자 : @@@<br>
-					서강로 136 아이비타워 2층 fcs <span></span>02-1234-5678<span></span>Copyright © 2020 NULL Corporation., All rights reserved.
-				</p>
-			</div>
-			<div class="right">
-				<select>
-				<option>FAMILY SITE</option>
-				<option>FAMILY SITE</option>
-				<option>FAMILY SITE</option>
-				<option>FAMILY SITE</option>
-				<option>FAMILY SITE</option>
-				<option>FAMILY SITE</option>
-				<option>FAMILY SITE</option>
-				</select>
-			</div>
-		</div>
-	</footer>
-
-
-
-</body>
-</html>
+	<%@ include file="../template/footer.jsp" %>

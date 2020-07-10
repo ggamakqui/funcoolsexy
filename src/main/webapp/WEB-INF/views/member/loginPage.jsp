@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+
+<jsp:include page="../template/header.jsp">
+	<jsp:param value="로그인" name="title" />
+</jsp:include>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
 
@@ -81,50 +81,52 @@
 	}
 
 </script>
-</head>
-<body>
-	<div class="login-box">
-		<form method="post">
-			<table>
+<div class="visual"><img src="https://ifh.cc/g/aFF3mM.jpg" alt=""></div>
+</header>
+ <main>
+	
+            <div class="contents">
+                <h2 class="h2">FCS 로그인</h2>
+                <p>Fun하고 Cool 하고 Sexy하게<br>지금 로그인 하셔서 FCS 가 제공하는 HOT한 아이템들을 구매해 보세요.</p>
+
+                  <div class="content">
+            <form method="post">
+              
+               <table class="login-form">
 				<tbody>
 					<tr>
-						<td>아이디</td>
-						<td><input id="mId" type="text" name="mId" autofocus></td>
+						
+						<td colspan="2"><input id="mId" class="login-input" type="text" name="mId" placeholder="아이디" autofocus></td>
 					</tr>		
 					<tr>
-						<td>비밀번호</td>
-						<td><input type="password" name="mPw" autofocus></td>
+						<td colspan="2"><input type="password" class="login-input" name="mPw" placeholder="비밀번호"  autofocus></td>
 					</tr>		
 				</tbody>
 				<tfoot>
 					<tr>
 						<td colspan="2">
-							<input type="button" value="로그인" onclick="fn_login(this.form)">&nbsp;&nbsp;
-							<input id="saveIDCheck" type="checkbox" name="saveIDCheck" value="true" checked>아이디 기억하기
+							<input type="button" class="input-btn" value="로그인" onclick="fn_login(this.form)">	
+                            <br><br>
+							<input id="saveIDCheck" type="checkbox" name="saveIDCheck" value="true" checked> 아이디 저장
 							<br><br>
-							<a href="findIdPage">아이디 찾기</a>
-							&nbsp;&nbsp;
-							<a href="findPwPage">비밀번호 찾기</a><br>
-							<input type="button" value="메인으로 이동" onclick="location.href='index'" />
+                            <a href="insertPage">회원 가입</a><span> | </span>
+                            <a href="findIdPage">아이디 찾기</a><span> | </span> 
+							<a href="findPwPage">비밀번호 찾기</a>					
 						</td>
 					</tr>
 				</tfoot>
-			</table>
-		</form>
-	</div>
+			</table>        
+               
+            </form>
+                      
+                      
+                      
+        </div>
 
+        </div>
+	</main>
 
-
-
-
-
-
-</body>
-
-</html>
-
-
-
+<%@ include file="../template/footer.jsp" %>
 
 
 

@@ -42,7 +42,7 @@ public class CategoryController {
 		new SelectMaleCategoryListCommand().execute(sqlSession, model);
 		new SelectFemaleCategoryListCommand().execute(sqlSession, model);
 		new SelectEtcListCommand().execute(sqlSession, model);
-		return "mainPage";
+		return "index";
 	}
 	
 	// 관리자 - 카테고리 리스트 페이지로 이동
