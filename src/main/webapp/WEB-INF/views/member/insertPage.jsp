@@ -176,10 +176,9 @@
         <div class="contents">
             <h2 class="h2">FCS 회원가입</h2>
             <p>Fun하고 Cool 하고 Sexy하게<br>회원이 되시면 FCS만의 혜택과 서비스를 누릴 수 있습니다.</p>
-   
+   			 <p style="font-size: 35px; text-align: center;">회원정보 입력</p><br/>
             
            
-           <h2 class="h2">회원정보 입력</h2>
 	                <div class="input_group">
 	                    <table class="input_type">
 	                        <colgroup>
@@ -264,8 +263,8 @@
 	           
             
             <br><br><div class="btn_center">
-            	<input type="button" class="btn_type1" value="회원가입" />           	
-            	<input type="button" class="btn_type2" value="입력취소" />
+            	<input type="button" id="signUpBtn" class="btn_type1" value="회원가입"/>           	
+            	<input type="reset" class="btn_type2" value="입력취소" />
             </div>
         </div>
 	</main>

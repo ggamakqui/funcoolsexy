@@ -32,27 +32,5 @@
 		</div>
 	</footer>
 
-
-
-	<c:if test="${empty loginDTO }">
-		<c:if test="${login eq 'fail' }">
-			<script type="text/javascript">
-				alert('일치하는 회원정보가 없습니다.');
-			</script>
-		</c:if>
-		<!-- <a href="loginPage">로그인</a>/<a href="insertPage">회원가입</a>  -->
-	</c:if>
-	<c:if test="${not empty loginDTO }">
-		<c:if test="${loginDTO.mId ne 'admin' }">
-			${loginDTO.mName }님 반갑습니다.<br>
-			<a href="logout">로그아웃</a><br>
-			<a href="myPage">마이페이지</a>
-		</c:if>
-		<c:if test="${loginDTO.mId eq 'admin' }">
-			${loginDTO.mName }님 반갑습니다.<br>
-			<a href="logout">로그아웃</a><br>
-			<a href="adminPage">관리 페이지</a>
-		</c:if>
-	</c:if>
 </body>
 </html>

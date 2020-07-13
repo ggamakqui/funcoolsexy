@@ -10,28 +10,29 @@
 
 //AJAX를 통해 아이디를 찾는다
 $(document).ready(function(){
-	$('#findIdBtn').click(function(){
-		$.ajax({
-			url: 'findId',
-			type: "POST",
-			dataType: "text",
-			data: 'mEmail='+$('#mEmail').val(),
-			success: function(responseText){
-				if(responseText.trim() != "NO"){
-					$('#findIdResult').text('회원님의 아이디는'+responseText+'입니다.');
-					$('#findIdResult').css('color','blue').css('font-weight','bold');
-				}else{
-					$('#findIdResult').text('일치하는 회원 정보가 없습니다');
-					$('#findIdResult').css('color','red').css('font-weight','bold');
-				}
-			},
-			error: function(){
-				alert('AJAX통신이 실패했습니다.')
-			}
-		});
-	});
+   $('#findIdBtn').click(function(){
+      $.ajax({
+         url: 'findId',
+         type: "POST",
+         dataType: "text",
+         data: 'mEmail='+$('#mEmail').val(),
+         success: function(responseText){
+            if(responseText.trim() != "NO"){
+               $('#findIdResult').text('회원님의 아이디는'+responseText+'입니다.');
+               $('#findIdResult').css('color','blue').css('font-weight','bold');
+            }else{
+               $('#findIdResult').text('일치하는 회원 정보가 없습니다');
+               $('#findIdResult').css('color','red').css('font-weight','bold');
+            }
+         },
+         error: function(){
+            alert('AJAX통신이 실패했습니다.')
+         }
+      });
+   });
 })
 </script>
+
 <div class="visual"><img src="https://ifh.cc/g/aFF3mM.jpg" alt=""></div>
 </header>
 <main>
@@ -51,7 +52,7 @@ $(document).ready(function(){
 				<tfoot>
 					<tr>
 						<td colspan="2">
-							<input type="button" class="input-btn" value="아이디 찾기" onclick="fn_login(this.form)">	
+						   <input id="findIdBtn" class="input-btn" type="button" value="아이디찾기" >
 							<br><br>                                      
 							<input type="button" class="find-btn" value="비밀번호 찾기" onclick="location.href='findPwPage'">&nbsp; |&nbsp;
 						<input type="button" class="find-btn" value="로그인하러 가기" onclick="location.href='loginPage'">

@@ -2,16 +2,16 @@
     pageEncoding="UTF-8"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+<link rel="stylesheet" type="text/css" href="resources/css/default.css"> 
+<link rel="stylesheet" type="text/css" href="resources/css/index2.css">
+<link rel="stylesheet" type="text/css" href="resources/css/index.css">
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="resources/css/default.css"> 
-<link rel="stylesheet" type="text/css" href="resources/css/style.css">
-<link rel="stylesheet" type="text/css" href="resources/css/index.css">
+
 </head>
 <body>
 	<a href="#contents" class="skip">본문바로가기</a>
@@ -72,8 +72,26 @@
 			<div></div>
 		</div>
 		<h2 class="hide">회원</h2>
-		<ul>
-		<li><a href="loginPage">LOGIN</a></li>
-		<li><a href="insertPage">JOIN</a></li>
-		</ul>
-		
+		<c:if test="${empty loginDTO }">
+			<ul>
+				<li>로그인 하기</li>
+				<li><a href="loginPage">LOGIN</a></li>
+				<li><a href="insertPage">JOIN</a></li>
+			</ul>
+		</c:if>
+	<c:if test="${not empty loginDTO }">
+		<c:if test="${loginDTO.mId ne 'admin' }">
+			<ul>
+				<li style="text-align: center;">${loginDTO.mName } 님</li><br>
+				<li><a href="logout">로그아웃</a></li><br>
+				<li><a href="myPage">마이 페이지</a></li>
+			</ul>
+		</c:if>
+		<c:if test="${loginDTO.mId eq 'admin' }">
+			<ul>
+				<li>${loginDTO.mName } 님</li><br>
+				<li><a href="logout">로그아웃</a></li><br>
+				<li><a href="adminPage">관리 페이지</a></li>
+			</ul>
+		</c:if>
+	</c:if>
