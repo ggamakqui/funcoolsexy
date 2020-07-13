@@ -36,7 +36,7 @@ public class EmailAuthCommand implements Command {
 					JavaMailSender mailSender = (JavaMailSender) map.get("mailSender");
 					
 					//보내는 사람
-					message.setFrom("admin@gamil.com"); //보내는 사람의 메일 주소
+					message.setFrom("admin@gmail.com"); //보내는 사람의 메일 주소
 					message.setTo(mEmail); //받는 사람의 메일주소
 					message.setSubject("인증메일입니다."); //제목
 					authKey = (long)(Math.random() * 100000000)+123456789; //자유롭게 인증키 생성

@@ -48,7 +48,7 @@
 				<tfoot>
 					<tr>
 						<td colspan="2">
-							<input type="button" class="input-btn" value="비밀번호 찾기" onclick="fn_login(this.form)">	
+							<input type="button" class="input-btn" value="비밀번호 찾기" onclick="findPw(this.form)">	
 							<br><br>                                      
 							<input type="button" class="find-btn" value="아이디 찾기" onclick="location.href='findIdPage'">&nbsp; |&nbsp;
 						<input type="button" class="find-btn" value="로그인하러 가기" onclick="location.href='loginPage'">
