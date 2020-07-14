@@ -52,7 +52,17 @@ jQuery(document).ready(function () {
 });
 </script>
 
-
+<style type="text/css">
+	img{
+		width:300px;
+		height:200px;
+	}
+	#star {
+		width:100px;
+		height:20px;
+		
+	}
+</style>
 
 
 </head>
@@ -74,21 +84,22 @@ jQuery(document).ready(function () {
 							<c:forEach var="rDTO" items="${list2 }">
 								<tr>
 									<td>
+										<br>
 										작성자:${rDTO.mId }&nbsp;&nbsp;&nbsp;&nbsp; 작성일<fmt:formatDate value="${rDTO.rRegdate }" pattern="yy/M/dd" />
 										<c:if test="${rDTO.rScore eq '1' }">
-											<img alt="fcs" src="resources/images/star1.jpg">
+											<img id="star" alt="fcs" src="resources/images/star1.jpg">
 										</c:if>
 										<c:if test="${rDTO.rScore eq '2' }">
-											<img alt="fcs" src="resources/images/star2.jpg">
+											<img id="star" alt="fcs" src="resources/images/star2.jpg">
 										</c:if>
 										<c:if test="${rDTO.rScore eq '3' }">
-											<img alt="fcs" src="resources/images/star3.jpg">
+											<img id="star" alt="fcs" src="resources/images/star3.jpg">
 										</c:if>
 										<c:if test="${rDTO.rScore eq '4' }">
-											<img alt="fcs" src="resources/images/star4.jpg">
+											<img id="star" alt="fcs" src="resources/images/star4.jpg">
 										</c:if>
 										<c:if test="${rDTO.rScore eq '5' }">
-											<img alt="fcs" src="resources/images/star5.jpg">
+											<img id="star" alt="fcs" src="resources/images/star5.jpg">
 										</c:if>
 									</td>
 								</tr>
@@ -124,21 +135,22 @@ jQuery(document).ready(function () {
 							<c:forEach var="rDTO" items="${list1 }">
 								<tr>
 									<td>
+										<br>
 										작성자:${rDTO.mId }&nbsp;&nbsp;&nbsp;&nbsp; 작성일<fmt:formatDate value="${rDTO.rRegdate }" pattern="yy/M/dd" />
 										<c:if test="${rDTO.rScore eq '1' }">
-											<img alt="fcs" src="resources/images/star1.jpg">
+											<img id="star" alt="fcs" src="resources/images/star1.jpg">
 										</c:if>
 										<c:if test="${rDTO.rScore eq '2' }">
-											<img alt="fcs" src="resources/images/star2.jpg">
+											<img id="star" alt="fcs" src="resources/images/star2.jpg">
 										</c:if>
 										<c:if test="${rDTO.rScore eq '3' }">
-											<img alt="fcs" src="resources/images/star3.jpg">
+											<img id="star" alt="fcs" src="resources/images/star3.jpg">
 										</c:if>
 										<c:if test="${rDTO.rScore eq '4' }">
-											<img alt="fcs" src="resources/images/star4.jpg">
+											<img id="star" alt="fcs" src="resources/images/star4.jpg">
 										</c:if>
 										<c:if test="${rDTO.rScore eq '5' }">
-											<img alt="fcs" src="resources/images/star5.jpg">
+											<img id="star" alt="fcs" src="resources/images/star5.jpg">
 										</c:if>
 									</td>
 								</tr>
