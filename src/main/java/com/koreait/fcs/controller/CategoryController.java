@@ -90,6 +90,8 @@ public class CategoryController {
 		return "redirect:categoryListPage";
 	}
 	
+	
+	
 	// 남성 브랜드별 카테고리 가져오기
 	@RequestMapping("selectProductByMaleBrand")
 	public String selectProductByMaleBrand(HttpServletRequest request, Model model) {
