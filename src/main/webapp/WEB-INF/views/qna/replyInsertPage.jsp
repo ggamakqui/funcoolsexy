@@ -34,7 +34,7 @@
 					<td>${loginDTO.mName}</td>
 				</tr>
 				<tr>
-					<td>제목</td>
+					<td>제목2312312312</td>
 					<td><input type="text" name="qTitle" autofocus /></td>
 				</tr>
 				<tr>

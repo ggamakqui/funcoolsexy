@@ -3,6 +3,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <jsp:include page="../template/header.jsp" />
+
+<div class="visual"><img src="resources/images/qna.jpg" alt=""></div>
+
+
 <script type="text/javascript">
 	function fn_boardListPage(f) {
 		f.action = 'noticeList';
@@ -19,32 +23,19 @@
 		f.submit();
 	}
 </script>
-</head>
-<body>
-	<div class="board-list-box">
-		<form>
-		<!-- 검색 -->
-		<select name="column">
-			<option value="NTITLE">제목</option>
-			<option value="NCONTENT">내용</option>
-			<option value="BOTH">제목+내용</option>
-		</select>
-		<input type="text" name="query" />
-		<input type="button" value="검색" onclick="fn_queryBoardList(this.form)" />
-		<br/><br/>
-				
-		<!-- 로그인하면 게시글을 작성할 수 있다. -->
-		<c:if test="${loginDTO.mId eq 'admin'}">
-			<input type="button" value="새 게시글 작성하기" onclick="fn_boardInsertPage(this.form)" />
-		</c:if>
-		<input type="hidden" name="page" value="${page}" />
-		<input type="button" value="전체목록보기" onclick="fn_boardListPage(this.form)" />
-	</form>
-	
-	<br/><br/>
 
-	<div class="lefted">전체 ${totalRecord}개</div>
-	<table>
+</header>
+
+<div class="contents">
+
+    	<h2 class="h2">FCS notice</h2>
+        <p>Fun하고 Cool 하고 Sexy하게</p>
+	
+	
+
+
+	<div class="lefted" style="margin-left: 150px; margin-bottom: 20px;">전체 ${totalRecord}개</div>
+	<table style="border: 1px solid black;">
 		<thead>
 			<tr>
 				<td>제목</td>
@@ -74,10 +65,40 @@
 		</tbody>
 		<tfoot>
 			<tr>
+			
 				<td colspan="4">${pageView}</td>
 			</tr>
 		</tfoot>
 	</table>
 	</div>
-</body>
-</html>
+	
+
+<br/><br/>
+
+<div class="qna_btn_center2" >
+		<form>
+		<!-- 검색 -->
+		<select name="column" style="height: 30px;">
+			<option value="NTITLE">제목</option>
+			<option value="NCONTENT">내용</option>
+			<option value="BOTH">제목+내용</option>
+		</select>
+		<input type="text" name="query" style="width: 200px; height: 30px;"/>
+		<input type="button" value="검색"  style="height: 30px; width: 50px;" onclick="fn_queryBoardList(this.form)" />
+		</form>
+		
+		
+	</div><br/>
+		
+	<div class="qna_btn_center" >			
+		<!-- 로그인하면 게시글을 작성할 수 있다. -->
+		<c:if test="${loginDTO.mId eq 'admin'}">
+			<input type="button" class="btn3" value="새 게시글 작성하기" onclick="fn_boardInsertPage(this.form)" />
+		</c:if>
+		<input type="hidden" name="page" value="${page}" />
+		<input type="button" class="btn4" value="전체목록보기" onclick="fn_boardListPage(this.form)" />
+	
+	</div>
+</div>
+
+<%@ include file="../template/footer.jsp" %>
