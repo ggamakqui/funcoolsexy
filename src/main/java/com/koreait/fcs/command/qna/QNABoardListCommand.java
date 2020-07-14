@@ -28,7 +28,7 @@ public class QNABoardListCommand implements Command {
 		if(page==null || page.isEmpty()) {
 			page="1";
 		}
-		int recordPerPage = 5; 
+		int recordPerPage = 10; 
 		int beginRecord = (Integer.parseInt(page)-1)*recordPerPage+1;
 		int endRecord = beginRecord+recordPerPage-1;
 			

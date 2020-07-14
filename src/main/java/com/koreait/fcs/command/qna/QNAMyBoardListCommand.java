@@ -25,7 +25,7 @@ public class QNAMyBoardListCommand implements Command {
 		if (page == null || page.isEmpty()) {
 			page = "1";
 		}
-		int recordPerPage = 5;  // board, bbs, guestbook, member 등 모두 다른 값을 줄 수 있다.
+		int recordPerPage = 10;  // board, bbs, guestbook, member 등 모두 다른 값을 줄 수 있다.
 		int beginRecord = (Integer.parseInt(page) - 1) * recordPerPage + 1;
 		int endRecord = beginRecord + recordPerPage - 1;
 		
