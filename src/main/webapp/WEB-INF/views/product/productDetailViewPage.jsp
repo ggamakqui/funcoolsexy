@@ -6,73 +6,109 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-	<style type="text/css">
+<style type="text/css">
+
+   .wrap_prd {
+      overflow: visible;
+      position: relative;
+   }
+   .prodInfo {
+      float: left;
+   }
+   
+</style>
+<script type="text/javascript">
 	
-	   .wrap_prd {
-	      overflow: visible;
-	      position: relative;
-	   }
-	   .prodInfo {
-	      float: left;
-	   }
-	   
-	</style>
-	<script type="text/javascript">
-		function fn_directOrder(f){
-			
-			var stock = 0;
-			if(confirm('주문하시겠습니까?')){
-				switch(f.cSize.value){
-				case 'S':
-					stock = '${pDTO.pStock1}';
-					break;
-				case 'M':
-					stock = '${pDTO.pStock2}';
-					break;
-				case 'L':
-					stock = '${pDTO.pStock3}';
-					break;
-				}
-				if(f.cartQuantity > stock){
-					alert('재고수량보다 많이 주문할 수 없습니다. (현재 재고 : ' + stock + '개)');
-					return;
-				}
-				f.action = 'directOrder';
-				f.submit();
-			}
-			
+
+	function fn_totalPrice(f){
+		var price = '${pDTO.pPrice}';
+		var total = document.querySelector('#total');
+		total.innerHTML = (f.cartQuantity.value * price) + '원';
+	}
+	
+	function fn_countUp(f){
+		f.cartQuantity.value = f.cartQuantity.value - 1 + 2;
+		fn_totalPrice(f);
+		
+	}
+	function fn_countDown(f){
+		if(f.cartQuantity.value > 1){
+			f.cartQuantity.value = f.cartQuantity.value - 1;
+			fn_totalPrice(f);
 		}
-		function fn_addCartList(f){
-			var stock = 0;
-			if(confirm('장바구니에 추가하시겠습니까?')){
-				switch(f.cSize.value){
-				case 'S':
-					stock = '${pDTO.pStock1}';
-					break;
-				case 'M':
-					stock = '${pDTO.pStock2}';
-					break;
-				case 'L':
-					stock = '${pDTO.pStock3}';
-					break;
-				}
-				if(f.cartQuantity > stock){
-					alert('재고수량보다 많이 주문할 수 없습니다. (현재 재고 : ' + stock + '개)');
-					return;
-				}
-				f.action = 'addCartList';
-				f.submit();
+		
+	}
+
+
+	function fn_directOrder(f){
+		
+		var stock = 0;
+		if(confirm('주문하시겠습니까?')){
+			switch(f.cSize.value){
+			case 'S':
+				stock = '${pDTO.pStock1}';
+				break;
+			case 'M':
+				stock = '${pDTO.pStock2}';
+				break;
+			case 'L':
+				stock = '${pDTO.pStock3}';
+				break;
 			}
-		}
-		function fn_goLoginPage(f){
-			alert('로그인 후 구매 가능합니다.');
-			f.action = 'loginPage';
+			if(f.cartQuantity.value == 0){
+				alert('주문수량은 0보다 큰 숫자를 입력해 주세요.');
+				return;
+			}
+			if(f.cartQuantity.value > stock){
+				alert('재고수량보다 많이 주문할 수 없습니다. (현재 재고 : ' + stock + '개)');
+				return;
+			}
+			f.action = 'directOrder';
 			f.submit();
 		}
 		
-		
-		
-	</script>
+	}
+	function fn_addCartList(f){
+		var stock = 0;
+		if(confirm('장바구니에 추가하시겠습니까?')){
+			switch(f.cSize.value){
+			case 'S':
+				stock = '${pDTO.pStock1}';
+				break;
+			case 'M':
+				stock = '${pDTO.pStock2}';
+				break;
+			case 'L':
+				stock = '${pDTO.pStock3}';
+				break;
+			}
+			if(f.cartQuantity.value == 0){
+				alert('주문수량은 0보다 큰 숫자를 입력해 주세요.');
+				return;
+			}
+			if(f.cartQuantity.value > stock){
+				alert('재고수량보다 많이 주문할 수 없습니다. (현재 재고 : ' + stock + '개)');
+				return;
+			}
+			f.action = 'addCartList';
+			f.submit();
+			if(confirm('장바구니에 추가되었습니다. 계속 쇼핑하시겠습니까?')){
+				return;
+			}else{
+				f.action = 'goCartList';
+			}
+			
+		}
+	}
+	function fn_goLoginPage(f){
+		alert('로그인 후 구매 가능합니다.');
+		f.action = 'loginPage';
+		f.submit();
+	}
+	
+	
+	
+</script>
 </head>
 	<body>
 	   
@@ -131,9 +167,12 @@
                         			<option value="M">M</option>
                         			<option value="L">L</option>
                         		</select>
-                        		<input type="text" name="cartQuantity" />
+                        		<input type="text" name="cartQuantity" value="1" onkeyup="fn_totalPrice(this.form)"/>
+                        		<input type="button" value="+" onclick="fn_countUp(this.form)"/>
+                        		<input type="button" value="-" onclick="fn_countDown(this.form)"/>
                         		<input type="hidden" name="pNo" value="${pDTO.pNo }"/>
                         		<input type="hidden" name="mId" value="${loginDTO.mId }"/>
+                        		<span id="total"></span>
                         	</td>
                         </tr>
                         <tr>
@@ -146,14 +185,13 @@
                         		</c:if>
                         		<input type="button" value="장바구니에 담기" onclick="fn_addCartList(this.form)"/>
                         		<input type="button" value="목록으로 이동" onclick="history.back()"/>
+                        		<!-- 리뷰 페이지 이동할 수 있는 버튼 구현 -->
+                        		<!-- 가격 정보 노출 필요 -->
                         	</td>
                         </tr>
                      </tbody>
                   </table>
                </form>
             </div>
-            
-                  
-
 	</body>
 </html>

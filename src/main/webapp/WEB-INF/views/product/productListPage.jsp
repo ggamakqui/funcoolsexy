@@ -6,11 +6,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+	
+	onload = function(){
+		
+	}
+	
+</script>
 </head>
 <body>
 	<c:if test="${loginDTO.mId eq 'admin' }">
 		<a href="productInsertPage">새 상품 등록하기</a>
 	</c:if>
+	<br/>
+	${param.pCategory } 카테고리
 	<table border="1">
 	
 		<thead>
