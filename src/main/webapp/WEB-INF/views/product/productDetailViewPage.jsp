@@ -183,9 +183,15 @@
                         		<c:if test="${empty loginDTO }">
                         			<input type="button" value="주문하기" onclick="fn_goLoginPage(this.form)"/>
                         		</c:if>
-                        		<input type="button" value="장바구니에 담기" onclick="fn_addCartList(this.form)"/>
+                        		<c:if test="${not empty loginDTO }">
+                        			<input type="button" value="장바구니에 담기" onclick="fn_addCartList(this.form)"/>
+                        		</c:if>
+                        		<c:if test="${empty loginDTO }">
+                        			<input type="button" value="장바구니에 담기" onclick="fn_goLoginPage(this.form)"/>
+                        		</c:if>
                         		<input type="button" value="목록으로 이동" onclick="history.back()"/>
                         		<a href='reviewList?pNo=${pDTO.pNo }'>리뷰 보기</a>
+                        		<a href='qnaList?pNo=${pDTO.pNo }'>상품문의 보기</a>
                         	</td>
                         </tr>
                      </tbody>
