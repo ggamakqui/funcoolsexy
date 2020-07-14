@@ -110,9 +110,9 @@
 				<h2>고객<br>가이드</h2>
 				<ul>
 				<li><a href="#a">고객문의</a></li>
-				<li><a href="#a">A/S센터</a></li>
+				<li><a href="reviewList?pNo=10000">상품리뷰</a></li>
 				<li><a href="qnaList?pNo=10000">QNA</a></li>
-				<li><a href="listPage">공지사항</a></li>
+				<li><a href="noticeList">공지사항</a></li>
 				</ul>
 			</article>
 			<article class="phone">

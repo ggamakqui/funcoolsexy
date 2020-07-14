@@ -23,8 +23,6 @@
 			f.action = 'productInsert';
 			f.submit();
 		} */
-		alert(f.pThumbnail.value);
-		alert(f.pFilename.value);
 		 if(f.pThumbnail.value !='' && f.pFilename.value != ''){
 			f.action = 'productInsert';
 			f.submit();

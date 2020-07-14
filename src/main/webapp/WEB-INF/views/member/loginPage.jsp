@@ -81,6 +81,10 @@
 	}
 
 </script>
+<style>
+
+ 
+</style>
 <div class="visual"><img src="https://ifh.cc/g/aFF3mM.jpg" alt=""></div>
 </header>
  <main>

@@ -74,28 +74,6 @@ footer > div .right:after { content: ""; position: absolute; right: 20px; top:50
 .h3:before { content: ""; display: inline-block; margin: 0 8px 0 0; width: 4px; height: 4px; background: #00a5e1; vertical-align:5px;}
 .noti { font-size: 14px; color:#888;}
 
-.qna_btn_center { text-align: center;  margin: auto; width: 260px; height: 60px; margin-top: 15px;}
-label + .qna_btn_center { padding: 65px 0 0;}
-.btn1 { display: inline-block; width: 120px; height:45px; background: #000; text-align: center; line-height: 45px; color:#fff; font-size: 13px; border: 1px solid black; float: left;}
-.btn2 { display: inline-block; width: 120px; height:45px; background: #FFF; text-align: center; line-height: 45px; color:#000; font-size: 13px; border: 1px solid black; float: right; }
-
-
-.btn1:hover { background-color: darkgray;  }
-.btn2:hover { background-color: lightgray;  }
-.qna{ border: 1px solid black;}
-td{ border: 1px solid black; text-align: center;}
-			
-td:nth-of-type(1){
-		width: 300px;		
-	}
-	td:nth-of-type(2){
-		width: 150px;	
-	
-	}
-	td:nth-of-type(3){
-		width: 70px;
-	
-	}
 
 
 /* 회원가입 버튼  */
@@ -117,6 +95,21 @@ td:nth-of-type(1){
 .find-btn { background-color: white; font-size: 16px; border: none; }
 
     
+.qna_btn_center { text-align: center;  margin: auto; width: 260px; height: 60px; margin-top: 15px;}
+label + .qna_btn_center { padding: 65px 0 0;}
+.btn1 { display: inline-block; width: 120px; height:45px; background: #000; text-align: center; line-height: 45px; color:#fff; font-size: 13px; border: 1px solid black; float: left;}
+.btn2 { display: inline-block; width: 120px; height:45px; background: #FFF; text-align: center; line-height: 45px; color:#000; font-size: 13px; border: 1px solid black; float: right; }
+
+
+.btn1:hover { background-color: darkgray;  }
+.btn2:hover { background-color: lightgray;  }
+.qna{ border: 1px solid black;}
+td{ border: 1px solid black; text-align: center;}
+			
+td:nth-of-type(1){ width: 300px;	}
+td:nth-of-type(2){width: 150px;	}
+td:nth-of-type(3){width: 70px;
+}
 
 
 

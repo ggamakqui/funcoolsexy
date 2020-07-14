@@ -8,8 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
-	<a href="productInsertPage">새 상품 등록하기</a>
+	<c:if test="${loginDTO.mId eq 'admin' }">
+		<a href="productInsertPage">새 상품 등록하기</a>
+	</c:if>
 	<table border="1">
 	
 		<thead>
@@ -37,7 +38,8 @@
 						<td>${pDTO.pNo}</td>
 						<!-- alt="${iDTO.iFilename}"  이미지가 아닌 파일이 업로드되면 파일명이 나타난다.  -->
 						<%-- <%=request.getContextPath()%>  는 ${pageContext.request.contextPath} 이다. --%>
-						<td><a href="productUpdatePage?pNo=${pDTO.pNo }"><img alt="${pDTO.pThumbnail}" src="${pageContext.request.contextPath}/resources/storage/${pDTO.pThumbnail}"></a></td>
+						<td><a href="productDetailViewPage?pNo=${pDTO.pNo }"><img alt="${pDTO.pThumbnail}" src="${pageContext.request.contextPath}/resources/storage/${pDTO.pThumbnail}"></a></td>
+						<%-- <td><a href="productUpdatePage?pNo=${pDTO.pNo }"><img alt="${pDTO.pThumbnail}" src="${pageContext.request.contextPath}/resources/storage/${pDTO.pThumbnail}"></a></td> --%>
 						<td>${pDTO.pName}</td>
 						<td>${pDTO.pPrice}</td>
 						<td>${pDTO.pCompany}</td>
@@ -48,7 +50,7 @@
 				</c:forEach>
 			</c:if>
 		</tbody>
-		
 	</table>
+	<a href="index">홈페이지로 이동</a>
 </body>
 </html>
