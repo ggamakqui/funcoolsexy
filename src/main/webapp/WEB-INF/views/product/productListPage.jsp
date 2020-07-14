@@ -6,11 +6,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+	
+	onload = function(){
+		
+	}
+	
+</script>
 </head>
 <body>
 	<c:if test="${loginDTO.mId eq 'admin' }">
 		<a href="productInsertPage">새 상품 등록하기</a>
 	</c:if>
+	<br/>
+	${param.pCategory } 카테고리
 	<table border="1">
 	
 		<thead>
@@ -23,6 +32,7 @@
 				<td>S사이즈 재고</td>
 				<td>M사이즈 재고</td>
 				<td>L사이즈 재고</td>
+				<td>비고</td>
 			</tr>
 		</thead>
 		
@@ -46,6 +56,11 @@
 						<td>${pDTO.pStock1}</td>
 						<td>${pDTO.pStock2}</td>
 						<td>${pDTO.pStock3}</td>
+						<td>
+							<c:if test="${loginDTO.mId eq 'admin' }">
+								<a href="productUpdatePage?pNo=${pDTO.pNo }">수정하기</a>
+							</c:if>
+						</td>
 					</tr>
 				</c:forEach>
 			</c:if>

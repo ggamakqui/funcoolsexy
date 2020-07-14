@@ -97,6 +97,18 @@
 			});
 		});
 		
+		var regExpPHONE1 = /^[0-9]{3,4}$/;
+		var regExpPHONE2 = /^[0-9]{4}$/;
+		$('#mMobile3').keyup(function(){
+			if( regExpPHONE2.test($('#mMobile3').val()) && regExpPHONE1.test($('#mMobile2').val()) ){
+				$('#phoneCheckResult').text('사용 가능한 번호입니다.');
+				$('#phoneCheckResult').css('color','blue').css('font-weight','bold');
+			}else{
+				$('#phoneCheckResult').text('올바른 전화번호 형식이 아닙니다.');
+				$('#phoneCheckResult').css('color','red');				
+			}
+		});
+		
 		//5. 회원가입
 		$('#signUpBtn').click(function(){
 			$.ajax({
@@ -226,15 +238,16 @@
 					<td>전화번호</td>
 					<td>
 						<select id="mMobile1" name="mMobile1">
-							<option>010</option>
-							<option>011</option>
-							<option>016</option>
-							<option>019</option>
+							<option value="010">010</option>
+							<option value="011">011</option>
+							<option value="016">016</option>
+							<option value="019">019</option>
 						</select>
 						-
-						<input id="mMobile2" type="number" name="mMobile2"/>
+						<input id="mMobile2" type="text" name="mMobile2"/>
 						-
-						<input id="mMobile3" type="number" name="mMobile3"/>			
+						<input id="mMobile3" type="text" name="mMobile3"/>
+						<span id="phoneCheckResult"></span>			
 					</td>
 				</tr>
 				<tr>
