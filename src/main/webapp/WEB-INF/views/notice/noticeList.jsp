@@ -3,6 +3,16 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <jsp:include page="../template/header.jsp" />
+<style>
+
+.btn3 { display: inline-block; width: 120px; height:45px; background: #000; text-align: center; line-height: 45px; color:#fff; font-size: 13px; border: 1px solid black; }
+.btn4 { display: inline-block; width: 120px; height:45px; background: #FFF; text-align: center; line-height: 45px; color:#000; font-size: 13px; border: 1px solid black; }
+.qna_btn_center2 { text-align: center;  margin: auto; width: 390px; height: 60px; margin-top: 15px;}
+td{ border: 1px solid black;}
+td:nth-of-type(1){ width: 300px;}
+td:nth-of-type(2){width: 300px;	 text-align: center;}
+td:nth-of-type(3){width: 150px;}
+</style>
 
 <div class="visual"><img src="resources/images/qna.jpg" alt=""></div>
 
@@ -85,10 +95,10 @@
 		</select>
 		<input type="text" name="query" style="width: 200px; height: 30px;"/>
 		<input type="button" value="검색"  style="height: 30px; width: 50px;" onclick="fn_queryBoardList(this.form)" />
-		</form>
 		
 		
-	</div><br/>
+		
+	</div>
 		
 	<div class="qna_btn_center" >			
 		<!-- 로그인하면 게시글을 작성할 수 있다. -->
@@ -99,6 +109,7 @@
 		<input type="button" class="btn4" value="전체목록보기" onclick="fn_boardListPage(this.form)" />
 	
 	</div>
+	</form>
 </div>
 
 <%@ include file="../template/footer.jsp" %>

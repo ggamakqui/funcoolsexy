@@ -3,7 +3,7 @@
 
 <jsp:include page="../template/header.jsp" />
 <style>
-.asd{width: 600px; height:400px; border:1px solid black; }
+.qna{width: 600px; height:400px; border:1px solid black; }
 td:nth-of-type(1){height: 70px;  }
 td:nth-of-type(2){width: 450px; text-align: center; }
 tbody tr:nth-child(1){text-align: center; width: 200px;  height: 60px;}
@@ -37,7 +37,7 @@ td{ border:1px solid black; }
 <h2 class="h2">FCS 게시글 작성하기</h2>
 
 	<form method="POST">
-		<table class="asd">
+		<table class="qna">
 			<tbody>
 				<tr>
 					<td>작성자</td>

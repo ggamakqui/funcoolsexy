@@ -11,39 +11,8 @@
 
   <style type="text/css">
 
-@charset "utf-8";
-
-
-
-/* 회원가입 버튼  */
-
-
-
-.find-info { color: white; }
-.find-info .find-info-text { color: white; text-decoration: none; }
-.find-info .find-info-text:hover { color: black; font-weight: bold; }
-      
-.find-btn { background-color: white; font-size: 16px; border: none; }
-
     
-.qna_btn_center { text-align: center;  margin: auto; width: 900px; height: 60px; margin-top: 15px;}
-label + .qna_btn_center { padding: 65px 0 0;}
-.btn1 { display: inline-block; width: 120px; height:45px; background: #000; text-align: center; line-height: 45px; color:#fff; font-size: 13px; border: 1px solid black; float: left;}
-.btn2 { display: inline-block; width: 120px; height:45px; background: #FFF; text-align: center; line-height: 45px; color:#000; font-size: 13px; border: 1px solid black; float: right; }
-.btn3 { display: inline-block; width: 120px; height:45px; background: #000; text-align: center; line-height: 45px; color:#fff; font-size: 13px; border: 1px solid black; }
-.btn4 { display: inline-block; width: 120px; height:45px; background: #FFF; text-align: center; line-height: 45px; color:#000; font-size: 13px; border: 1px solid black; }
-
-
-.btn1:hover { background-color: darkgray;  }
-.btn2:hover { background-color: lightgray;  }
-.qna{ border: 1px solid black;}
-td{ border: 1px solid black; text-align: center;}
-			
-td:nth-of-type(1){ width: 300px;	}
-td:nth-of-type(2){width: 150px;	}
-td:nth-of-type(3){width: 70px;
-}
-
+ td{ border:1px solid black; }
 
 
 
@@ -83,7 +52,7 @@ td:nth-of-type(3){width: 70px;
         <p>Fun하고 Cool 하고 Sexy하게</p>
         <p style="margin-left: 150px; margin-bottom: 20px;"  >전체 ${totalRecord}개</p>  
  
-   <table>
+   <table class="qnalist">
       <thead>
          <tr>
             <td>제목</td>
