@@ -7,7 +7,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link href="resources/css/star-rating.css" media="all" rel="stylesheet" type="text/css"/>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="resources/js/star-rating.js" type="text/javascript"></script>
+
 <script type="text/javascript">
 	function fn_insert(f){
 		if(f.file.value==''){		
@@ -15,13 +21,40 @@
 		}else{
 			f.action = 'insertReviewWithImage';
 		}
+		if(f.rScore.value == ''){
+			alert('별점을 입력하세요');
+			return;
+		}
 		f.submit();
 	}
-	function fn_deletePage(f){
-		f.action='/25_BBS/deletePage.bbs';
-		f.submit();
+	function fn_check(f){
+        alert(f.rScore.value);
 	}
 </script>
+<script>
+$(document).ready(function(){
+	$('.starRev span').click(function(){
+		  $(this).parent().children('span').removeClass('on');
+		  $(this).addClass('on').prevAll('span').addClass('on');
+		  document.getElementById("rScore").innerHTML = '';
+		  return false;
+		});
+});
+jQuery(document).ready(function () {
+    $('.rb-rating').rating({
+        'showCaption': false,
+        'stars': '5',
+        'min': '0',
+        'max': '5',
+        'step': '1',
+        'size': 'xs',
+    });
+});
+</script>
+
+
+
+
 </head>
 <body>
 	<div class="wrap">
@@ -40,7 +73,24 @@
 						<c:if test="${not empty list2 }">
 							<c:forEach var="rDTO" items="${list2 }">
 								<tr>
-									<td>작성자:${rDTO.mId }&nbsp;&nbsp;&nbsp;&nbsp; 작성일<fmt:formatDate value="${rDTO.rRegdate }" pattern="yy/M/dd" /></td>
+									<td>
+										작성자:${rDTO.mId }&nbsp;&nbsp;&nbsp;&nbsp; 작성일<fmt:formatDate value="${rDTO.rRegdate }" pattern="yy/M/dd" />
+										<c:if test="${rDTO.rScore eq '1' }">
+											<img alt="fcs" src="resources/images/star1.jpg">
+										</c:if>
+										<c:if test="${rDTO.rScore eq '2' }">
+											<img alt="fcs" src="resources/images/star2.jpg">
+										</c:if>
+										<c:if test="${rDTO.rScore eq '3' }">
+											<img alt="fcs" src="resources/images/star3.jpg">
+										</c:if>
+										<c:if test="${rDTO.rScore eq '4' }">
+											<img alt="fcs" src="resources/images/star4.jpg">
+										</c:if>
+										<c:if test="${rDTO.rScore eq '5' }">
+											<img alt="fcs" src="resources/images/star5.jpg">
+										</c:if>
+									</td>
 								</tr>
 								<tr>
 									<td><img alt="${rDTO.rFilename }" src="${pageContext.request.contextPath }/resources/storage/${rDTO.rFilename }"></td>
@@ -73,7 +123,24 @@
 						<c:if test="${not empty list1 }">
 							<c:forEach var="rDTO" items="${list1 }">
 								<tr>
-									<td>작성자:${rDTO.mId }&nbsp;&nbsp;&nbsp;&nbsp; 작성일<fmt:formatDate value="${rDTO.rRegdate }" pattern="yy/M/dd" /></td>
+									<td>
+										작성자:${rDTO.mId }&nbsp;&nbsp;&nbsp;&nbsp; 작성일<fmt:formatDate value="${rDTO.rRegdate }" pattern="yy/M/dd" />
+										<c:if test="${rDTO.rScore eq '1' }">
+											<img alt="fcs" src="resources/images/star1.jpg">
+										</c:if>
+										<c:if test="${rDTO.rScore eq '2' }">
+											<img alt="fcs" src="resources/images/star2.jpg">
+										</c:if>
+										<c:if test="${rDTO.rScore eq '3' }">
+											<img alt="fcs" src="resources/images/star3.jpg">
+										</c:if>
+										<c:if test="${rDTO.rScore eq '4' }">
+											<img alt="fcs" src="resources/images/star4.jpg">
+										</c:if>
+										<c:if test="${rDTO.rScore eq '5' }">
+											<img alt="fcs" src="resources/images/star5.jpg">
+										</c:if>
+									</td>
 								</tr>
 								<tr>
 									<td>${rDTO.rContent }</td>
@@ -104,7 +171,8 @@
 					<input type="hidden" name="pNo" value="${pNo }" />
 					<input type="hidden" name="page1" value="${page1 }" />
 					<input type="hidden" name="page2" value="${page2 }" />
-					<input type="hidden" name="rScore" value="5" />
+					<input required class="rb-rating" type="text" value="1" title="" name="rScore">
+					<input type="button" value="확인" onclick="fn_check(this.form)">
 					<label>작성자</label>
 					<input type="text" name="mId" value="${loginDTO.mId }" readonly/><br/>
 					<input type="text" name="rTitle"><br>

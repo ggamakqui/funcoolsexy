@@ -227,10 +227,10 @@
 					<td>전화번호</td>
 					<td>
 						<select id="mMobile1" name="mMobile1">
-							<option>010</option>
-							<option>011</option>
-							<option>016</option>
-							<option>019</option>
+							<option value="010">010</option>
+							<option value="011">011</option>
+							<option value="016">016</option>
+							<option value="019">019</option>
 						</select>
 						-
 						<input id="mMobile2" type="number" name="mMobile2"/>
