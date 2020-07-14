@@ -32,6 +32,7 @@
 				<td>S사이즈 재고</td>
 				<td>M사이즈 재고</td>
 				<td>L사이즈 재고</td>
+				<td>비고</td>
 			</tr>
 		</thead>
 		
@@ -55,6 +56,11 @@
 						<td>${pDTO.pStock1}</td>
 						<td>${pDTO.pStock2}</td>
 						<td>${pDTO.pStock3}</td>
+						<td>
+							<c:if test="${loginDTO.mId eq 'admin' }">
+								<a href="productUpdatePage?pNo=${pDTO.pNo }">수정하기</a>
+							</c:if>
+						</td>
 					</tr>
 				</c:forEach>
 			</c:if>

@@ -185,8 +185,7 @@
                         		</c:if>
                         		<input type="button" value="장바구니에 담기" onclick="fn_addCartList(this.form)"/>
                         		<input type="button" value="목록으로 이동" onclick="history.back()"/>
-                        		<!-- 리뷰 페이지 이동할 수 있는 버튼 구현 -->
-                        		<!-- 가격 정보 노출 필요 -->
+                        		<a href='reviewList?pNo=${pDTO.pNo }'>리뷰 보기</a>
                         	</td>
                         </tr>
                      </tbody>
