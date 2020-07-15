@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<jsp:include page="../template/header.jsp" />
+
+<div class="visual"><img src="resources/images/1.jpg" alt=""></div>
+</header>
+</head>
+<body>
 <script type="text/javascript">
 
 	function fn_productUpdate(f){
@@ -38,8 +39,6 @@
 	}
 
 </script>
-</head>
-<body>
 	<form method="post" enctype="multipart/form-data">
 	
 		pNo  : ${pDTO.pNo }<br/>

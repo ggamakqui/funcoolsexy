@@ -12,6 +12,9 @@ public interface ProductDAO {
 	// 번호별 product 불러오기
 	public ProductDTO selectProductBypNo(int pNo);
 	
+	// index화면에 신상품 불러오기
+	public ArrayList<ProductDTO> selectNewProductList();
+	
 	// product 추가하기
 	public int insertProduct(String pName, int pPrice, int pCategory, int pGender, String pCompany, String saveFilename1, String saveFilename2, String pDescription, int pStock1, int pStock2, int pStock3);
 	public int insertProductWithNoThumbnail(String pName, int pPrice, int pCategory, int pGender, String pCompany, String saveFilename2, String pDescription, int pStock1, int pStock2, int pStock3);

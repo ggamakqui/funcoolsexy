@@ -22,6 +22,7 @@ import com.koreait.fcs.command.product.ProductListCommand;
 import com.koreait.fcs.command.product.ProductThumbnailUpdateCommand;
 import com.koreait.fcs.command.product.ProductUpdateCommand;
 import com.koreait.fcs.command.product.ProductUpdateWithNoImageCommand;
+import com.koreait.fcs.command.product.SelectNewProductCommand;
 import com.koreait.fcs.command.product.SelectProductDetailCommand;
 
 @Controller

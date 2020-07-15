@@ -13,97 +13,27 @@
 		<section class="info_box">
 			<h2>FCS 이달의 신상</h2>
 			<ul class="clear">
+			<c:forEach var="pDTO" items="${list}" begin="0" end="7" step="1">
 			<li>
-				<a href="#a">
-					<em><img src="resources/images/main.jpg" alt=""></em>
+				<a href="productDetailViewPage?pNo=${pDTO.pNo }">
+					<em><img src="${pageContext.request.contextPath}/resources/storage/${pDTO.pThumbnail}" alt="${pDTO.pThumbnail}"></em>
 					<div>
-						<h3>상품이름</h3>
-						<p>상품설명</p>
+						<h3>${pDTO.pName}</h3>
+						<p>
+							${pDTO.pDescription}
+							
+						</p>
 						
-						<div>가격</div>
+						<div>${pDTO.pPrice}원</div>
 					</div>
 				</a>
+				<c:if test="${loginDTO.mId eq 'admin' }">
+					<a href="productUpdatePage?pNo=${pDTO.pNo }">수정하기</a>
+				</c:if>
 			</li>
-			<li>
-				<a href="#a">
-					<em><img src="resources/images/dress1_th.jpg" alt=""></em>
-					<div>
-						<h3>상품이름</h3>
-						<p>상품설명</p>
-						
-						<div>가격</div>
-					</div>
-				</a>
-			</li>
-			<li>
-				<a href="#a">
-					<em><img src="resources/images/knit2_th.jpg" alt=""></em>
-					<div>
-						<h3>상품이름</h3>
-						<p>상품설명</p>
-						 
-						<div>가격</div>
-					</div>
-				</a>
-			</li>
-			<li>
-				<a href="#a">
-					<em><img src="resources/images/skirt3_th.jpg" alt=""></em>
-					<div>
-						<h3>상품이름</h3>
-						<p>상품설명</p>
-						 
-						<div>가격</div>
-					</div>
-				</a>
-			</li>
-              <li>
-				<a href="#a">
-					<em><img src="resources/images/main-copy-0.jpg" alt=""></em>
-					<div>
-						<h3>상품이름</h3>
-						<p>상품설명</p>
-						
-						<div>가격</div>
-					</div>
-				</a>
-			</li><li>
-				<a href="#a">
-					<em><img src="resources/images/shoes-main.png" alt=""></em>
-					<div>
-						<h3>상품이름</h3>
-						<p>상품설명</p>
-						 
-						<div>가격</div>
-					</div>
-				</a>
-			</li><li>
-				<a href="#a">
-					<em><img src="resources/images/belt-main.jpg" alt=""></em>
-					<div>
-						<h3>상품이름</h3>
-						<p>상품설명</p>
-						 
-						<div>가격</div>
-					</div>
-				</a>
-			</li><li>
-				<a href="#a">
-					<em><img src="resources/images/blouse2_th.jpg" alt=""></em>
-					<div>
-						<h3>상품이름</h3>
-						<p>상품설명</p>
-						 
-						<div>가격</div>
-					</div>
-				</a>
-			</li>  
+			</c:forEach>
                 
 			</ul>
-            
-            
-            
-          
 		</section>
 		<section class="guide_box clear">
 			<article class="guide">

@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+
+<jsp:include page="../template/header.jsp" />
+
+<div class="visual"><img src="resources/images/1.jpg" alt=""></div>
+</header>
+<body>
 <script type="text/javascript">
 
 	function fn_productInsert(f){
@@ -39,8 +40,6 @@
 	}
 
 </script>
-</head>
-<body>
 	<form method="post" enctype="multipart/form-data">
 	
 		pName <input type="text" name="pName"/><br/>
@@ -61,4 +60,5 @@
 		<input type="button" value="제품 삽입" onclick="fn_productInsert(this.form)"/>
 	</form>
 </body>
+<%@ include file="../template/footer.jsp" %>
 </html>

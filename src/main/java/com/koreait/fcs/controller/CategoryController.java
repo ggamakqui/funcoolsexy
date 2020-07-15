@@ -24,6 +24,7 @@ import com.koreait.fcs.command.category.SelectProductByMaleCategoryCommand;
 import com.koreait.fcs.command.category.SelectProductEtcCommand;
 import com.koreait.fcs.command.category.SelectProductListByFemaleBrandCommand;
 import com.koreait.fcs.command.category.SelectProductListByMaleBrandCommand;
+import com.koreait.fcs.command.product.SelectNewProductCommand;
 import com.koreait.fcs.command.product.SelectProductDetailCommand;
 
 @Controller
@@ -44,6 +45,7 @@ public class CategoryController {
 		 * SelectFemaleCategoryListCommand().execute(sqlSession, model); new
 		 * SelectEtcListCommand().execute(sqlSession, model);
 		 */
+		new SelectNewProductCommand().execute(sqlSession, model);
 		return "index";
 	}
 	
