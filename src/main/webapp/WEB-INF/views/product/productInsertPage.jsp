@@ -46,7 +46,7 @@
 		pPrice <input type="text" name="pPrice"/><br/>
 		pCategory <input type="text" name="pCategory"/><br/>
 		pGender &nbsp;&nbsp;남<input type="radio" name="pGender" value="1"/>&nbsp;&nbsp;여<input type="radio" name="pGender" value="2"/>
-		&nbsp;&nbsp;공용<input type="radio" name="pGender" value="3"/>
+		&nbsp;&nbsp;공용<input type="radio" name="pGender" value="3" checked/>
 		<br/>
 		pCompany <input type="text" name="pCompany"/><br/>
 		pThumbnail(썸네일이미지) <input type="file" name="pThumbnail"/><br/>

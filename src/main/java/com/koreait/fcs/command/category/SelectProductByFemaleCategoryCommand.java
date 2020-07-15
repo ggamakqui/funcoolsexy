@@ -78,7 +78,7 @@ public class SelectProductByFemaleCategoryCommand implements Command {
 		model.addAttribute("pVO", pVO);
 		// 어떤 mapping으로 가야할지를 각각 다르게 넣어준다. 
 		model.addAttribute("selectList", "selectProductByFemaleCategory");
-		
+		model.addAttribute("cName",request.getParameter("cName"));
 	}
 
 }

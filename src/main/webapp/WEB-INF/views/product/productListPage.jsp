@@ -10,21 +10,17 @@
 
 </script>
 	
-	<c:if test="${loginDTO.mId eq 'admin' }">
-		<a href="productInsertPage">새 상품 등록하기</a>
-	</c:if>
-	
 	<section class="info_box">
 		<br/>
 		<c:if test="${not empty param.pCategory }">
 			<c:if test="${param.pCategory < 21 }">
-				<h2>남성 ${param.pCategory }</h2>
+				<h2>남성 ${cName }</h2>
 			</c:if>
 			<c:if test="${param.pCategory >= 21 and param.pCategory < 31 }">
-				<h2>여성 ${param.pCategory }</h2>
+				<h2>여성 ${cName }</h2>
 			</c:if>
 			<c:if test="${param.pCategory >= 31 }">
-				<h2>etc ${param.pCategory }</h2>
+				<h2>etc ${cName }</h2>
 			</c:if>
 		</c:if>
 		<c:if test="${not empty param.pCompany }">

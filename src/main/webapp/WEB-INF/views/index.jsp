@@ -36,9 +36,9 @@
 			<article class="guide">
 				<h2>고객<br>가이드</h2>
 				<ul>
-				<li><a href="#a">고객문의</a></li>
-				<li><a href="reviewList?pNo=10000">상품리뷰</a></li>
-				<li><a href="qnaList?pNo=10000">QNA</a></li>
+				<li><a href="">고객문의</a></li>
+				<li><a href="">FAQ</a></li>
+				<li><a href="">이벤트</a></li>
 				<li><a href="noticeList">공지사항</a></li>
 				</ul>
 			</article>
