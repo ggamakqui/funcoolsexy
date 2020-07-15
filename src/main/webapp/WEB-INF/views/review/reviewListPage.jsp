@@ -27,9 +27,6 @@
 		}
 		f.submit();
 	}
-	function fn_check(f){
-        alert(f.rScore.value);
-	}
 </script>
 <script>
 $(document).ready(function(){
@@ -53,15 +50,43 @@ jQuery(document).ready(function () {
 </script>
 
 <style type="text/css">
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	
 	img{
-		width:300px;
-		height:200px;
+		width:150px;
+		height:100px;
 	}
 	#star {
 		width:100px;
 		height:20px;
 		
 	}
+	.review-write {
+		width: 100%;
+		margin: auto;
+	}
+	.review-list {
+		width: 60%;
+		margin: auto;
+		padding: 10px;
+	}
+	.review-list-table {
+		border: 1px solid gray;
+		width: 100%;
+		margin: auto;
+		border-collapse: collapse;
+	}
+	.review-list-table td {
+		padding: 10px 0 0 10px;
+	}
+	.review-list-table td:nth-of-type(1) { width: 25%; }
+	.review-list-table td:nth-of-type(2) { width: 55%; }
+	.review-list-table td:nth-of-type(3) { width: 20%; }
+	tfoot td { text-align: center; }
 </style>
 
 
@@ -72,20 +97,25 @@ jQuery(document).ready(function () {
 		<div class="review-list">
 			<input type="button" value="메인으로 이동" onclick="location.href='index'" />
 			<form method="POST">
-				<table class="reply-list-table">
+				<h1>프리미엄 상품평</h1>
+				<table class="review-list-table">
 					<tbody>
-						
 						<c:if test="${empty list2 }">
 							<tr>
-								<td class="centered" colspan="5">상세리뷰가 없습니다.</td>
+								<td class="centered" colspan="3">상세리뷰가 없습니다.</td>
 							</tr>
 						</c:if>
 						<c:if test="${not empty list2 }">
 							<c:forEach var="rDTO" items="${list2 }">
 								<tr>
+									<td><img alt="${rDTO.rFilename }" src="${pageContext.request.contextPath }/resources/storage/${rDTO.rFilename }"></td>
 									<td>
-										<br>
-										작성자:${rDTO.mId }&nbsp;&nbsp;&nbsp;&nbsp; 작성일<fmt:formatDate value="${rDTO.rRegdate }" pattern="yy/M/dd" />
+										${rDTO.rTitle }<br><br>
+										${rDTO.rContent }
+									</td>
+									<td>
+										작성자:${rDTO.mId }<br>
+										작성일<fmt:formatDate value="${rDTO.rRegdate }" pattern="yy/M/dd" /><br>
 										<c:if test="${rDTO.rScore eq '1' }">
 											<img id="star" alt="fcs" src="resources/images/star1.jpg">
 										</c:if>
@@ -101,42 +131,42 @@ jQuery(document).ready(function () {
 										<c:if test="${rDTO.rScore eq '5' }">
 											<img id="star" alt="fcs" src="resources/images/star5.jpg">
 										</c:if>
+										<c:if test="${loginDTO.mId == 'admin' or loginDTO.mId == rDTO.mId }">
+												<br><a href="deleteReview?pNo=${pNo }&rNo=${rDTO.rNo}&page2=${page2}&page1=${page1}">리뷰삭제</a>
+										</c:if>
 									</td>
 								</tr>
 								<tr>
-									<td><img alt="${rDTO.rFilename }" src="${pageContext.request.contextPath }/resources/storage/${rDTO.rFilename }"></td>
-								</tr>
-								<tr>
-									<td>${rDTO.rContent }</td>
-								</tr>
-								<tr>
-									<c:if test="${loginDTO.mId == 'admin' or loginDTO.mId == rDTO.mId }">
-										<td>
-											<a href="deleteReview?pNo=${pNo }&rNo=${rDTO.rNo}&page2=${page2}&page1=${page1}"><i class="fas fa-trash-alt"></i></a>
-										</td>
-									</c:if>
+									<td colspan="3"><hr></td>
 								</tr>
 							</c:forEach>
 						</c:if>
+					<tfoot>
 						<tr>
-							<td colspan="5">${pageView2}</td>
+							<td colspan="3">${pageView2}</td>
 						</tr>
-						
-						<tr>
-							<td><br><br><br><br></td>
-						</tr>
-						
+					</tfoot>
+				</table>
+				<br><br><br>
+				<h1>일반 상품평</h1>				
+				<table class="review-list-table">
+					<tbody>
 						<c:if test="${empty list1 }">
 							<tr>
-								<td class="centered" colspan="5">일반리뷰가 없습니다.</td>
+								<td class="centered" colspan="3">일반리뷰가 없습니다.</td>
 							</tr>
 						</c:if>
 						<c:if test="${not empty list1 }">
 							<c:forEach var="rDTO" items="${list1 }">
 								<tr>
+									<td></td>
 									<td>
-										<br>
-										작성자:${rDTO.mId }&nbsp;&nbsp;&nbsp;&nbsp; 작성일<fmt:formatDate value="${rDTO.rRegdate }" pattern="yy/M/dd" />
+										${rDTO.rTitle }<br><br>
+										${rDTO.rContent }
+									</td>
+									<td>
+										작성자:${rDTO.mId }<br>
+										작성일<fmt:formatDate value="${rDTO.rRegdate }" pattern="yy/M/dd" /><br>
 										<c:if test="${rDTO.rScore eq '1' }">
 											<img id="star" alt="fcs" src="resources/images/star1.jpg">
 										</c:if>
@@ -152,26 +182,22 @@ jQuery(document).ready(function () {
 										<c:if test="${rDTO.rScore eq '5' }">
 											<img id="star" alt="fcs" src="resources/images/star5.jpg">
 										</c:if>
+										<c:if test="${loginDTO.mId == 'admin' or loginDTO.mId == rDTO.mId }">
+											<br><a href="deleteReview?pNo=${pNo }&rNo=${rDTO.rNo}&page2=${page2}&page1=${page1}">리뷰삭제</a>
+										</c:if>
 									</td>
 								</tr>
 								<tr>
-									<td>${rDTO.rContent }</td>
-								</tr>
-								<tr>
-									<c:if test="${loginDTO.mId == 'admin' or loginDTO.mId == rDTO.mId }">
-										<td>
-											<a href="deleteReview?pNo=${pNo }&rNo=${rDTO.rNo}&page2=${page2}&page1=${page1}"><i class="fas fa-trash-alt"></i></a>
-										</td>
-									</c:if>
+									<td colspan="3"><hr></td>
 								</tr>
 							</c:forEach>
 						</c:if>
 					</tbody>
 					<tfoot>
-			<tr>
-				<td colspan="5">${pageView1}</td>
-			</tr>
-		</tfoot>
+						<tr>
+							<td colspan="3">${pageView1}</td>
+						</tr>
+					</tfoot>
 				</table>
 			</form>
 		</div>
@@ -184,7 +210,6 @@ jQuery(document).ready(function () {
 					<input type="hidden" name="page1" value="${page1 }" />
 					<input type="hidden" name="page2" value="${page2 }" />
 					<input required class="rb-rating" type="text" value="1" title="" name="rScore">
-					<input type="button" value="확인" onclick="fn_check(this.form)">
 					<label>작성자</label>
 					<input type="text" name="mId" value="${loginDTO.mId }" readonly/><br/>
 					<input type="text" name="rTitle"><br>
