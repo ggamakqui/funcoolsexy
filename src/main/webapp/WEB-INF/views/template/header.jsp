@@ -73,7 +73,13 @@
 		</div>
 		<h2 class="hide">회원</h2>
 		<ul>
-		<li><a href="loginPage">LOGIN</a></li>
-		<li><a href="insertPage">JOIN</a></li>
+		<c:if test="${empty loginDTO }">
+			<li><a href="loginPage">LOGIN</a></li>
+			<li><a href="insertPage">JOIN</a></li>
+		</c:if>
+		<c:if test="${not empty loginDTO }">
+			<li><a href="logout">LOGOUT</a></li>
+			<li><a href="myPage">MYPAGE</a></li>
+		</c:if>
 		</ul>
 		
