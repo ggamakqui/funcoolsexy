@@ -19,7 +19,20 @@
 		<a href="productInsertPage">새 상품 등록하기</a>
 	</c:if>
 	<br/>
-	${param.pCategory } 카테고리
+	<c:if test="${not empty param.pCategory }">
+		<c:if test="${param.pCategory < 21 }">
+			<h2>남성 ${param.pCategory }</h2>
+		</c:if>
+		<c:if test="${param.pCategory >= 21 and param.pCategory < 31 }">
+			<h2>여성 ${param.pCategory }</h2>
+		</c:if>
+		<c:if test="${param.pCategory > 31 }">
+			<h2>etc ${param.pCategory }</h2>
+		</c:if>
+	</c:if>
+	<c:if test="${not empty param.pCompany }">
+		<h2>${param.pCompany }</h2>
+	</c:if>
 	<table border="1">
 	
 		<thead>
