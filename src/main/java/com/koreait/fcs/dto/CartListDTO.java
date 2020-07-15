@@ -2,24 +2,23 @@ package com.koreait.fcs.dto;
 
 import java.sql.Date;
 
-public class ProductDTO {
+public class CartListDTO {
 	
-	// Field
-	private int pNo, pPrice, pCategory, pGender, pStock1, pStock2, pStock3, cartNo, cartQuantity, cValidate;
-	private String pName, pCompany, pThumbnail, pFilename, pDescription, cSize;
+	private int cartNo, cartQuantity, cValidate, pNo, pPrice, pCategory, pGender, pStock1, pStock2, pStock3;
+	private String mId, cSize, pName, pCompany, pThumbnail, pFilename, pDescription;
 	private Date pRegdate;
 	
-	// Constructor
-	public ProductDTO() {
+	public CartListDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	
-
-	public ProductDTO(int pNo, int pPrice, int pCategory, int pGender, int pStock1, int pStock2, int pStock3,
-			int cartNo, int cartQuantity, int cValidate, String pName, String pCompany, String pThumbnail,
-			String pFilename, String pDescription, String cSize, Date pRegdate) {
+	public CartListDTO(int cartNo, int cartQuantity, int cValidate, int pNo, int pPrice, int pCategory, int pGender,
+			int pStock1, int pStock2, int pStock3, String mId, String cSize, String pName, String pCompany,
+			String pThumbnail, String pFilename, String pDescription, Date pRegdate) {
 		super();
+		this.cartNo = cartNo;
+		this.cartQuantity = cartQuantity;
+		this.cValidate = cValidate;
 		this.pNo = pNo;
 		this.pPrice = pPrice;
 		this.pCategory = pCategory;
@@ -27,19 +26,39 @@ public class ProductDTO {
 		this.pStock1 = pStock1;
 		this.pStock2 = pStock2;
 		this.pStock3 = pStock3;
-		this.cartNo = cartNo;
-		this.cartQuantity = cartQuantity;
-		this.cValidate = cValidate;
+		this.mId = mId;
+		this.cSize = cSize;
 		this.pName = pName;
 		this.pCompany = pCompany;
 		this.pThumbnail = pThumbnail;
 		this.pFilename = pFilename;
 		this.pDescription = pDescription;
-		this.cSize = cSize;
 		this.pRegdate = pRegdate;
 	}
 
+	public int getCartNo() {
+		return cartNo;
+	}
 
+	public void setCartNo(int cartNo) {
+		this.cartNo = cartNo;
+	}
+
+	public int getCartQuantity() {
+		return cartQuantity;
+	}
+
+	public void setCartQuantity(int cartQuantity) {
+		this.cartQuantity = cartQuantity;
+	}
+
+	public int getcValidate() {
+		return cValidate;
+	}
+
+	public void setcValidate(int cValidate) {
+		this.cValidate = cValidate;
+	}
 
 	public int getpNo() {
 		return pNo;
@@ -97,6 +116,22 @@ public class ProductDTO {
 		this.pStock3 = pStock3;
 	}
 
+	public String getmId() {
+		return mId;
+	}
+
+	public void setmId(String mId) {
+		this.mId = mId;
+	}
+
+	public String getcSize() {
+		return cSize;
+	}
+
+	public void setcSize(String cSize) {
+		this.cSize = cSize;
+	}
+
 	public String getpName() {
 		return pName;
 	}
@@ -144,58 +179,6 @@ public class ProductDTO {
 	public void setpRegdate(Date pRegdate) {
 		this.pRegdate = pRegdate;
 	}
-
-
-
-	public int getCartNo() {
-		return cartNo;
-	}
-
-
-
-	public void setCartNo(int cartNo) {
-		this.cartNo = cartNo;
-	}
-
-
-
-	public int getCartQuantity() {
-		return cartQuantity;
-	}
-
-
-
-	public void setCartQuantity(int cartQuantity) {
-		this.cartQuantity = cartQuantity;
-	}
-
-
-
-	public int getcValidate() {
-		return cValidate;
-	}
-
-
-
-	public void setcValidate(int cValidate) {
-		this.cValidate = cValidate;
-	}
-
-
-
-	public String getcSize() {
-		return cSize;
-	}
-
-
-
-	public void setcSize(String cSize) {
-		this.cSize = cSize;
-	}
-
-	
-	
-	
 	
 	
 }
