@@ -37,11 +37,13 @@ public class CategoryController {
 	
 	@RequestMapping("/")
 	public String goIndex(Model model) {
-		new SelectMaleBrandListCommand().execute(sqlSession, model);
-		new SelectFemaleBrandListCommand().execute(sqlSession, model);
-		new SelectMaleCategoryListCommand().execute(sqlSession, model);
-		new SelectFemaleCategoryListCommand().execute(sqlSession, model);
-		new SelectEtcListCommand().execute(sqlSession, model);
+		/*
+		 * new SelectMaleBrandListCommand().execute(sqlSession, model); new
+		 * SelectFemaleBrandListCommand().execute(sqlSession, model); new
+		 * SelectMaleCategoryListCommand().execute(sqlSession, model); new
+		 * SelectFemaleCategoryListCommand().execute(sqlSession, model); new
+		 * SelectEtcListCommand().execute(sqlSession, model);
+		 */
 		return "index";
 	}
 	

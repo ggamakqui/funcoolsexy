@@ -65,19 +65,7 @@ public class OrderController {
 		return "member/selectMyOrderListPage";
 	}
 	
-	@RequestMapping("loginPage")
-	public String goLoginPage(HttpServletRequest request, Model model) {
-		model.addAttribute("request", request);
-		return "member/login";
-	}
 	
-	@RequestMapping(value="login", method=RequestMethod.POST)
-	public String login(HttpServletRequest request, Model model) {
-		model.addAttribute("request", request);
-		command = new LoginMemberCommand();
-		command.execute(sqlSession, model);
-		return "redirect:selectProductDetail?pNo=" + request.getParameter("pNo");
-	}
 	
 	
 	
