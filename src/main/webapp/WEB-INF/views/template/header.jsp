@@ -22,16 +22,16 @@
 		<div id="lnb">
 			<nav>
 				<ul>
-				<li><a href="#a">남성 브랜드</a>
+				<li><a href="">남성 브랜드</a>
 					<ul>
-				<li><a href="#a">ROUGE</a></li>
+				<li><a href="">ROUGE</a></li>
 					<li><a href="#a">NOIR</a></li>
                     <li><a href="#a">BLANC</a></li>
                     <li><a href="#a">VERT</a></li>
                     <li><a href="#a">ARGENT</a></li>
 					</ul>
 				</li>
-				<li><a href="#a"> 여성 브랜드</a>
+				<li><a href=""> 여성 브랜드</a>
 					<ul>
 					<li><a href="#a">ROUGE</a></li>
 					<li><a href="#a">NOIR</a></li>
@@ -40,31 +40,31 @@
                     <li><a href="#a">ARGENT</a></li>
 					</ul>
 				</li>
-				<li><a href="#a">남성</a>
+				<li><a href="">남성</a>
 					<ul>
-					 <li><a href="#a">Jacket</a></li>
-					<li><a href="#a">Shirts</a></li>
-					<li><a href="#a">Suit</a></li>
-                    <li><a href="#a">Pants</a></li>
-                    <li><a href="#a">Knit/Tee</a></li>  
+					 <li><a href="selectProductByMaleCategory?pCategory=11">Jacket</a></li>
+					<li><a href="selectProductByMaleCategory?pCategory=12">Shirt</a></li>
+					<li><a href="selectProductByMaleCategory?pCategory=13">Suit</a></li>
+                    <li><a href="selectProductByMaleCategory?pCategory=14">Pants</a></li>
+                    <li><a href="selectProductByMaleCategory?pCategory=15">Knit/T-Shirt</a></li>  
 					</ul>
 				</li>
-				<li><a href="#a">여성</a>
+				<li><a href="">여성</a>
 					<ul>
-                    <li><a href="#a">Jacket</a></li>
-					<li><a href="#a">Dress</a></li>
-					<li><a href="#a">Blouse</a></li>
-                    <li><a href="#a">Skirts</a></li>
-                    <li><a href="#a">Pants</a></li>
-                    <li><a href="#a">Knit/Tee</a></li>
+                    <li><a href="selectProductByFemaleCategory?pCategory=21">Jacket</a></li>
+					<li><a href="selectProductByFemaleCategory?pCategory=22">Dress</a></li>
+					<li><a href="selectProductByFemaleCategory?pCategory=23">Blouse</a></li>
+                    <li><a href="selectProductByFemaleCategory?pCategory=24">Skirts</a></li>
+                    <li><a href="selectProductByFemaleCategory?pCategory=25">Pants</a></li>
+                    <li><a href="selectProductByFemaleCategory?pCategory=26">Knit/T-Shirt</a></li>
 					</ul>
 				</li>
-				<li><a href="#a">etc</a>
+				<li><a href="">etc</a>
 					<ul>
-					<li><a href="#a">Bag(Backpack)</a></li>
-					<li><a href="#a">Bag(Shoulder)</a></li>
-					<li><a href="#a">Belt</a></li>
-					<li><a href="#a">Shoes</a></li>
+					<li><a href="selectProductEtc?pCategory=31">Bag(Backpack)</a></li>
+					<li><a href="selectProductEtc?pCategory=32">Bag(Shoulder)</a></li>
+					<li><a href="selectProductEtc?pCategory=33">Belt</a></li>
+					<li><a href="selectProductEtc?pCategory=34">Shoes</a></li>
 					</ul>
 				</li>
 				</ul>
