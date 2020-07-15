@@ -44,7 +44,7 @@
 					<ul>
 					 <li><a href="#a">Jacket</a></li>
 					<li><a href="#a">Shirts</a></li>
-					<li><a href="#a">Sute</a></li>
+					<li><a href="#a">Suit</a></li>
                     <li><a href="#a">Pants</a></li>
                     <li><a href="#a">Knit/Tee</a></li>  
 					</ul>
@@ -59,7 +59,7 @@
                     <li><a href="#a">Knit/Tee</a></li>
 					</ul>
 				</li>
-				<li><a href="#a">ect</a>
+				<li><a href="#a">etc</a>
 					<ul>
 					<li><a href="#a">Bag(Backpack)</a></li>
 					<li><a href="#a">Bag(Shoulder)</a></li>
