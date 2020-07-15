@@ -1,116 +1,104 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<style type="text/css">
+<jsp:include page="../template/header.jsp" />
 
-   .wrap_prd {
-      overflow: visible;
-      position: relative;
-   }
-   .prodInfo {
-      float: left;
-   }
-   
-</style>
-<script type="text/javascript">
-	
-
-	function fn_totalPrice(f){
-		var price = '${pDTO.pPrice}';
-		var total = document.querySelector('#total');
-		total.innerHTML = (f.cartQuantity.value * price) + '원';
-	}
-	
-	function fn_countUp(f){
-		f.cartQuantity.value = f.cartQuantity.value - 1 + 2;
-		fn_totalPrice(f);
-		
-	}
-	function fn_countDown(f){
-		if(f.cartQuantity.value > 1){
-			f.cartQuantity.value = f.cartQuantity.value - 1;
-			fn_totalPrice(f);
-		}
-		
-	}
-
-
-	function fn_directOrder(f){
-		
-		var stock = 0;
-		if(confirm('주문하시겠습니까?')){
-			switch(f.cSize.value){
-			case 'S':
-				stock = '${pDTO.pStock1}';
-				break;
-			case 'M':
-				stock = '${pDTO.pStock2}';
-				break;
-			case 'L':
-				stock = '${pDTO.pStock3}';
-				break;
-			}
-			if(f.cartQuantity.value == 0){
-				alert('주문수량은 0보다 큰 숫자를 입력해 주세요.');
-				return;
-			}
-			if(f.cartQuantity.value > stock){
-				alert('재고수량보다 많이 주문할 수 없습니다. (현재 재고 : ' + stock + '개)');
-				return;
-			}
-			f.action = 'directOrder';
-			f.submit();
-		}
-		
-	}
-	function fn_addCartList(f){
-		var stock = 0;
-		if(confirm('장바구니에 추가하시겠습니까?')){
-			switch(f.cSize.value){
-			case 'S':
-				stock = '${pDTO.pStock1}';
-				break;
-			case 'M':
-				stock = '${pDTO.pStock2}';
-				break;
-			case 'L':
-				stock = '${pDTO.pStock3}';
-				break;
-			}
-			if(f.cartQuantity.value == 0){
-				alert('주문수량은 0보다 큰 숫자를 입력해 주세요.');
-				return;
-			}
-			if(f.cartQuantity.value > stock){
-				alert('재고수량보다 많이 주문할 수 없습니다. (현재 재고 : ' + stock + '개)');
-				return;
-			}
-			f.action = 'addCartList';
-			f.submit();
-			if(confirm('장바구니에 추가되었습니다. 계속 쇼핑하시겠습니까?')){
-				return;
-			}else{
-				f.action = 'goCartList';
-			}
-			
-		}
-	}
-	function fn_goLoginPage(f){
-		alert('로그인 후 구매 가능합니다.');
-		f.action = 'loginPage';
-		f.submit();
-	}
-	
-	
-	
-</script>
+<div class="visual"><img src="resources/images/1.jpg" alt=""></div>
+</header>
 </head>
 	<body>
+		<script type="text/javascript">
+			
+		
+			function fn_totalPrice(f){
+				var price = '${pDTO.pPrice}';
+				var total = document.querySelector('#total');
+				total.innerHTML = (f.cartQuantity.value * price) + '원';
+			}
+			
+			function fn_countUp(f){
+				f.cartQuantity.value = f.cartQuantity.value - 1 + 2;
+				fn_totalPrice(f);
+				
+			}
+			function fn_countDown(f){
+				if(f.cartQuantity.value > 1){
+					f.cartQuantity.value = f.cartQuantity.value - 1;
+					fn_totalPrice(f);
+				}
+				
+			}
+		
+		
+			function fn_directOrder(f){
+				
+				var stock = 0;
+				if(confirm('주문하시겠습니까?')){
+					switch(f.cSize.value){
+					case 'S':
+						stock = '${pDTO.pStock1}';
+						break;
+					case 'M':
+						stock = '${pDTO.pStock2}';
+						break;
+					case 'L':
+						stock = '${pDTO.pStock3}';
+						break;
+					}
+					if(f.cartQuantity.value == 0){
+						alert('주문수량은 0보다 큰 숫자를 입력해 주세요.');
+						return;
+					}
+					if(f.cartQuantity.value > stock){
+						alert('재고수량보다 많이 주문할 수 없습니다. (현재 재고 : ' + stock + '개)');
+						return;
+					}
+					f.action = 'directOrder';
+					f.submit();
+				}
+				
+			}
+			function fn_addCartList(f){
+				var stock = 0;
+				if(confirm('장바구니에 추가하시겠습니까?')){
+					switch(f.cSize.value){
+					case 'S':
+						stock = '${pDTO.pStock1}';
+						break;
+					case 'M':
+						stock = '${pDTO.pStock2}';
+						break;
+					case 'L':
+						stock = '${pDTO.pStock3}';
+						break;
+					}
+					if(f.cartQuantity.value == 0){
+						alert('주문수량은 0보다 큰 숫자를 입력해 주세요.');
+						return;
+					}
+					if(f.cartQuantity.value > stock){
+						alert('재고수량보다 많이 주문할 수 없습니다. (현재 재고 : ' + stock + '개)');
+						return;
+					}
+					f.action = 'addCartList';
+					f.submit();
+					if(confirm('장바구니에 추가되었습니다. 계속 쇼핑하시겠습니까?')){
+						return;
+					}else{
+						f.action = 'goCartList';
+					}
+					
+				}
+			}
+			function fn_goLoginPage(f){
+				alert('로그인 후 구매 가능합니다.');
+				f.action = 'loginPage';
+				f.submit();
+			}
+			
+			
+			
+		</script>
 	   
    <!-- 전체페이지박스 -->
 
@@ -199,4 +187,4 @@
                </form>
             </div>
 	</body>
-</html>
+<%@ include file="../template/footer.jsp" %>
