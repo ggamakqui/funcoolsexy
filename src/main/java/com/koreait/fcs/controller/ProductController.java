@@ -63,6 +63,7 @@ public class ProductController {
 	@RequestMapping("productListPage")
 	public String productListPage(HttpServletRequest request,Model model) {
 		model.addAttribute("request", request);
+		model.addAttribute("pCategory", request.getParameter("pCategory"));
 		productCommand = new ProductListCommand();
 		productCommand.execute(sqlSession, model);
 		return "product/productListPage";

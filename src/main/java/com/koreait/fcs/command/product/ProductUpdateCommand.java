@@ -34,6 +34,7 @@ public class ProductUpdateCommand implements Command {
 		MultipartFile pThumbnail = mr.getFile("pThumbnail");	// 썸네일
 		MultipartFile pFilename = mr.getFile("pFilename");		// 상세이미지
 		
+		mr.setAttribute("pCategory", pCategory);
 
 		
 		

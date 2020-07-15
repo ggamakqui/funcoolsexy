@@ -27,11 +27,13 @@ public class ProductUpdateWithNoImageCommand implements Command {
 		int pStock3 = Integer.parseInt(mr.getParameter("pStock3"));	// l사이즈
 		String pCompany = mr.getParameter("pCompany");
 		String pDescription = mr.getParameter("pDescription");
+		
+		mr.setAttribute("pCategory", pCategory);
 			
 		ProductDAO pDAO = sqlSession.getMapper(ProductDAO.class);
 		
 		pDAO.productUpdateWithNoImage(pName, pPrice, pCategory, pGender, pCompany, pDescription, pStock1, pStock2, pStock3, pNo);
-
+		model.addAttribute("pCategory", pCategory);
 	}
 
 }

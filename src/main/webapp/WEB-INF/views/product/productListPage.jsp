@@ -26,7 +26,7 @@
 		<c:if test="${param.pCategory >= 21 and param.pCategory < 31 }">
 			<h2>여성 ${param.pCategory }</h2>
 		</c:if>
-		<c:if test="${param.pCategory > 31 }">
+		<c:if test="${param.pCategory >= 31 }">
 			<h2>etc ${param.pCategory }</h2>
 		</c:if>
 	</c:if>
