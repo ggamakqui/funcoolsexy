@@ -27,9 +27,6 @@
 						<div>${pDTO.pPrice}원</div>
 					</div>
 				</a>
-				<c:if test="${loginDTO.mId eq 'admin' }">
-					<a href="productUpdatePage?pNo=${pDTO.pNo }">수정하기</a>
-				</c:if>
 			</li>
 			</c:forEach>
                 
