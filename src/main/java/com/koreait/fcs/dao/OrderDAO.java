@@ -1,5 +1,6 @@
 package com.koreait.fcs.dao;
 
+import java.sql.Date;
 import java.util.ArrayList;
 
 import com.koreait.fcs.dto.CartDTO;
@@ -8,8 +9,6 @@ import com.koreait.fcs.dto.OrderListDTO;
 
 public interface OrderDAO {
 
-
-	
 	// 2. 장바구니에 담겨진 상품정보 가져오기
 	public ArrayList<CartListDTO> selectCartListBymId(String mId);
 	
@@ -23,7 +22,7 @@ public interface OrderDAO {
 	public void updateCartQuantity(int cartQuantity, int cartNo);
 	
 	// 5. 주문 시 주문테이블에 데이터 삽입
-	public void insertOrder(String mId, String oName, String oMobile1, String oMobile2, String oMobile3, String oEmail, String oPost, String oAddr1, String oAddr2, String oAddr3, int cartNo);
+	public int insertOrder(String mId, String oName, String oMobile1, String oMobile2, String oMobile3, String oEmail, String oPost, String oAddr1, String oAddr2, String oAddr3, int cartNo);
 	
 	// 6. 주문 시 상품테이블에서 재고 업데이트
 	public void updateProductStock(String cSize, int cartQuantity, int pNo);
@@ -33,6 +32,9 @@ public interface OrderDAO {
 	
 	// 8. 주문일만 불러오기
 	public ArrayList<String> selectOrderDate(String mId);
+	
+	// 9. 주문일별 주문리스트 불러오기
+	public ArrayList<OrderListDTO> selectOrderListByOdate(String mId, Date date);
 	
 	// 나의 주문내역(상품정보) 확인
 	public ArrayList<OrderListDTO> selectMyOrderList(String mId);

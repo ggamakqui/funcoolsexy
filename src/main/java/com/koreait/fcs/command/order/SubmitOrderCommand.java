@@ -1,22 +1,23 @@
 package com.koreait.fcs.command.order;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
 
-import com.koreait.fcs.command.Command;
 import com.koreait.fcs.dao.OrderDAO;
 import com.koreait.fcs.dto.MemberDTO;
 
 // 결제하기를 눌렀을 때
-public class SubmitOrderCommand implements Command {
+public class SubmitOrderCommand{
 
-	@Override
-	public void execute(SqlSession sqlSession, Model model) {
+	public void execute(SqlSession sqlSession, HttpServletResponse response, Model model) throws IOException {
 		
 		// request 불러오기
 		Map<String, Object> map = model.asMap();
@@ -47,12 +48,29 @@ public class SubmitOrderCommand implements Command {
 		int cartQuantity = Integer.parseInt(request.getParameter("cartQuantity"));
 		
 		// 주문테이블에 주문정보 저장하기
-		oDAO.insertOrder(mId, oName, oMobile1, oMobile2, oMobile3, oEmail, oPost, oAddr1, oAddr2, oAddr3, cartNo);
+		int result = oDAO.insertOrder(mId, oName, oMobile1, oMobile2, oMobile3, oEmail, oPost, oAddr1, oAddr2, oAddr3, cartNo);
 		// 장바구니에서 구매한 상품임을 알 수 있는 cValidate 값을 1로 바꿔준다.
 		oDAO.updateCartValidate(cartNo);
 		// pNo과 pSize를 전달해서 상품 재고를 업데이트 한다. 
 		oDAO.updateProductStock(cSize, cartQuantity, pNo);
 		
+		if (result > 0) {
+			response.setContentType("text/html; charset=utf-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script type='text/javascript'>");
+			out.println("alert('결제가 완료되었습니다.');");
+			out.println("location.href='selectMyOrderList'");
+			out.println("</script>");
+			out.close();
+		} else {
+			response.setContentType("text/html; charset=utf-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script type='text/javascript'>");
+			out.println("alert('결제에 실패했습니다.');");
+			out.println("history.back();");
+			out.println("</script>");
+			out.close();
+		}
 		
 		
 		

@@ -12,6 +12,8 @@
 <script type="text/javascript">
 	
 
+
+
 $(document).ready(function(){
 	
 	$('#oName').val('${loginDTO.mName}');
@@ -101,20 +103,12 @@ $(document).ready(function(){
 		f.submit();
 	}
 	
-	function fn_submitOrderFromCart(f) {
-		f.action = 'submitOrderFromCart';
-		f.submit();
-	}
-	
-	function func1() {
-		
-		if (f.oName.value == '' ) {
-			document.querySelector('#nameCheckResult').innerHTML = '이름을 입력해주세요.';
-			document.querySelector('#nameCheckResult').style.color = 'red';
-		} else {
-			document.querySelector('#nameCheckResult').innerHTML = '';
-		}
 
+	function fn_cancel() {
+		if (confirm('결제를 취소하시겠습니까?')) {
+			alert('결제가 취소되었습니다.');
+			location.href = 'productDetailViewPage?pNo=' + ${pDTO.pNo};
+		}
 	}
 	
 </script>
@@ -139,7 +133,7 @@ $(document).ready(function(){
 						<td>${cDTO.cSize}</td>
 						<td>${pDTO.pPrice }</td>
 						<td>${cDTO.cartQuantity}</td>
-						<td>${totalPrice }</td>
+						<td>${total }</td>
 					</tr>
 			</tbody>
 		</table>
@@ -213,9 +207,8 @@ $(document).ready(function(){
                   <input type="hidden" name="totalPrice" value="${totalPrice}" />
                   <input type="hidden" name="cSize" value="${cDTO.cSize}" />
                   <input type="hidden" name="cartQuantity" value="${cDTO.cartQuantity}" />
-                  <input id="cancelOrder" type="button" value="결제취소"  onclick="장바구니로 돌아가기"/>
+                  <input id="cancelOrder" type="button" value="결제취소"  onclick="fn_cancel()"/>
                   <input id="submitOrder" type="button" value="바로_결제하기" onclick="fn_submitOrder(this.form)"/>
-                  <input id="submitOrderFromCart" type="button" value="장바구니통해서_결제하기" onclick="fn_submitOrderFromCart(this.form)"/>
                </td>
             </tr>
          </tfoot>

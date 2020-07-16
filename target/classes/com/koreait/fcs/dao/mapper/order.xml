@@ -49,8 +49,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 	
 	<select id="selectOrderDate" resultType="String">
-		SELECT ODATE FROM C_ORDER WHERE MID = #{param1}
+		SELECT DISTINCT TO_CHAR(ODATE, 'YYYY-MM-DD') FROM C_ORDER WHERE MID = #{param1} ORDER BY TO_CHAR(ODATE, 'YYYY-MM-DD') DESC
 	</select>
+
 	
 	<select id="selectMyOrderList" resultType="com.koreait.fcs.dto.OrderListDTO">
 		SELECT C.*, P.*, O.*

@@ -33,9 +33,11 @@ public class SelectMyOrderListCommand implements Command {
 		ArrayList<OrderListDTO> oList =  oDAO.selectMyOrderList(mId);
 		model.addAttribute("oList", oList);
 		
-		// 주문일자만 불러오고, 해당 주문일에 대한 갯수 불러오기
 		
-
+		// 주문일자만 불러오기
+		ArrayList<String> oDatelist = oDAO.selectOrderDate(mId);
+		model.addAttribute("oDatelist", oDatelist);
+		
 	}
 
 }

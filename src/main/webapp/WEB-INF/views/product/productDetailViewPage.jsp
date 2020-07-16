@@ -55,7 +55,7 @@
 						alert('재고수량보다 많이 주문할 수 없습니다. (현재 재고 : ' + stock + '개)');
 						return;
 					}
-					f.action = 'directOrder';
+					f.action = 'orderPage';
 					f.submit();
 				}
 				
@@ -82,12 +82,12 @@
 						alert('재고수량보다 많이 주문할 수 없습니다. (현재 재고 : ' + stock + '개)');
 						return;
 					}
-					f.action = 'addCartList';
+					f.action = 'cartInsert';
 					f.submit();
 					if(confirm('장바구니에 추가되었습니다. 계속 쇼핑하시겠습니까?')){
 						return;
 					}else{
-						f.action = 'goCartList';
+						f.action = 'cartListPage';
 					}
 					
 				}
@@ -178,6 +178,7 @@
                               <input type="hidden" name="pGender" value="${pDTO.pGender}"/>
                         		<span id="total">${pDTO.pPrice }</span>원
                         		<input type="hidden" name="pInfo" value="productDetailViewPage?pNo=${pDTO.pNo}">
+                        		<input type="hidden" name="pPrice" value="${pDTO.pPrice }">
                         	</td>
                         </tr>
                         <tr>

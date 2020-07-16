@@ -7,10 +7,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
 	
+
+
 
 $(document).ready(function(){
 	
@@ -90,16 +93,13 @@ $(document).ready(function(){
 	
 	function fn_submitOrderFromCart(f) {
 		
-		// 결제하기를 누르면, 주문 테이블에 insert 되고,
-		// 해당 상품의 재고(의류일 경우 size별 재고)가 update 된다. 
-		// 재고가 0일 경우, 상품 view 페이지에서 재고가 없습니다가 나와야 함(이건 view페이지에서 처리)
-		
-		// 각 항목 중 하나라도 비워져 있으면 alert 뜨게 구현 필요
 		f.action = 'submitOrderFromCart';
 		f.submit();
-		
 	}
 	
+
+	
+
 	
 </script>
 </head>
@@ -204,7 +204,7 @@ $(document).ready(function(){
                   <input type="hidden" name="pPrice" value="${pDTO.pPrice}" />
                   <input type="hidden" name="totalPrice" value="${total}" />
                   <input type="hidden" name="mId" value="${mId}" />
-                  <input id="cancelOrder" type="button" value="결제취소"  onclick="장바구니로 돌아가기"/>
+                  <input id="cancelOrder" type="button" value="결제취소"  onclick="history.back()"/>
                   <input id="submitOrder" type="button" value="결제하기" onclick="fn_submitOrderFromCart(this.form)"/>
                </td>
             </tr>
