@@ -84,11 +84,6 @@
 					}
 					f.action = 'cartInsert';
 					f.submit();
-					if(confirm('장바구니에 추가되었습니다. 계속 쇼핑하시겠습니까?')){
-						return;
-					}else{
-						f.action = 'cartListPage';
-					}
 					
 				}
 			}
