@@ -57,4 +57,9 @@ public class ReviewController {
 		return "redirect:reviewList";
 	}
 	
+	@RequestMapping("reviewInsertPage")
+	public String reviewInsertPage(HttpServletRequest request, Model model) {
+		model.addAttribute("pNo",request.getParameter("pNo"));
+		return "review/reviewInsertPage";
+	}
 }

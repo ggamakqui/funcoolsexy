@@ -23,8 +23,6 @@ public class ReviewInsertCommand implements Command {
 		HttpServletResponse response = (HttpServletResponse)map.get("response");
 		int pNo = Integer.parseInt(request.getParameter("pNo"));
 		
-		String page1 = request.getParameter("page1");
-		String page2 = request.getParameter("page2");
 		String mId = request.getParameter("mId");
 		String rTitle = request.getParameter("rTitle");
 		String rContent = request.getParameter("rContent");
@@ -32,8 +30,6 @@ public class ReviewInsertCommand implements Command {
 		ReviewDAO rDAO = sqlSession.getMapper(ReviewDAO.class);
 		int result = rDAO.reviewInsert(pNo, rTitle, rContent, mId, rScore);
 		model.addAttribute("pNo",pNo);
-		model.addAttribute("page1",page1);
-		model.addAttribute("page2",page2);
 		if (result > 0) {
 		} else {
 			try {

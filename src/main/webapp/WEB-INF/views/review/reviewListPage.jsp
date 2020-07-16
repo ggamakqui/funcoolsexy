@@ -201,24 +201,7 @@ jQuery(document).ready(function () {
 				</table>
 			</form>
 		</div>
-		
-		<br/><br/>
-		<c:if test="${loginDTO.mId ne null}">
-			<div class="review-write">
-				<form method="POST" enctype="multipart/form-data">
-					<input type="hidden" name="pNo" value="${pNo }" />
-					<input type="hidden" name="page1" value="${page1 }" />
-					<input type="hidden" name="page2" value="${page2 }" />
-					<input required class="rb-rating" type="text" value="1" title="" name="rScore">
-					<label>작성자</label>
-					<input type="text" name="mId" value="${loginDTO.mId }" readonly/><br/>
-					<input type="text" name="rTitle"><br>
-					<textarea name="rContent" rows="2" cols="50"></textarea><br>
-					첨부파일 <input type="file" name="file"><br>
-					<input type="button" value="리뷰 등록하기" onclick="fn_insert(this.form)">
-				</form>
-			</div>
-		</c:if>
+		<a href="reviewInsertPage?pNo=${pNo }">리뷰 등록하기</a>
 	</div>
 </body>
 </html>

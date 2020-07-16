@@ -19,8 +19,6 @@ public class ReviewInsertWithImageCommand implements Command {
 		MultipartHttpServletRequest mr = (MultipartHttpServletRequest) map.get("mr");
 		int pNo = Integer.parseInt(mr.getParameter("pNo"));
 		MultipartFile file = mr.getFile("file");
-		String page1 = mr.getParameter("page1");
-		String page2 = mr.getParameter("page2");
 		String mId = mr.getParameter("mId");
 		String rTitle = mr.getParameter("rTitle");
 		String rContent = mr.getParameter("rContent");
@@ -62,8 +60,6 @@ public class ReviewInsertWithImageCommand implements Command {
 			ReviewDAO rDAO = sqlSession.getMapper(ReviewDAO.class);
 			rDAO.reviewInsertWithImage(pNo, rTitle, rContent, mId, rScore, saveFilename);
 			model.addAttribute("pNo",pNo);
-			model.addAttribute("page1",page1);
-			model.addAttribute("page2",page2);
 			
 		} catch(Exception e) {
 			e.printStackTrace();
