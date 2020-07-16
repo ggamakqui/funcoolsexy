@@ -114,7 +114,8 @@
 					<input type="hidden" name="list" value="${list}">
 					<input type="hidden" name="total" value="${total}" />
 					<input type="hidden" name="mId" value="${mId}" />
-					<input type="submit" value="주문하기">
+					<input type="submit" value="주문하기"/>
+					<input type="button" value="계속 쇼핑하기" onclick="history.back()"/>
 				</div>		
 			</form>	
 				</div>
