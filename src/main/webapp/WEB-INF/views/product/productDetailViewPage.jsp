@@ -13,7 +13,9 @@
 			function fn_totalPrice(f){
 				var price = '${pDTO.pPrice}';
 				var total = document.querySelector('#total');
-				total.innerHTML = (f.cartQuantity.value * price) + '원';
+				if(f.cartQuantity.value > 0){
+					total.innerHTML = (f.cartQuantity.value * price);
+				}
 			}
 			
 			function fn_countUp(f){
@@ -45,7 +47,7 @@
 						stock = '${pDTO.pStock3}';
 						break;
 					}
-					if(f.cartQuantity.value == 0){
+					if(f.cartQuantity.value <= 0){
 						alert('주문수량은 0보다 큰 숫자를 입력해 주세요.');
 						return;
 					}
@@ -72,7 +74,7 @@
 						stock = '${pDTO.pStock3}';
 						break;
 					}
-					if(f.cartQuantity.value == 0){
+					if(f.cartQuantity.value <= 0){
 						alert('주문수량은 0보다 큰 숫자를 입력해 주세요.');
 						return;
 					}
@@ -96,6 +98,10 @@
 				f.submit();
 			}
 			
+			function fn_selectProductList(f){
+				f.action = 'selectProductList';
+				f.submit();
+			}
 			
 			
 		</script>
@@ -160,7 +166,18 @@
                         		<input type="button" value="-" onclick="fn_countDown(this.form)"/>
                         		<input type="hidden" name="pNo" value="${pDTO.pNo }"/>
                         		<input type="hidden" name="mId" value="${loginDTO.mId }"/>
-                        		<span id="total"></span>
+                        		<input type="hidden" name="var" value="${var }" />
+                                <c:choose>
+                                <c:when test="${param.var eq 'pCompany' }">
+                                   <input type="hidden" name="value" value="${pDTO.pCompany }" />
+                                </c:when>
+                                <c:when test="${param.var eq 'pCategory' }">
+                                   <input type="hidden" name="value" value="${pDTO.pCategory }" />
+                                </c:when>
+                                </c:choose>
+                              <input type="hidden" name="pGender" value="${pDTO.pGender}"/>
+                        		<span id="total">${pDTO.pPrice }</span>원
+                        		<input type="hidden" name="pInfo" value="productDetailViewPage?pNo=${pDTO.pNo}">
                         	</td>
                         </tr>
                         <tr>
@@ -177,7 +194,8 @@
                         		<c:if test="${empty loginDTO }">
                         			<input type="button" value="장바구니에 담기" onclick="fn_goLoginPage(this.form)"/>
                         		</c:if>
-                        		<input type="button" value="목록으로 이동" onclick="history.back()"/>
+                        		<input type="hidden" name="prevPage" value="${prevPage }">
+                        		<input type="button" value="목록으로 이동" onclick="fn_selectProductList(this.form)"/>
                         		<a href='reviewList?pNo=${pDTO.pNo }'>리뷰 보기</a>
                         		<a href='qnaList?pNo=${pDTO.pNo }'>상품문의 보기</a>
                         	</td>

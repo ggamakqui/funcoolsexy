@@ -84,6 +84,39 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
       WHERE RN BETWEEN #{param2} AND #{param3} 
    </select>
    
+   <!-- 컨트롤러가 수정된 버젼의 select문 -->
+   <select id="selectProductList1" resultType="com.koreait.fcs.dto.ProductDTO">
+      SELECT PNO, PNAME, PPRICE, PCATEGORY, PGENDER, PCOMPANY, PTHUMBNAIL, PFILENAME, PDESCRIPTION, PSTOCK1, PSTOCK2, PSTOCK3, PREGDATE 
+         FROM C_PRODUCT WHERE
+         <choose>
+         <when test='param1.equals("pCompany")'>
+            PCOMPANY = #{param2}
+         </when>
+         <when test='param1.equals("pCategory")'>
+            PCATEGORY = #{param3}
+         </when>
+      </choose>
+      AND PGENDER = #{param4}
+   </select>
+   
+   <select id="selectProductList2" resultType="com.koreait.fcs.dto.ProductDTO">
+      SELECT * FROM (SELECT ROWNUM AS RN, A.* FROM ((SELECT PNO, PNAME, PPRICE, PCATEGORY, PGENDER, PCOMPANY, PTHUMBNAIL, PFILENAME, PDESCRIPTION, PSTOCK1, PSTOCK2, PSTOCK3, PREGDATE 
+         FROM C_PRODUCT WHERE 
+         <choose>
+         <when test='param1.equals("pCompany")'>
+            PCOMPANY = #{param2}
+         </when>
+         <when test='param1.equals("pCategory")'>
+            PCATEGORY = #{param3}
+         </when>
+      </choose>
+         AND PGENDER = #{param4} ORDER BY PNO) A))
+         WHERE RN BETWEEN #{param5} AND #{param6} 
+      
+      
+   </select>
+   <!-- 컨트롤러가 생략된 버젼의 select문 -->
+   
    <!-- 카테고리 드롭다운 불러오기 -->
    
    <select id="selectMaleBrandList" resultType="com.koreait.fcs.dto.ProductDTO">

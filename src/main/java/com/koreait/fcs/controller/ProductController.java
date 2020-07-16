@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -129,6 +130,12 @@ public class ProductController {
 		productCommand = new ProductDeleteCommand();
 		productCommand.execute(sqlSession, model);
 		return "redirect:productListPage";
+	}
+	
+	@RequestMapping("prevPage")
+	public String prevPage(HttpServletRequest request) {
+		String prevPage = request.getParameter("prevPage");
+		return "redirect:"+prevPage;
 	}
 }
 

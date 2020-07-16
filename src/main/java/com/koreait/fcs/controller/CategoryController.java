@@ -24,6 +24,7 @@ import com.koreait.fcs.command.category.SelectProductByMaleCategoryCommand;
 import com.koreait.fcs.command.category.SelectProductEtcCommand;
 import com.koreait.fcs.command.category.SelectProductListByFemaleBrandCommand;
 import com.koreait.fcs.command.category.SelectProductListByMaleBrandCommand;
+import com.koreait.fcs.command.category.SelectProductListCommand;
 import com.koreait.fcs.command.product.SelectNewProductCommand;
 import com.koreait.fcs.command.product.SelectProductDetailCommand;
 
@@ -148,6 +149,14 @@ public class CategoryController {
 		categoryCommand = new SelectProductDetailCommand();
 		categoryCommand.execute(sqlSession, model);
 		return "product/productViewPage";
-		
+	}
+	
+	// 카테고리별 상품 가져오기
+	@RequestMapping("selectProductList")
+	public String selectProductList(HttpServletRequest request, Model model) {
+		model.addAttribute("request", request);
+		categoryCommand = new SelectProductListCommand();
+		categoryCommand.execute(sqlSession, model);
+		return "product/productListPage";
 	}
 }

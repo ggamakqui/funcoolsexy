@@ -56,5 +56,9 @@ public interface CategoryDAO {
 	
 	// 10. 상품 상세 정보 불러오기
 	public ProductDTO selectProductDetail(int pNo);
+	
+	// 11. 컨트롤러 변경 버젼
+	public ArrayList<ProductDTO> selectProductList1(String var, String value1, int value2, int pGender);
+	public ArrayList<ProductDTO> selectProductList2(String var, String value1, int value2, int pGender, int beginRecord, int endRecord);
 
 }

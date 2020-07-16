@@ -51,7 +51,12 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="loginPage")
-	public String loginPage() {
+	public String loginPage(HttpServletRequest request) {
+		if(request.getParameter("pInfo")!=null) {
+			String pInfo = request.getParameter("pInfo");
+			HttpSession session = request.getSession();
+			session.setAttribute("pInfo", pInfo);
+		}
 		return "member/loginPage";
 	}
 
@@ -213,6 +218,11 @@ public class MemberController {
 		memberCommand = new LoginMemberCommand();
 		memberCommand.execute(sqlSession, model);
 		
+		HttpSession session = request.getSession();
+		if(session.getAttribute("pInfo")!=null) {
+			String pInfo = (String) session.getAttribute("pInfo");
+			return "redirect:"+pInfo;
+		}
 		return "redirect:/";
 	}
 	
