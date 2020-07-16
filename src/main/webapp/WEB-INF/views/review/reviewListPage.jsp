@@ -2,12 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-
+<jsp:include page="../template/header.jsp">
+   <jsp:param value="회원가입" name="title" />
+</jsp:include>
 <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <link href="resources/css/star-rating.css" media="all" rel="stylesheet" type="text/css"/>
@@ -89,9 +86,10 @@ jQuery(document).ready(function () {
 	tfoot td { text-align: center; }
 </style>
 
+<div class="visual"><img src="https://ifh.cc/g/aFF3mM.jpg" alt=""></div>
+</header>
 
-</head>
-<body>
+   <main>
 	<div class="wrap">
 		<!-- 댓글 목록 창 -->
 		<div class="review-list">
@@ -203,5 +201,5 @@ jQuery(document).ready(function () {
 		</div>
 		<a href="reviewInsertPage?pNo=${pNo }">리뷰 등록하기</a>
 	</div>
-</body>
-</html>
+	</main>
+<%@ include file="../template/footer.jsp" %>

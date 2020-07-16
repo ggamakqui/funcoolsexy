@@ -1,10 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<jsp:include page="../template/header.jsp">
+   <jsp:param value="회원가입" name="title" />
+</jsp:include>
+<style>
+.inputbox1 {width: 200px; height: 25px; font-size: 18px;}
+.inputbox2 {width: 70px; height: 25px; font-size: 18px;}
+.inputbox3 {width: 300px; height: 25px; font-size: 18px;}
+.inputbox4 {width: 350px; height: 25px; font-size: 18px;}
+    </style>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
@@ -77,8 +81,11 @@
         }).open();
     }
 </script>
-</head>
-<body>
+<div class="visual"><img src="https://ifh.cc/g/aFF3mM.jpg" alt=""></div>
+</header>
+
+   <main>
+   
 <div class="my-box">
 	<h1>마이페이지</h1>
 	<form id='f'  method="POST">
@@ -87,52 +94,52 @@
 				<tr>
 					<td>아이디</td>
 					<td>
-						<input id="mId" type="text" name="mId" value="${loginDTO.mId }" readonly/>
+						<input class="inputbox1" id="mId" type="text" name="mId" value="${loginDTO.mId }" readonly/>
 					</td>
 				</tr>
 				<tr>
 					<td>성명</td>
-					<td><input id="mName" type="text" name="mName" value="${loginDTO.mName }"/></td>
+					<td><input class="inputbox1" id="mName" type="text" name="mName" value="${loginDTO.mName }"/></td>
 				</tr>
 				<tr>
 					<td>생년월일</td>
-					<td><input id="mBirth" type="text" name="mBirth" value="${loginDTO.mBirth }"/></td>
+					<td><input class="inputbox1" id="mBirth" type="text" name="mBirth" value="${loginDTO.mBirth }"/></td>
 				</tr>
 				
 				<tr>
 					<td>이메일</td>
 					<td>
-						<input id="mEmail" type="text" name="mEmail" value="${loginDTO.mEmail }"/>
+						<input class="inputbox1" id="mEmail" type="text" name="mEmail" value="${loginDTO.mEmail }"/>
 					</td>
 				</tr>
 				<tr>
 					<td>전화번호</td>
 					<td>
-						<input id="mMobile1" type="number" name="mMobile1" value="${loginDTO.mMobile1 }"/>
+						<input class="inputbox2" id="mMobile1" type="number" name="mMobile1" value="${loginDTO.mMobile1 }"/>
 						-
-						<input id="mMobile2" type="number" name="mMobile2" value="${loginDTO.mMobile2 }"/>
+						<input class="inputbox2" id="mMobile2" type="number" name="mMobile2" value="${loginDTO.mMobile2 }"/>
 						-
-						<input id="mMobile3" type="number" name="mMobile3" value="${loginDTO.mMobile3 }"/>
+						<input class="inputbox2" id="mMobile3" type="number" name="mMobile3" value="${loginDTO.mMobile3 }"/>
 					</td>
 				</tr>
 				<tr>
 					<td>우편번호</td>
-					<td><input type="text" id="mPost" name="mPost" value="${loginDTO.mPost }"><input type="button" onclick="execDaumPostcode()" value="우편번호 찾기"><br></td>
+					<td><input class="inputbox1" type="text" id="mPost" name="mPost" value="${loginDTO.mPost }"><input type="button" onclick="execDaumPostcode()" value="우편번호 찾기"><br></td>
 				</tr>
 				<tr>
 					<td>도로명주소</td>
-					<td><input type="text" id="mAddr1" name="mAddr1"  value="${loginDTO.mAddr1 }"></td>
+					<td><input  class="inputbox3" type="text" id="mAddr1" name="mAddr1"  value="${loginDTO.mAddr1 }"></td>
 				</tr>
 				<tr>
 					<td>지번주소</td>
 					<td>
-						<input type="text" id="mAddr2" name="mAddr2" value="${loginDTO.mAddr2 }">
+						<input class="inputbox3" type="text" id="mAddr2" name="mAddr2" value="${loginDTO.mAddr2 }">
 						<span id="guide" style="color:#999;display:none"></span>
 					</td>
 				</tr>
 				<tr>
 					<td>상세주소</td>
-					<td><input type="text" id="mAddr3" name="mAddr3" value="${loginDTO.mAddr3 }"></td>
+					<td><input class="inputbox4" type="text" id="mAddr3" name="mAddr3" value="${loginDTO.mAddr3 }"></td>
 				</tr>
 				<tr>
 					<td>가입일</td>
@@ -152,9 +159,5 @@
 			</tfoot>
 		</table>
 	</form>
-	<br/><br/>
-	<div id="findIdResult"></div>  <!-- AJAX 처리 결과가 나타나는 위치이다. -->
 </div>
-
-</body>
-</html>
+ <%@ include file="../template/footer.jsp" %>

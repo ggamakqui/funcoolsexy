@@ -288,6 +288,4 @@
         </div>
    </main>
    <br/><br/>
-   <div id="findIdResult"></div>  <!-- AJAX 처리 결과가 나타나는 위치이다. -->
-</div>
    <%@ include file="../template/footer.jsp" %>

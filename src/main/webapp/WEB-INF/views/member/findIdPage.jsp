@@ -19,10 +19,10 @@ $(document).ready(function(){
          success: function(responseText){
             if(responseText.trim() != "NO"){
                $('#findIdResult').text('회원님의 아이디는'+responseText+'입니다.');
-               $('#findIdResult').css('color','blue').css('font-weight','bold');
+               $('#findIdResult').css('color','blue').css('font-weight','bold').css('font-size','20px').css('text-align','center');
             }else{
                $('#findIdResult').text('일치하는 회원 정보가 없습니다');
-               $('#findIdResult').css('color','red').css('font-weight','bold');
+               $('#findIdResult').css('color','red').css('font-weight','bold').css('font-size','20px').css('text-align','center');
             }
          },
          error: function(){
@@ -39,6 +39,7 @@ $(document).ready(function(){
    <div class="contents">
                 <h2 class="h2">FCS 아이디 찾기</h2>
                 <p> 본인 인증을 통해 아이디를 찾아 주세요.</p>
+                <div id="findIdResult"></div>
 
                   <div class="content">
             <form method="post">
@@ -68,7 +69,6 @@ $(document).ready(function(){
         </div>
 
         </div>
-	<div id="findIdResult"></div> <!-- AJAX 처리 결과가 나타나는 위치이다. -->
 </div>
 </main>
 <%@ include file="../template/footer.jsp" %>
