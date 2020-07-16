@@ -2,11 +2,12 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+
+<jsp:include page="../template/header.jsp">
+   <jsp:param value="Order" name="title" />
+</jsp:include>
+<div class="visual"><img src="resources/images/1.jpg" alt=""></div>
+</header>
 </head>
 <body>
 
@@ -35,4 +36,5 @@
 		
 	</table>
 </body>
+ <%@ include file="../template/footer.jsp" %>
 </html>

@@ -2,18 +2,17 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<jsp:include page="../template/header.jsp">
+   <jsp:param value="Order" name="title" />
+</jsp:include>
+
+<div class="visual"><img src="resources/images/1.jpg" alt=""></div>
+</header>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<body>
 <script type="text/javascript">
 	
-
-
-
 $(document).ready(function(){
 	
 	$('#oName').val('${loginDTO.mName}');
@@ -218,4 +217,5 @@ $(document).ready(function(){
 	
 	
 </body>
+ <%@ include file="../template/footer.jsp" %>
 </html>

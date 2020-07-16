@@ -28,7 +28,6 @@ public class CartquantityUpCommand implements Command {
 		int pStock3 = Integer.parseInt(request.getParameter("pStock3"));
 		String cSize = request.getParameter("cSize");
 		String mId = request.getParameter("mId");
-		System.out.println(mId);
 
 		
 		try {
@@ -38,7 +37,7 @@ public class CartquantityUpCommand implements Command {
 					response.setContentType("text/html; charset=utf-8");
 					PrintWriter out = response.getWriter();
 					out.println("<script>");
-					out.println("alert('��� �����մϴ�.')");
+					out.println("alert('재고가 부족합니다.')");
 					out.println("location.href='cartListPage?mId=" + mId + "'");
 					out.println("</script>");
 					out.close();
@@ -52,7 +51,7 @@ public class CartquantityUpCommand implements Command {
 					response.setContentType("text/html; charset=utf-8");
 					PrintWriter out = response.getWriter();
 					out.println("<script>");
-					out.println("alert('��� �����մϴ�.')");
+					out.println("alert('재고가 부족합니다.')");
 					out.println("location.href='cartListPage?mId=" + mId + "'");
 					out.println("</script>");
 					out.close();
@@ -66,7 +65,7 @@ public class CartquantityUpCommand implements Command {
 					response.setContentType("text/html; charset=utf-8");
 					PrintWriter out = response.getWriter();
 					out.println("<script>");
-					out.println("alert('��� �����մϴ�.')");
+					out.println("alert('재고가 부족합니다.')");
 					out.println("location.href='cartListPage?mId=" + mId + "'");
 					out.println("</script>");
 					out.close();

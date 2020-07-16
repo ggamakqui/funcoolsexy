@@ -30,7 +30,7 @@ public class CartquantityDownCommand implements Command {
 				response.setContentType("text/html; charset=utf-8");
 				PrintWriter out = response.getWriter();
 				out.println("<script>");
-				out.println("alert('�ּ� �ֹ� ������ 1���Դϴ�.')");
+				out.println("alert('최소 주문 수량은 1개입니다.')");
 				out.println("location.href='cartListPage?mId=" + mId + "&pStock=" + request.getParameter("pStock") + "'");
 				out.println("</script>");
 				out.close();
