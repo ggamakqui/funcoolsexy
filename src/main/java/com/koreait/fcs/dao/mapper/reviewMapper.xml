@@ -5,25 +5,38 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.koreait.fcs.dao.ReviewDAO">
 	<select id="reviewList" resultType="com.koreait.fcs.dto.ReviewDTO">
-		SELECT * FROM (SELECT ROWNUM RN, A.* FROM (SELECT * FROM C_REVIEW WHERE PNO = #{param3} AND RFILENAME IS NULL ORDER BY RNO DESC) A)
+		SELECT * FROM (SELECT ROWNUM RN, A.* FROM (SELECT R.* FROM C_REVIEW R, C_MEMBER M 
+		WHERE R.MID = M.MID
+		AND M.MVALIDATE = '0'
+		AND R.PNO = #{param3} AND R.RFILENAME IS NULL ORDER BY R.RNO DESC) A)
 		WHERE RN BETWEEN #{param1} AND #{param2}
 	</select>
 	
 	<select id="reviewListWithImage" resultType="com.koreait.fcs.dto.ReviewDTO">
-		SELECT * FROM (SELECT ROWNUM RN, A.* FROM (SELECT * FROM C_REVIEW WHERE PNO = #{param3} AND RFILENAME IS NOT NULL ORDER BY RNO DESC) A)
+		SELECT * FROM 
+		(SELECT ROWNUM RN, A.* FROM 
+		(SELECT R.* FROM C_REVIEW R, C_MEMBER M 
+		WHERE R.MID = M.MID
+		AND M.MVALIDATE = '0'
+		AND R.PNO = #{param3} AND R.RFILENAME IS NOT NULL 
+		ORDER BY RNO DESC) A)
 		WHERE RN BETWEEN #{param1} AND #{param2}
 	</select>
 	
 	<select id="getTotalRecord" resultType="int">
 		SELECT COUNT(*)
-		FROM C_REVIEW
-		WHERE PNO = #{param1} AND RFILENAME IS NULL
+		FROM C_REVIEW R, C_MEMBER M
+		WHERE R.MID = M.MID
+		AND M.MVALIDATE = '0'
+		AND R.PNO = #{param1} AND R.RFILENAME IS NULL
 	</select>
 	
 	<select id="getTotalRecordWithImage" resultType="int">
 		SELECT COUNT(*)
-		FROM C_REVIEW
-		WHERE PNO = #{param1} AND RFILENAME IS NOT NULL
+		FROM C_REVIEW R, C_MEMBER M
+		WHERE R.MID = M.MID
+		AND M.MVALIDATE = '0'
+		AND R.PNO = #{param1}
 	</select>
 	
 	<insert id="reviewInsert">

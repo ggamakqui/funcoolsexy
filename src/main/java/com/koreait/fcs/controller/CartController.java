@@ -53,6 +53,8 @@ public class CartController {
 	public String quantityUp(HttpServletRequest request) {
 		int cartNo = Integer.parseInt(request.getParameter("cartNo"));
 		int cartQuantity = Integer.parseInt(request.getParameter("cartQuantity"));
+		int pPrice = Integer.parseInt(request.getParameter("pPrice"));
+		int total;
 		JSONObject obj = new JSONObject();
 		if(cartQuantity <= 1) {
 			obj.put("result", "FAIL");
@@ -61,6 +63,9 @@ public class CartController {
 			cDAO.quantityDown(cartNo);
 			obj.put("result", "SUCCESS");
 			obj.put("value", cartQuantity-1);
+			obj.put("cartNo",cartNo);
+			total = pPrice * (cartQuantity-1);
+			obj.put("total", total);
 		} 
 		return obj.toJSONString();
 	}
@@ -74,32 +79,43 @@ public class CartController {
 		int pStock1 = Integer.parseInt(request.getParameter("pStock1"));
 		int pStock2 = Integer.parseInt(request.getParameter("pStock2"));
 		int pStock3 = Integer.parseInt(request.getParameter("pStock3"));
+		int pPrice = Integer.parseInt(request.getParameter("pPrice"));
+		int total;
 		String cSize = request.getParameter("cSize");
 		JSONObject obj = new JSONObject();
 		CartDAO cDAO = sqlSession.getMapper(CartDAO.class);
 		if(cSize.equals("S")) {
-			if(cartQuantity >= pStock1) {
+			if(cartQuantity > pStock1) {
 				obj.put("result", "FAIL");
 			}else {
 				cDAO.quantityUp(cartNo);
 				obj.put("result", "SUCCESS");
 				obj.put("value", cartQuantity+1);
+				obj.put("cartNo",cartNo);
+				total = pPrice * (cartQuantity+1);
+				obj.put("total", total);
 			}
 		} else if (cSize.equals("M")) {
-			if(cartQuantity >= pStock2) {
+			if(cartQuantity > pStock2) {
 				obj.put("result", "FAIL");
 			}else {
 				cDAO.quantityUp(cartNo);
 				obj.put("result", "SUCCESS");
 				obj.put("value", cartQuantity+1);
+				obj.put("cartNo",cartNo);
+				total = pPrice * (cartQuantity+1);
+				obj.put("total", total);
 			}
 		} else {
-			if(cartQuantity >= pStock3) {
+			if(cartQuantity > pStock3) {
 				obj.put("result", "FAIL");
 			}else {
 				cDAO.quantityUp(cartNo);
 				obj.put("result", "SUCCESS");
 				obj.put("value", cartQuantity+1);
+				obj.put("cartNo",cartNo);
+				total = pPrice * (cartQuantity+1);
+				obj.put("total", total);
 			}
 		}
 		return obj.toJSONString();

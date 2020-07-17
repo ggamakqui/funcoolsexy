@@ -54,11 +54,6 @@
 					<td>이메일</td>
 					<td> <input type="text" class="user-input" value="${mDTO.mEmail }" name="mEmail" readonly></td>
 				</tr>
-				<tr>
-					<td>비밀번호</td>
-					<td> <input type="text" class="user-input" value="${mDTO.mPw }" name="mPw"></td>
-				</tr>
-				
 			</tbody>
 			</table><br/><br/>			
 			

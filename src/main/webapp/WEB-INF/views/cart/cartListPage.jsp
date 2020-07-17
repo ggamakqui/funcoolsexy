@@ -15,6 +15,7 @@
 
 	<body>
 <script type="text/javascript">
+	var i;
 	function fn_delete(f) {
 		f.action = 'cartDelete';
 		f.submit();
@@ -28,48 +29,7 @@
 		f.submit();
 	}
 </script>
-<script type="text/javascript">
 
-$(document).ready(function(){
-	$('#quantityDownBtn').click(function(){
-        $.ajax({
-           url: 'quantityDown',
-           type: 'GET',
-           dataType: 'JSON',
-           data: $('#f').serialize(),
-           success: function(responseObject){
-              if(responseObject.result == 'SUCCESS'){
-            	 $('#cartQuantity').val(responseObject.value);
-              }else{
-                 alert('최소 주문 수량은 1개입니다.');
-              }
-           },
-           error:function(){
-              alert('AJAX 통신이 실패했습니다.');
-           }
-        });
-     });
-	
-	$('#quantityUpBtn').click(function(){
-        $.ajax({
-           url: 'quantityUp',
-           type: 'GET',
-           dataType: 'JSON',
-           data: $('#f').serialize(),
-           success: function(responseObject){
-              if(responseObject.result == 'SUCCESS'){
-            	 $('#cartQuantity').val(responseObject.value);
-              }else{
-                 alert('재고가 부족합니다.');
-              }
-           },
-           error:function(){
-              alert('AJAX 통신이 실패했습니다.');
-           }
-        });
-     });
-});
-</script>
 <div class="content">
 	<div id="doc3" class="yui-t4">
 		<h1><span id="id">${mId}님의 장바구니</span></h1>
@@ -98,48 +58,91 @@ $(document).ready(function(){
 								</c:if>
 								<c:if test="${not empty list }">
 									<c:forEach var="pDTO" items="${list}">
-										<c:if test="${pDTO.cValidate eq 0}">
-											<tr>
-												<td>(이미지)</td>
-												<td>
-													${pDTO.pNo}<br/>
-												</td>
-												<td>
-													${pDTO.pName}<br/>
-												</td>
-												<td>
-													${pDTO.pCompany}<br/>
-												</td>
-												<td>
-													${pDTO.cSize}<br/>
-												</td>
-												<td>
-													<fmt:formatNumber value="${pDTO.pPrice}" />원<br/>
-												</td>
-												<td>
-													<form id="f">
+										<form id="f${pDTO.cartNo}">
+											<c:if test="${pDTO.cValidate eq 0}">
+												<tr>
+													<td>(이미지)</td>
+													<td>
+														${pDTO.pNo}<br/>
+													</td>
+													<td>
+														${pDTO.pName}<br/>
+													</td>
+													<td>
+														${pDTO.pCompany}<br/>
+													</td>
+													<td>
+														${pDTO.cSize}<br/>
+													</td>
+													<td>
+														<fmt:formatNumber value="${pDTO.pPrice}" />원<br/>
+													</td>
+													<td>
 														<input type="hidden" name="cartNo" value="${pDTO.cartNo}" />
 														<input type="hidden" name="mId" value="${mId}" />
+														<input type="hidden" name="pPrice" value="${pDTO.pPrice}" />
 														<input type="hidden" name="cSize" value="${pDTO.cSize}" />
 														<input type="hidden" name="pStock1" value="${pDTO.pStock1}" />
 														<input type="hidden" name="pStock2" value="${pDTO.pStock2}" />
 														<input type="hidden" name="pStock3" value="${pDTO.pStock3}" />
 														<!-- <input type="button" value="-" onclick="fn_quantityDown(this.form)" /> -->
-														<input id="quantityDownBtn" type="button" value="-"/>
-														<input id="cartQuantity"type="text" name="cartQuantity" value="${pDTO.cartQuantity}" readonly />
-														<input id="quantityUpBtn" type="button" value="+"/>
-													</form>
-												</td>			
-												<td>
-													<form>
-														<input type="hidden" name="cartNo" value="${pDTO.cartNo}" />
-														<input type="hidden" name="mId" value="${mId}" />
-														<fmt:formatNumber value="${pDTO.pPrice * pDTO.cartQuantity}" />원<br/><br/><br/>
+														<input id="quantityDownBtn${pDTO.cartNo}" type="button" value="-"/>
+														<input id="cartQuantity${pDTO.cartNo }" type="text" name="cartQuantity" value="${pDTO.cartQuantity}" readonly />
+														<input id="quantityUpBtn${pDTO.cartNo}" type="button" value="+"/>
+													</td>			
+													<td>
+														<input id="price${pDTO.cartNo}" value="${pDTO.pPrice * pDTO.cartQuantity}" readonly>원<br/><br/><br/>
 														<input type="button" value="제거" onclick="fn_delete(this.form)" />											
-													</form>
-												</td>
-											</tr>
-										</c:if>
+													</td>
+												</tr>
+											</c:if>
+										</form>
+<!-- 여기부터 ajax -->
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	$('#quantityDownBtn${pDTO.cartNo}').click(function(){
+        $.ajax({
+           url: 'quantityDown',
+           type: 'GET',
+           dataType: 'JSON',
+           data: $('#f${pDTO.cartNo}').serialize(),
+           success: function(responseObject){
+              if(responseObject.result == 'SUCCESS'){
+            	 $('#cartQuantity'+responseObject.cartNo).val(responseObject.value);
+            	 $('#price'+responseObject.cartNo).val(responseObject.total);
+              }else{
+                 alert('최소 주문 수량은 1개입니다.');
+              }
+           },
+           error:function(){
+              alert('AJAX 통신이 실패했습니다.');
+           }
+        });
+     });
+	
+	$('#quantityUpBtn${pDTO.cartNo}').click(function(){
+        $.ajax({
+           url: 'quantityUp',
+           type: 'GET',
+           dataType: 'JSON',
+           data: $('#f${pDTO.cartNo}').serialize(),
+           success: function(responseObject){
+              if(responseObject.result == 'SUCCESS'){
+            	 $('#cartQuantity'+responseObject.cartNo).val(responseObject.value);
+            	 $('#price'+responseObject.cartNo).val(responseObject.total);
+              }else{
+                 alert('재고가 부족합니다.');
+              }
+           },
+           error:function(){
+              alert('AJAX 통신이 실패했습니다.');
+           }
+        });
+     });
+});
+</script>
+<!-- 여기까지 ajax -->
 									</c:forEach>
 								</c:if>
 							</tbody>

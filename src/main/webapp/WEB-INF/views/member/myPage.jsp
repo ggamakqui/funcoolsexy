@@ -18,8 +18,10 @@
 		f.submit();
 	}
 	function fn_deleteMember(f){
-		f.action='deleteMember';
-		f.submit();
+		if(confirm('탈퇴하시면 동일한 아이디로 재가입이 불가능합니다. 정말로 탈퇴 하시겠습니까?')){
+			f.action='deleteMember';
+			f.submit();
+		}
 	}
 	
 	$(document).ready(function(){
