@@ -9,7 +9,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="selectBymEmail" resultType="com.koreait.fcs.dto.MemberDTO">
-		SELECT * FROM C_MEMBER WHERE MEMAIL = #{param1} AND MVALIDATE = 0
+		SELECT * FROM C_MEMBER WHERE MEMAIL = #{param1}
 	</select>
 	
 	<insert id="signUpMember">
@@ -55,7 +55,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<update id="deleteMember">
 		UPDATE C_MEMBER
-		SET MVALIDATE = '1'
+		SET MVALIDATE = '1', MEMAIL = MID
 		WHERE MNO = #{param1}
 	</update>
 	
