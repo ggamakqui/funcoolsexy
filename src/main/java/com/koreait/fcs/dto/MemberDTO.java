@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class MemberDTO {
 	private int mNo;
-	private String mId, mName, mPw, mMobile1, mMobile2, mMobile3, mEmail, mBirth, mPost, mAddr1, mAddr2, mAddr3;
+	private String mId, mName, mPw, mMobile1, mMobile2, mMobile3, mEmail, mBirth, mPost, mAddr1, mAddr2, mAddr3, mValidate;
 	private Date mRegdate;
 	
 	public MemberDTO() {
@@ -43,7 +43,7 @@ public class MemberDTO {
 
 
 	public MemberDTO(int mNo, String mId, String mName, String mPw, String mMobile1, String mMobile2, String mMobile3,
-			String mEmail, String mBirth, String mPost, String mAddr1, String mAddr2, String mAddr3, Date mRegdate) {
+			String mEmail, String mBirth, String mPost, String mAddr1, String mAddr2, String mAddr3, String mValidate, Date mRegdate) {
 		super();
 		this.mNo = mNo;
 		this.mId = mId;
@@ -58,6 +58,7 @@ public class MemberDTO {
 		this.mAddr1 = mAddr1;
 		this.mAddr2 = mAddr2;
 		this.mAddr3 = mAddr3;
+		this.mValidate = mValidate;
 		this.mRegdate = mRegdate;
 	}
 
@@ -145,6 +146,16 @@ public class MemberDTO {
 	public Date getmRegdate() {
 		return mRegdate;
 	}
+
+	public String getmValidate() {
+		return mValidate;
+	}
+
+
+	public void setmValidate(String mValidate) {
+		this.mValidate = mValidate;
+	}
+
 
 	public void setmRegdate(Date mRegdate) {
 		this.mRegdate = mRegdate;

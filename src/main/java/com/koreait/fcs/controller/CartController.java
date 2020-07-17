@@ -53,6 +53,8 @@ public class CartController {
 	public String quantityUp(HttpServletRequest request) {
 		int cartNo = Integer.parseInt(request.getParameter("cartNo"));
 		int cartQuantity = Integer.parseInt(request.getParameter("cartQuantity"));
+		int pPrice = Integer.parseInt(request.getParameter("pPrice"));
+		int total;
 		JSONObject obj = new JSONObject();
 		if(cartQuantity <= 1) {
 			obj.put("result", "FAIL");
@@ -62,6 +64,8 @@ public class CartController {
 			obj.put("result", "SUCCESS");
 			obj.put("value", cartQuantity-1);
 			obj.put("cartNo",cartNo);
+			total = pPrice * (cartQuantity-1);
+			obj.put("total", total);
 		} 
 		return obj.toJSONString();
 	}
@@ -75,6 +79,8 @@ public class CartController {
 		int pStock1 = Integer.parseInt(request.getParameter("pStock1"));
 		int pStock2 = Integer.parseInt(request.getParameter("pStock2"));
 		int pStock3 = Integer.parseInt(request.getParameter("pStock3"));
+		int pPrice = Integer.parseInt(request.getParameter("pPrice"));
+		int total;
 		String cSize = request.getParameter("cSize");
 		JSONObject obj = new JSONObject();
 		CartDAO cDAO = sqlSession.getMapper(CartDAO.class);
@@ -86,6 +92,8 @@ public class CartController {
 				obj.put("result", "SUCCESS");
 				obj.put("value", cartQuantity+1);
 				obj.put("cartNo",cartNo);
+				total = pPrice * (cartQuantity+1);
+				obj.put("total", total);
 			}
 		} else if (cSize.equals("M")) {
 			if(cartQuantity > pStock2) {
@@ -95,6 +103,8 @@ public class CartController {
 				obj.put("result", "SUCCESS");
 				obj.put("value", cartQuantity+1);
 				obj.put("cartNo",cartNo);
+				total = pPrice * (cartQuantity+1);
+				obj.put("total", total);
 			}
 		} else {
 			if(cartQuantity > pStock3) {
@@ -104,6 +114,8 @@ public class CartController {
 				obj.put("result", "SUCCESS");
 				obj.put("value", cartQuantity+1);
 				obj.put("cartNo",cartNo);
+				total = pPrice * (cartQuantity+1);
+				obj.put("total", total);
 			}
 		}
 		return obj.toJSONString();

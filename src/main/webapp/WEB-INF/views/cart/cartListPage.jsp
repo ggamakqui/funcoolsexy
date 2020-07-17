@@ -80,6 +80,7 @@
 													<td>
 														<input type="hidden" name="cartNo" value="${pDTO.cartNo}" />
 														<input type="hidden" name="mId" value="${mId}" />
+														<input type="hidden" name="pPrice" value="${pDTO.pPrice}" />
 														<input type="hidden" name="cSize" value="${pDTO.cSize}" />
 														<input type="hidden" name="pStock1" value="${pDTO.pStock1}" />
 														<input type="hidden" name="pStock2" value="${pDTO.pStock2}" />
@@ -90,7 +91,7 @@
 														<input id="quantityUpBtn${pDTO.cartNo}" type="button" value="+"/>
 													</td>			
 													<td>
-														<fmt:formatNumber value="${pDTO.pPrice * pDTO.cartQuantity}" />원<br/><br/><br/>
+														<input id="price${pDTO.cartNo}" value="${pDTO.pPrice * pDTO.cartQuantity}" readonly>원<br/><br/><br/>
 														<input type="button" value="제거" onclick="fn_delete(this.form)" />											
 													</td>
 												</tr>
@@ -109,6 +110,7 @@ $(document).ready(function(){
            success: function(responseObject){
               if(responseObject.result == 'SUCCESS'){
             	 $('#cartQuantity'+responseObject.cartNo).val(responseObject.value);
+            	 $('#price'+responseObject.cartNo).val(responseObject.total);
               }else{
                  alert('최소 주문 수량은 1개입니다.');
               }
@@ -128,6 +130,7 @@ $(document).ready(function(){
            success: function(responseObject){
               if(responseObject.result == 'SUCCESS'){
             	 $('#cartQuantity'+responseObject.cartNo).val(responseObject.value);
+            	 $('#price'+responseObject.cartNo).val(responseObject.total);
               }else{
                  alert('재고가 부족합니다.');
               }

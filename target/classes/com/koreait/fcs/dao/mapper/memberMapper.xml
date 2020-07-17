@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.koreait.fcs.dao.MemberDAO">
 	<select id="selectBymId" resultType="com.koreait.fcs.dto.MemberDTO">
-		SELECT * FROM C_MEMBER WHERE MID = #{param1} AND MVALIDATE = 0
+		SELECT * FROM C_MEMBER WHERE MID = #{param1}
 	</select>
 	
 	<select id="selectBymEmail" resultType="com.koreait.fcs.dto.MemberDTO">
