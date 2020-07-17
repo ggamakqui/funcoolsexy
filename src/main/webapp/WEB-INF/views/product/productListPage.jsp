@@ -12,6 +12,9 @@
 	
 	<section class="info_box">
 		<br/>
+		
+		
+		
 		<c:if test="${empty cName }">
 			<c:if test="${pGender == 1 }">
 				<h2>남성 ${value }</h2>
