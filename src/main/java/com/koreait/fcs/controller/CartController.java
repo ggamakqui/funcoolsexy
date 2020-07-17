@@ -61,6 +61,7 @@ public class CartController {
 			cDAO.quantityDown(cartNo);
 			obj.put("result", "SUCCESS");
 			obj.put("value", cartQuantity-1);
+			obj.put("cartNo",cartNo);
 		} 
 		return obj.toJSONString();
 	}
@@ -78,28 +79,31 @@ public class CartController {
 		JSONObject obj = new JSONObject();
 		CartDAO cDAO = sqlSession.getMapper(CartDAO.class);
 		if(cSize.equals("S")) {
-			if(cartQuantity >= pStock1) {
+			if(cartQuantity > pStock1) {
 				obj.put("result", "FAIL");
 			}else {
 				cDAO.quantityUp(cartNo);
 				obj.put("result", "SUCCESS");
 				obj.put("value", cartQuantity+1);
+				obj.put("cartNo",cartNo);
 			}
 		} else if (cSize.equals("M")) {
-			if(cartQuantity >= pStock2) {
+			if(cartQuantity > pStock2) {
 				obj.put("result", "FAIL");
 			}else {
 				cDAO.quantityUp(cartNo);
 				obj.put("result", "SUCCESS");
 				obj.put("value", cartQuantity+1);
+				obj.put("cartNo",cartNo);
 			}
 		} else {
-			if(cartQuantity >= pStock3) {
+			if(cartQuantity > pStock3) {
 				obj.put("result", "FAIL");
 			}else {
 				cDAO.quantityUp(cartNo);
 				obj.put("result", "SUCCESS");
 				obj.put("value", cartQuantity+1);
+				obj.put("cartNo",cartNo);
 			}
 		}
 		return obj.toJSONString();
