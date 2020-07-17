@@ -9,7 +9,7 @@
 	
 
 </style>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <div class="visual"><img src="resources/images/1.jpg" alt=""></div>
 </header>
 
@@ -19,14 +19,56 @@
 		f.action = 'cartDelete';
 		f.submit();
 	}
-	function fn_quantityDown(f) {
+	/* function fn_quantityDown(f) {
 		f.action = 'quantityDown';
 		f.submit();
-	}
+	} */
 	function fn_quantityUp(f) {
 		f.action = 'quantityUp';
 		f.submit();
 	}
+</script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	$('#quantityDownBtn').click(function(){
+        $.ajax({
+           url: 'quantityDown',
+           type: 'GET',
+           dataType: 'JSON',
+           data: $('#f').serialize(),
+           success: function(responseObject){
+              if(responseObject.result == 'SUCCESS'){
+            	 $('#cartQuantity').val(responseObject.value);
+              }else{
+                 alert('최소 주문 수량은 1개입니다.');
+              }
+           },
+           error:function(){
+              alert('AJAX 통신이 실패했습니다.');
+           }
+        });
+     });
+	
+	$('#quantityUpBtn').click(function(){
+        $.ajax({
+           url: 'quantityUp',
+           type: 'GET',
+           dataType: 'JSON',
+           data: $('#f').serialize(),
+           success: function(responseObject){
+              if(responseObject.result == 'SUCCESS'){
+            	 $('#cartQuantity').val(responseObject.value);
+              }else{
+                 alert('재고가 부족합니다.');
+              }
+           },
+           error:function(){
+              alert('AJAX 통신이 실패했습니다.');
+           }
+        });
+     });
+});
 </script>
 <div class="content">
 	<div id="doc3" class="yui-t4">
@@ -75,16 +117,17 @@
 													<fmt:formatNumber value="${pDTO.pPrice}" />원<br/>
 												</td>
 												<td>
-													<form>
+													<form id="f">
 														<input type="hidden" name="cartNo" value="${pDTO.cartNo}" />
 														<input type="hidden" name="mId" value="${mId}" />
 														<input type="hidden" name="cSize" value="${pDTO.cSize}" />
 														<input type="hidden" name="pStock1" value="${pDTO.pStock1}" />
 														<input type="hidden" name="pStock2" value="${pDTO.pStock2}" />
 														<input type="hidden" name="pStock3" value="${pDTO.pStock3}" />
-														<input type="button" value="-" onclick="fn_quantityDown(this.form)" />
-														<input type="text" name="cartQuantity" value="${pDTO.cartQuantity}" readonly />
-														<input type="button" value="+" onclick="fn_quantityUp(this.form)" />
+														<!-- <input type="button" value="-" onclick="fn_quantityDown(this.form)" /> -->
+														<input id="quantityDownBtn" type="button" value="-"/>
+														<input id="cartQuantity"type="text" name="cartQuantity" value="${pDTO.cartQuantity}" readonly />
+														<input id="quantityUpBtn" type="button" value="+"/>
 													</form>
 												</td>			
 												<td>
