@@ -22,6 +22,9 @@ public class SelectProductListCommand implements Command {
       Map<String, Object> map = model.asMap();
       HttpServletRequest request = (HttpServletRequest)map.get("request");
       HttpSession session = request.getSession();
+      session.removeAttribute("var");
+      session.removeAttribute("pGender");
+      session.removeAttribute("cName");
       String var = null;
       String value1 = null;
       int pGender;
