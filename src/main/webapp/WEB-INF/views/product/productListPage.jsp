@@ -28,7 +28,7 @@
 				<h2>여성 ${cName }</h2>
 			</c:if>
 			<c:if test="${pGender == 3 }">
-				<h2>Accessories ${cName }</h2>
+				<h2>ETC ${cName }</h2>
 			</c:if>
 		</c:if>
 		<ul class="clear">

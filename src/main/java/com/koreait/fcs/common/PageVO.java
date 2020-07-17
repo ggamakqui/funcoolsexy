@@ -12,7 +12,7 @@ public class PageVO {
 	// page 가 3개 모이면 1 block
 	
 	private int totalRecord = 0;  // 전체게시물
-	private int recordPerPage = 2;  // 한 페이지에 표시할 게시물 개수
+	private int recordPerPage = 4;  // 한 페이지에 표시할 게시물 개수
 	private int totalPage = 0;  // 전체 페이지 개수
 	private int page = 1;  // 현재 페이지 번호 (파라미터가 없을 때 기본으로 사용하기 위해서 1 페이지로 저장한다.)
 	private int beginRecord = 0;  // 한 페이지에 표시할 시작 게시물 번호
