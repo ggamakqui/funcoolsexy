@@ -11,7 +11,7 @@
 </head>
 <body>
 
-	<h2>나의 주문 리스트</h2>
+	<h2>${mName}님의 주문 리스트</h2>
 	<table border="1">
 		<thead>
 			<c:forEach var="orderDate" items="${oDatelist}">

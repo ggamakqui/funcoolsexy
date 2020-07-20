@@ -13,15 +13,19 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
 	
-	function fn_changPw(f){
-		f.action='changePwPage';
-		f.submit();
+	function fn_changePw(f){
+			f.action='checkPwPage';
+			f.submit();
 	}
 	function fn_deleteMember(f){
 		if(confirm('탈퇴하시면 동일한 아이디로 재가입이 불가능합니다. 정말로 탈퇴 하시겠습니까?')){
 			f.action='deleteMember';
 			f.submit();
 		}
+	}
+	function fn_selectMyOrderList(f){
+		f.action='selectMyOrderList';
+		f.submit();
 	}
 	
 	$(document).ready(function(){
@@ -152,8 +156,9 @@
 				<tr>
 					<td colspan="2">
 						<input type="hidden" name="mNo" value="${loginDTO.mNo }" >
+						<input type="button" value="구매내역 보기" onclick="fn_selectMyOrderList(this.form)"/>
 						<input id="updateBtn" type="button" value="회원정보 수정하기" />
-						<input type="button" value="비밀번호 수정하기" onclick="fn_changPw(this.form)" />
+						<input type="button" value="비밀번호 수정하기" onclick="fn_changePw(this.form)" />
 						<input type="button" value="탈퇴하기" onclick="fn_deleteMember(this.form)" />
 						<input type="button" value="메인으로 이동" onclick="location.href='index'" />
 					</td>

@@ -86,6 +86,7 @@
 				<li style="text-align: center;">${loginDTO.mName } 님</li>
 				<li><a href="logout">로그아웃</a></li>
 				<li><a href="myPage">마이 페이지</a></li>
+				<li><a href="cartListPage?mId=${loginDTO.mId }">장바구니</a></li>
 			</ul>
 		</c:if>
 		<c:if test="${loginDTO.mId eq 'admin' }">

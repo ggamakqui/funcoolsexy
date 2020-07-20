@@ -24,11 +24,7 @@ public class SelectMyOrderListCommand implements Command {
 		HttpServletRequest request = (HttpServletRequest)map.get("request");
 				
 		// session에서 로그인 정보를 받아온다. 
-		HttpSession session = request.getSession();
-		MemberDTO loginDTO = (MemberDTO)session.getAttribute("loginDTO");  // loginDTO 로그인 정보가 저장되어 있을 경우 session에서 해당 정보 불러옴
-		// loginDTO 로그인 정보가 저장되어 있을 경우 session에서 해당 정보 불러옴
-		String mId = loginDTO.getmId();
-		// 주문한 상품 정보를 불러오기 위해 mId 전달. 
+		String mId = request.getParameter("mId");
 		OrderDAO oDAO = sqlSession.getMapper(OrderDAO.class);
 		ArrayList<OrderListDTO> oList =  oDAO.selectMyOrderList(mId);
 		model.addAttribute("oList", oList);
@@ -37,6 +33,7 @@ public class SelectMyOrderListCommand implements Command {
 		// 주문일자만 불러오기
 		ArrayList<String> oDatelist = oDAO.selectOrderDate(mId);
 		model.addAttribute("oDatelist", oDatelist);
+		model.addAttribute("mName", request.getParameter("mName"));
 		
 	}
 

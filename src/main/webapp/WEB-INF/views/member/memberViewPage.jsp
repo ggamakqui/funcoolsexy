@@ -54,6 +54,9 @@
 					<td>이메일</td>
 					<td> <input type="text" class="user-input" value="${mDTO.mEmail }" name="mEmail" readonly></td>
 				</tr>
+				<tr>
+					<td colspan="2"><a href="selectMyOrderList?mId=${mDTO.mId }&mName=${mDTO.mName }">구매내역보기</a></td>
+				</tr>
 			</tbody>
 			</table><br/><br/>			
 			

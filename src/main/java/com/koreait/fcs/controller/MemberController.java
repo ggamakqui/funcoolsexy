@@ -71,9 +71,12 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="changePwPage", method=RequestMethod.POST)
-	public String changePw(HttpServletRequest request, Model model) {
-		model.addAttribute("mId", request.getParameter("mId"));
+	public String changePw() {
 		return "member/changePwPage";
+	}
+	@RequestMapping(value="checkPwPage", method=RequestMethod.POST)
+	public String checkPwPage() {
+		return "member/checkPwPage";
 	}
 	
 	@RequestMapping("myPage")
