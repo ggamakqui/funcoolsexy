@@ -148,7 +148,7 @@ $(document).ready(function(){
 						<tr>
 							<td class="left-white-line">(상품번호: ${cart.pNo})<br/>[${cart.pCompany}]${cart.pName }(사이즈:${cart.cSize})</td>
 							<td><fmt:formatNumber value="${cart.pPrice }" pattern="#,##0" />원</td>
-							<td>${cart.cartQuantity}</td>
+							<td>${cart.cartQuantity}ea</td>
 							<td class="right-white-line"><fmt:formatNumber value="${cart.pPrice * cart.cartQuantity }" pattern="#,##0" />원</td>
 						</tr>
 					</c:forEach>
