@@ -34,7 +34,7 @@
 					<td>${loginDTO.mName}</td>
 				</tr>
 				<tr>
-					<td>제목2312312312</td>
+					<td>제목</td>
 					<td><input type="text" name="qTitle" autofocus /></td>
 				</tr>
 				<tr>
@@ -50,7 +50,7 @@
 			<tfoot>
 				<tr>
 					<td colspan="2">
-						<input type="button" value="댓글등록하기" onclick="fn_replyInsert(this.form)" />
+						<input type="button" value="답글등록하기" onclick="fn_replyInsert(this.form)" />
 						<input type="reset" value="다시작성하기" />
 						<input type="button" value="목록으로이동하기" onclick="location.href='qnaList?page=${page}&pNo=${pNo }'" />
 						
