@@ -70,8 +70,8 @@
 				<tr>
 					<td colspan="2">
 						<!-- 로그인을 해야만 글을 쓸 수 있다. 원글에만 댓글을 달 수 있다. -->
-						<c:if test="${loginDTO ne null and qDTO.qDepth eq 0 }">
-							<input type="button" value="댓글달기" onclick="fn_replyInsertPage(this.form)">
+						<c:if test="${loginDTO.mId eq 'admin' and qDTO.qDepth eq 0 }">
+							<input type="button" value="답글달기" onclick="fn_replyInsertPage(this.form)">
 						</c:if>
 						<input type="button" value="목록으로이동하기" onclick="location.href='qnaList?pNo=${qDTO.pNo}&page=${page}'" />
 						<!-- 로그인을 해야만 글을 삭제할 수 있다. -->
