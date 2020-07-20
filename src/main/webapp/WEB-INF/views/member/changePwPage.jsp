@@ -5,7 +5,21 @@
 </jsp:include>
 <style type="text/css">
 	.inputbox1 {width: 200px; height: 25px; font-size: 18px;}
-	span {text-align: center; font-size: 25px;}
+	.input_group{
+		margin:auto;
+		paddin:auto;
+		text-align:center;
+		width:60%;
+	}
+	td:nth-of-type(1){width:100px;height: 25px; text-align:center;}
+	td:nth-of-type(2){width:200px;height: 25px;}
+	input[type=button]{
+		width:200px;
+		height:50px;
+		text-align:center;
+		margin-top: 10px;
+		padding: 0;
+	}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
@@ -58,10 +72,26 @@
 </header>
 
   <main>
+  <div class="input_group">
 	<form id='f' method="POST">
-		<span>새 비밀번호</span><input class="inputbox1" id="mPw" type="password" name="mPw"/><span id="pwCheckResult"></span><br>
-		<span>새 비밀번호 확인</span><input class="inputbox1"id="mPw2" type="password" name="mPw2"/><span id="pwConfirmResult"></span>
-		<input id="mId" type="hidden" name="mId" value="${mId }">
-		<input id="changePwBtn" type="button" value="패스워드 변경">
+	<table>
+		<tr>
+			<td>새 비밀번호</td>
+			<td>
+				<input class="inputbox1" id="mPw" type="password" name="mPw"/><span id="pwCheckResult"></span>
+			</td>
+			<td rowspan="2">
+				<input id="mId" type="hidden" name="mId" value="${mId }">
+				<input class="input-btn" id="changePwBtn" type="button" value="패스워드 변경">
+			</td>
+		</tr>
+		<tr>
+			<td>새 비밀번호 확인</td>
+			<td>
+				<input class="inputbox1"id="mPw2" type="password" name="mPw2"/><span id="pwConfirmResult"></span>
+			</td>
+		</tr>
+	</table>
 	</form>
+  </div>
  <%@ include file="../template/footer.jsp" %>
