@@ -13,7 +13,7 @@ html,body,h1,h2,h3,h4,h5,h6,div,p,blockquote,pre,code,address,ul,ol,li,menu,nav,
 dl,dt,dd,table,thead,tbody,tfoot,label,caption,th,td,form,fieldset,legend,hr,input,button,textarea,object,figure,figcaption {margin:0;padding:0;} /*메뉴바 박스 패딩 마진값*/
 html, body{width:100%;} /*바디 넓이*/
 html{-webkit-touch-callout:none; -webkit-user-select:none; -webkit-tap-highlight-color:rgba(0, 0, 0, 0);}
-body{width:100%; background:#fff; min-width:320px; -webkit-text-size-adjust:none;word-wrap:break-word;word-break:break-all;}
+body{width:100%; background:#fff; min-width:320px; -webkit-text-size-adjust:none;word-wrap:break-word;word-break:break-all; position:relative;}
 body,input,select,textarea,button {font-size:14px; font-family:'Noto Sans KR', sans-serif;}
 ul,ol,li{list-style:none;}
 table{width:900px; height: auto; border-collapse:collapse;  margin: auto } /*테이블*/
@@ -21,6 +21,10 @@ td{ text-align: center; font-size: 20px; }
 td:nth-of-type(2){width:50px;height: 40px;text-align:left;}
 	  
 img,fieldset{border:0;}
+#footer{
+	postion:absolute;
+	bottom: 0;
+}
 
       
 address,cite,code,em{font-style:normal;font-weight:normal;}

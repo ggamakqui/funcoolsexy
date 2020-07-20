@@ -108,6 +108,16 @@ input[type="radio"] { vertical-align:text-bottom;}
       border: black solid 1px;
       
       }
+      
+      .description-footer{
+      	display: inline;
+      	position:relative;
+         	
+      }
+      #description{
+      	text-align:center;
+      	
+      }
 
  *:focus { outline:none; }
 
@@ -117,16 +127,24 @@ td:nth-of-type(1){
       
       
    }
-
+   #thumbnail{
+   	height: 500px;
+   	margin: auto;
+   }
+	
+	#prod_info{
+		margin: auto;
+		text-align: center;
+		width: 800px;
+	}
+	
 </style>
 
 <div class="visual"><img src="resources/images/1.jpg" alt=""></div>
 </header>
 
    
-      <script type="text/javascript">
-         
-      
+<script type="text/javascript">
          function fn_totalPrice(f){
             var price = '${pDTO.pPrice}';
             var total = document.querySelector('#total');
@@ -134,23 +152,17 @@ td:nth-of-type(1){
                total.innerHTML = (f.cartQuantity.value * price);
             }
          }
-         
          function fn_countUp(f){
             f.cartQuantity.value = f.cartQuantity.value - 1 + 2;
             fn_totalPrice(f);
-            
          }
          function fn_countDown(f){
             if(f.cartQuantity.value > 1){
                f.cartQuantity.value = f.cartQuantity.value - 1;
                fn_totalPrice(f);
             }
-            
          }
-      
-      
          function fn_directOrder(f){
-            
             var stock = 0;
             if(confirm('주문하시겠습니까?')){
                switch(f.cSize.value){
@@ -175,8 +187,8 @@ td:nth-of-type(1){
                f.action = 'orderPage';
                f.submit();
             }
-            
          }
+         
          function fn_addCartList(f){
             var stock = 0;
             if(confirm('장바구니에 추가하시겠습니까?')){
@@ -216,145 +228,109 @@ td:nth-of-type(1){
          }
          
          
-      </script>
-      
+</script>
+   
    <!-- 전체페이지박스 -->
-      <div class="content">
-      <div class="product_view"  style="margin: auto;">
-      <h2 style="text-align: center;">${pDTO.pName }</h2>
-            <div class="image_view">
-               <div class="bimg">
-                  <div class="img">
-                     <!-- <img alt="썸네일이미지" src="${pageContext.request.contextPath}/resources/storage/${pDTO.pThumbnail}"><br/> 
-                       <img alt="상세이미지" src="${pageContext.request.contextPath}/resources/storage/${pDTO.pFilename}"><br/> -->
-                   
-                  </div>
-               </div>
-               <div class="thumbnail_area">
-                  <span class="image_box">
-                     <a href="#"><img alt="" src=""></a>
-                     <a href="#"><img alt="" src=""></a>
-                     <a href="#"><img alt="" src=""></a>
-                     <a href="#"><img alt="" src=""></a>
-                     <a href="#"><img alt="" src=""></a>
-                  </span>
-               </div>
-            </div>
-            <div class="info">
-               <form action="">
-                  <!--  <h3 class="name">${pDTO.pName }</h3>-->
-                  <table class="list">
-                  <caption>
+<form>
+	<table id="prod_info">
+		<tr>
+			<td rowspan="11">
+				<img id="thumbnail" style="display: block"src="${pageContext.request.contextPath}/resources/storage/${pDTO.pThumbnail}" alt="Thumbnail">
+			</td>
+			<td colspan="2">
+				<h2 style="text-align: center;">${pDTO.pName }</h2>
+			</td>
+		</tr>
+			<tr>
+                     <td>가격</td>
+                     <td>${pDTO.pPrice }원</td>
+                  </tr>
+                  <tr>
+                     <td>브랜드</td>
+                     <td>${pDTO.pCompany }</td>
+                  </tr>
+                  <tr>
+                     <td>S사이즈 재고</td>
+                     <td>${pDTO.pStock1 }개</td>
+                  </tr>
+                  <tr>
+                     <td>M사이즈 재고</td>
+                     <td>${pDTO.pStock2 }개</td>
+                  </tr>
+                  <tr>
+                     <td>L사이즈 재고</td>
+                     <td>${pDTO.pStock3 }개</td>
+                  </tr>
+                  <tr>
+                     <td>상품등록일</td>
+                     <td>${pDTO.pRegdate }</td>
+                  </tr>
+                  <tr>
+                     <td>사이즈 선택</td>
+                     <td>
+                        <select name="cSize">
+                           <option value="S">S</option>
+                           <option value="M">M</option>
+                           <option value="L">L</option>
+                        </select>
+                     </td>
+                  </tr>   
+                  <tr>   
+                        
+                        <td>구매 수량</td>
+                        <td><input type="text" name="cartQuantity" value="1" onkeyup="fn_totalPrice(this.form)"/>
+                        <input type="button" value="+" onclick="fn_countUp(this.form)"/>
+                        <input type="button" value="-" onclick="fn_countDown(this.form)"/>
+                        <input type="hidden" name="pNo" value="${pDTO.pNo }"/>
+                        <input type="hidden" name="mId" value="${loginDTO.mId }"/>
+
+                     
+
+                        <input type="hidden" name="var" value="${var }" />
+                          <c:choose>
+                          <c:when test="${param.var eq 'pCompany' }">
+                             <input type="hidden" name="value" value="${pDTO.pCompany }" />
+                          </c:when>
+                          <c:when test="${param.var eq 'pCategory' }">
+                             <input type="hidden" name="value" value="${pDTO.pCategory }" />
+                          </c:when>
+                          </c:choose>
+                        <input type="hidden" name="pGender" value="${pDTO.pGender}"/>
+                        
+                        <input type="hidden" name="pInfo" value="productDetailViewPage?pNo=${pDTO.pNo}">
+                        <input type="hidden" name="pPrice" value="${pDTO.pPrice }">
+                     </td>
+                  </tr>
+                  <tr>
+                  	<td colspan="2">
+                  		총 금액 : <span id="total">${pDTO.pPrice }</span>원
+                  	</td>
+                  </tr>
+                  <tr>
+                     <td colspan="3">
+                        <c:if test="${not empty loginDTO }">
+                           <input type="button" class="btn3" style="width: 200px;" value="주문하기" onclick="fn_directOrder(this.form)"/>
+                        </c:if>
+                        <c:if test="${empty loginDTO }">
+                           <input type="button" class="btn3" style="width: 200px;" value="주문하기" onclick="fn_goLoginPage(this.form)"/>
+                        </c:if>
+                        <c:if test="${not empty loginDTO }">
+                           <input type="button" class="btn4" style="width: 200px;" value="장바구니에 담기" onclick="fn_addCartList(this.form)"/>
+                        </c:if>
+                        <c:if test="${empty loginDTO }">
+                           <input type="button" class="btn4" style="width: 200px;" value="장바구니에 담기" onclick="fn_goLoginPage(this.form)"/>
+                        </c:if>
+                     </td>
+                  </tr>
+		<tr>
+			<td colspan="3">
+				<img alt="제품 상세 이미지" src="${pageContext.request.contextPath}/resources/storage/${pDTO.pFilename}">
+			</td>
+		</tr>
+	</table>
+</form>
             
-         </caption>
-         <colgroup>
-         <col style="width:173px;">
-         <col>
-         </colgroup>
-                     <tbody>
-                        <tr>
-                           <td>가격</td>
-                           <td>${pDTO.pPrice }원</td>
-                        </tr>
-                        <tr>
-                           <td>브랜드</td>
-                           <td>${pDTO.pCompany }</td>
-                        </tr>
-                        <tr>
-                           <td>S사이즈 재고</td>
-                           <td>${pDTO.pStock1 }개</td>
-                        </tr>
-                        <tr>
-                           <td>M사이즈 재고</td>
-                           <td>${pDTO.pStock2 }개</td>
-                        </tr>
-                        <tr>
-                           <td>L사이즈 재고</td>
-                           <td>${pDTO.pStock3 }개</td>
-                        </tr>
-                        <tr>
-                           <td>상품등록일</td>
-                           <td>${pDTO.pRegdate }</td>
-                        </tr>
-                        <tr>
-                           <td>사이즈 선택</td>
-                           <td>
-                              <select name="cSize">
-                                 <option value="S">S</option>
-                                 <option value="M">M</option>
-                                 <option value="L">L</option>
-                              </select>
-                           </td>
-                        </tr>   
-                        <tr>   
-                              
-                              <td>구매 수량</td>
-                              <td><input type="text" name="cartQuantity" value="1" st onkeyup="fn_totalPrice(this.form)"/>
-                              <input type="button" value="+" onclick="fn_countUp(this.form)"/>
-                              <input type="button" value="-" onclick="fn_countDown(this.form)"/>
-                              <input type="hidden" name="pNo" value="${pDTO.pNo }"/>
-                              <input type="hidden" name="mId" value="${loginDTO.mId }"/>
-
-                           
-
-                              <input type="hidden" name="var" value="${var }" />
-                                <c:choose>
-                                <c:when test="${param.var eq 'pCompany' }">
-                                   <input type="hidden" name="value" value="${pDTO.pCompany }" />
-                                </c:when>
-                                <c:when test="${param.var eq 'pCategory' }">
-                                   <input type="hidden" name="value" value="${pDTO.pCategory }" />
-                                </c:when>
-                                </c:choose>
-                              <input type="hidden" name="pGender" value="${pDTO.pGender}"/>
-                              
-                              <input type="hidden" name="pInfo" value="productDetailViewPage?pNo=${pDTO.pNo}">
-                              <input type="hidden" name="pPrice" value="${pDTO.pPrice }">
-                           </td>
-                        </tr>
-                        <tr>
-                        	<td>
-                        		총 금액 : <span id="total">${pDTO.pPrice }</span>원
-                        	</td>
-                        </tr>
-                        <tr>
-                           <td colspan="2">
-                              <c:if test="${not empty loginDTO }">
-                                 <input type="button" class="btn3" style="width: 200px;" value="주문하기" onclick="fn_directOrder(this.form)"/>
-                              </c:if>
-                              <c:if test="${empty loginDTO }">
-                                 <input type="button" class="btn3" style="width: 200px;" value="주문하기" onclick="fn_goLoginPage(this.form)"/>
-                              </c:if>
-                              <c:if test="${not empty loginDTO }">
-                                 <input type="button" class="btn4" style="width: 200px;" value="장바구니에 담기" onclick="fn_addCartList(this.form)"/>
-                              </c:if>
-                              <c:if test="${empty loginDTO }">
-                                 <input type="button" class="btn4" style="width: 200px;" value="장바구니에 담기" onclick="fn_goLoginPage(this.form)"/>
-                              </c:if>
-
-                              <!--  <input type="button" value="목록으로 이동" onclick="history.back()"/>
-
-                              <input type="hidden" name="prevPage" value="${prevPage }">
-                              <input type="button" value="목록으로 이동" onclick="fn_selectProductList(this.form)"/>
-
-                              <a href='reviewList?pNo=${pDTO.pNo }'>리뷰 보기</a>
-                              <a href='qnaList?pNo=${pDTO.pNo }'>상품문의 보기</a>-->
-                           </td>
-                        </tr>
-                     </tbody>
-                  </table>
-                  <div class="img">
-         <img src="https://ifh.cc/g/6tTHJ6.jpg" alt="">
-         <ul>
-         <li class="on"><a href="#a"><img src="https://ifh.cc/g/6tTHJ6.jpg" alt=""></a></li>
-         <li><a href="#a"><img src="https://ifh.cc/g/6tTHJ6.jpg" alt=""></a></li>
-         
-         </ul>
-      </div>
-               </form>
-            </div>
-            </div>
-              <div   >
+       <div>
             <table class="side-menu">
                 <tr>
                     <td ><a class="asdf" href="#header">TOP</a></td>
@@ -370,11 +346,10 @@ td:nth-of-type(1){
                 </tr>
             
             </table>
-           
-        </div>         
-    </div> 
+         
+       </div>         
+
     
  
     
-   
-<%@ include file="../template/footer.jsp" %>
+	<%@ include file="../template/footer.jsp" %>

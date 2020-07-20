@@ -5,11 +5,9 @@
 
 <div class="visual"><img src="resources/images/1.jpg" alt=""></div>
 </header>
-<body>
-<script type="text/javascript">
 
-</script>
-	
+<body>
+
 	<section class="info_box">
 		<br/>
 		
@@ -60,6 +58,7 @@
 		</ul>
 					            
 	</section>
+	
 	<!-- 페이지 구역 -->
    <div class="page" style="text-align:center">
       <!-- 1. 이전 페이지 버튼 -->
@@ -86,6 +85,5 @@
          <a href="selectProductList?page=${pVO.beginBlock + pVO.pagePerBlock }&var=${var}&pGender=${pGender}"><i class="fas fa-chevron-circle-right"></i></a>
       </c:if>
    </div>
-</body>
+   
 <%@ include file="../template/footer.jsp" %>
-</html>

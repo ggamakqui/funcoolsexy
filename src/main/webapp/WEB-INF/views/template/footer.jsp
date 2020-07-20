@@ -2,16 +2,15 @@
     pageEncoding="UTF-8"%>
 
 
-</body>
-<footer>
+<footer class="footer" id="footer">
 		<div class="clear">
 			<a href="#header">TOP</a>
 			<div class="left">
 				<div>
-					<a href="#a">개인정보처리방침</a>
-					<a href="#a">이용약관</a>
-					<a href="#a">이메일무단수집거부</a>
-					<a href="#a">사이트맵</a>
+					<a href="">개인정보처리방침</a>
+					<a href="">이용약관</a>
+					<a href="">이메일무단수집거부</a>
+					<a href="">사이트맵</a>
 				</div>
 				<p>
 					FCS(주)사업자번호 : 111-22-33333 대표자 : @@@<br>

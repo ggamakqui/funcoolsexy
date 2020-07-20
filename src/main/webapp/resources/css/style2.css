@@ -39,9 +39,9 @@ header #lnb nav > ul ul a:after { content: ""; position: absolute; left:50%; bot
 header #lnb nav > ul ul a:hover:after  { left: 0; width: 100%;}
 /* 하단 후버 효과 밑줄색*/
 
-footer { margin: 80px 0 0; background: #272f3c;} /*푸터 색*/
+footer { margin: 80px 0 0; background: #272f3c;bottom:0;} /*푸터 색*/
 footer > div { position: relative; width:1175px; padding: 45px 0; margin: 0 auto;}
-footer > div > a { position: absolute; right: 0; top: -25px; width: 39px; height: 49px; background: url(../images/icon.png) no-repeat -157px 8px #22a5d5; color:transparent;} 
+footer > div > a { position: relative; right: 0; top: -25px; width: 39px; height: 49px; background: url(../images/icon.png) no-repeat -157px 8px #22a5d5; color:transparent;} 
 footer > div .left { float: left; line-height: 100%;}
 footer > div .left div a { margin: 0 10px 0 0; font-size: 13px; color:#fff; }
 footer > div .left p { padding: 13px 0 0; line-height: 21px; font-size: 13px; color:#747b85;}
@@ -49,7 +49,7 @@ footer > div .left p span { padding: 0 13px 0 0;}
 footer > div .right { float: right; position: relative;}
 footer > div .right select { width: 134px; height: 29px; background:#272f3c; border:none; border-bottom: 1px solid #7d828a; font-size: 10px; color:#fff; text-indent: 20px; appearance:none; -webkit-appearance:none; -moz-appearance:none; }
 footer > div .right select::-ms-expand { display: none;}
-footer > div .right:after { content: ""; position: absolute; right: 20px; top:50%; margin-top: -3px; width: 8px; height: 6px; background: url(../images/icon.png) no-repeat -221px -5px;   }
+footer > div .right:after { content: ""; position: relative; right: 20px; top:50%; margin-top: -3px; width: 8px; height: 6px; background: url(../images/icon.png) no-repeat -221px -5px;   }
 
 .contents { width: 1180px; margin: 0 auto;}
 .h2 { position: relative; padding: 55px 0 53px; font-size: 36px; color:#222; line-height: 100%; text-align: center; font-weight: normal;} 

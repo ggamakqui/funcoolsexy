@@ -15,7 +15,6 @@
 
 </head>
 <body>
-	<a href="#contents" class="skip">본문바로가기</a>
 <!-- 헤더영역 -->
 	<header id="header" class="index">
 		<h1><a href="index"><img src="resources/images/logo.png" alt="FCS"></a></h1>
