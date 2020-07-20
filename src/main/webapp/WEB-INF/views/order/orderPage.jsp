@@ -213,6 +213,8 @@ $(document).ready(function(){
 		               <td class="button-row" colspan="2">
 		                  <!-- 사이즈 변수를 받아와서 mapper 에서 if 문으로 s일 경우, m일 경우, l일 경우를 구분하여 재고 업데이트 -->
 		                  <input type="hidden" name="pNo" value="${pDTO.pNo}" />
+		                  <input type="hidden" name="mId" value="${loginDTO.mId}" />
+		                  <input type="hidden" name="mName" value="${loginDTO.mName}" />
 		                  <input type="hidden" name="cartNo" value="${cDTO.cartNo}" />
 		                  <input type="hidden" name="totalPrice" value="${totalPrice}" />
 		                  <input type="hidden" name="cSize" value="${cDTO.cSize}" />

@@ -219,12 +219,13 @@ $(document).ready(function(){
 	                  <!-- 사이즈 변수를 받아와서 mapper 에서 if 문으로 s일 경우, m일 경우, l일 경우를 구분하여 재고 업데이트 -->
 	                  <input type="hidden" name="cSize" value="${cDTO.cSize}" />
 	                  <input type="hidden" name="pNo" value="${pDTO.pNo}" />
+		              <input type="hidden" name="mName" value="${loginDTO.mName}" />
 	                  <input type="hidden" name="pName" value="${pDTO.pName}" />
 	                  <input type="hidden" name="pDescription" value="${pDTO.pDescription}" />
 	                  <input type="hidden" name="cartQuantity" value="${cDTO.cartQuantity}" />
 	                  <input type="hidden" name="pPrice" value="${pDTO.pPrice}" />
 	                  <input type="hidden" name="totalPrice" value="${total}" />
-	                  <input type="hidden" name="mId" value="${mId}" />
+	                  <input type="hidden" name="mId" value="${loginDTO.mId}" />
 	                  <input id="cancelOrder" type="button" value="결제취소"  onclick="history.back()"/>
 	                  <input id="submitOrder" type="button" value="결제하기" onclick="fn_submitOrderFromCart(this.form)"/>
 	               </td>
