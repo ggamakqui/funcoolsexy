@@ -300,6 +300,7 @@ td:nth-of-type(1){
                           </c:when>
                           </c:choose>
                         <input type="hidden" name="pGender" value="${pDTO.pGender}"/>
+                        <input type="hidden" name="pCategory" value="${pDTO.pCategory}"/>
                         
                         <input type="hidden" name="pInfo" value="productDetailViewPage?pNo=${pDTO.pNo}">
                         <input type="hidden" name="pPrice" value="${pDTO.pPrice }">
@@ -332,7 +333,6 @@ td:nth-of-type(1){
 			</td>
 		</tr>
 	</table>
-</form>
             
        <div>
             <table class="side-menu">
@@ -340,7 +340,7 @@ td:nth-of-type(1){
                     <td ><a class="asdf" href="#header">TOP</a></td>
                 </tr>
                 <tr>
-                    <td><input type="button"  class="asd" value="목록으로 이동" onclick="history.back()"/></td>                  
+                    <td><input type="button"  class="asd" value="목록으로 이동" onclick="location.href='productListPage?pCategory=${pDTO.pCategory}'"/></td>                  
                 </tr>
                  <tr>
                     <td><a class="asdf" href='reviewList?pNo=${pDTO.pNo }'>리뷰 보기</a></td>                  
@@ -352,6 +352,7 @@ td:nth-of-type(1){
             </table>
          
        </div>         
+</form>
 
     
  
