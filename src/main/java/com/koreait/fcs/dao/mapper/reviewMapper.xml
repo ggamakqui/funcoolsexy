@@ -54,6 +54,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE RNO = #{param1}
 	</delete>
 	
+	<select id="InsertCheck" resultType="int">
+		SELECT COUNT(*) FROM C_REVIEW
+		WHERE PNO = #{param1}
+		AND MID = #{param2}
+	</select>
 </mapper>
 
 

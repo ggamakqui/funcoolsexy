@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:include page="../template/header.jsp">
 	<jsp:param value="회원정보 수정" name="title" />
 </jsp:include>
@@ -31,6 +32,10 @@
 			f.submit();
 		}
 	}
+	function fn_changePw(f){
+		f.action='checkPwPage';
+		f.submit();
+}
 </script>
 </header>
 
@@ -50,20 +55,36 @@
 					<td>이름</td>
 					<td><input type="text" class="user-input" value="${mDTO.mName }" name="mName"></td>
 				</tr>
+				<c:if test="${mDTO.mId ne 'admin' }">
 				<tr>
 					<td>이메일</td>
 					<td> <input type="text" class="user-input" value="${mDTO.mEmail }" name="mEmail" readonly></td>
 				</tr>
-				<tr>
-					<td colspan="2"><a href="selectMyOrderList?mId=${mDTO.mId }&mName=${mDTO.mName }">구매내역보기</a></td>
-				</tr>
+					<tr>
+						<td colspan="2"><a href="selectMyOrderList?mId=${mDTO.mId }&mName=${mDTO.mName }">구매내역보기</a></td>
+					</tr>
+				</c:if>
+				<c:if test="${mDTO.mId eq 'admin' }">
+					<tr>
+						<td>이메일</td>
+						<td> <input type="text" class="user-input" value="${mDTO.mEmail }" name="mEmail"></td>
+					</tr>
+					<tr>
+						
+						<td colspan="2">
+							<input class="btn_type2" type="button" value="비밀번호 변경하기" onclick="fn_changePw(this.form)" />
+						</td>
+					</tr>
+				</c:if>
 			</tbody>
 			</table><br/><br/>			
 			
 			<div class="btn_center">		
 			<input type="hidden" value="${mDTO.mNo }" name="mNo">						
 			<input type="submit" class="btn_type2" value="수정하기">
-			<input type="button" class="btn_type2" value="삭제하기" onclick="fn_memberDelete(this.form)">
+			<c:if test="${mDTO.mId ne 'admin' }">
+				<input type="button" class="btn_type2" value="삭제하기" onclick="fn_memberDelete(this.form)">
+			</c:if>
 			<input type="button" class="btn_type2" value="전체목록보기" onclick="location.href='userManagementPage'">	
 			</div>
 		</form>
