@@ -5,10 +5,8 @@
 <jsp:include page="../template/header.jsp">
    <jsp:param value="장바구니" name="title" />
 </jsp:include>
-<style type="text/css">
-	
+<link href="resources/css/cartList.css" media="all" rel="stylesheet" type="text/css"/>
 
-</style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <div class="visual"><img src="resources/images/1.jpg" alt=""></div>
 </header>
@@ -30,24 +28,18 @@
 	}
 </script>
 
-<div class="content">
-	<div id="doc3" class="yui-t4">
-		<h1><span id="id">${mId}님의 장바구니</span></h1>
-		<div id="bd">
-			<div id="yui-main">
-				<div class="yui-b">
-					<div class="content">
-						<table class="dataTable" border="1">
-							<thead>
-								<tr>
-									<td>품목</td>
-									<td>상품번호</td>
-									<td>상품이름</td>
-									<td>제조사</td>
-									<td>사이즈</td>
-									<td>상품가격</td>
-									<td>수량</td>
-									<td>총 가격</td>
+<div class="wrap">
+	<div class="head"><h2>${mId}님의 장바구니</h2></div>
+	<div id="main">
+			<div id="table">
+					<table class="pt" border="1">
+						<thead>
+							<tr>
+									<th>품목</th>
+									<th>상품정보</th>
+									<th>상품가격</th>
+									<th>수량</th>
+									<th>총 가격</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -63,16 +55,7 @@
 												<tr>
 													<td>(이미지)</td>
 													<td>
-														${pDTO.pNo}<br/>
-													</td>
-													<td>
-														${pDTO.pName}<br/>
-													</td>
-													<td>
-														${pDTO.pCompany}<br/>
-													</td>
-													<td>
-														${pDTO.cSize}<br/>
+														(상품번호: ${pDTO.pNo})<br/>[${pDTO.pCompany}]${pDTO.pName }(사이즈:${pDTO.cSize})
 													</td>
 													<td>
 														<fmt:formatNumber value="${pDTO.pPrice}" />원<br/>
@@ -149,9 +132,9 @@ $(document).ready(function(){
 					</table>
 					</div>
 				</div>
-			</div>
-			<div class="yui-b">
-				<div id="secondary">
+		</div>
+			<div class="order-info">
+				<div id="infoTableBox">
 					<form action="orderPageFromCart" method="POST">		
 						<div class="showTotalPrice">
 							<div class="total">상품합계(${count} 품목):&nbsp;<fmt:formatNumber value="${total}" />원</div>
@@ -166,9 +149,6 @@ $(document).ready(function(){
 					</form>	
 				</div>
 			</div>
-		</div>
-	</div>
-	</div>
 	</body>
  <%@ include file="../template/footer.jsp" %>
  </html>

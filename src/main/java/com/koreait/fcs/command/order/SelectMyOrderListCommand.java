@@ -25,8 +25,6 @@ public class SelectMyOrderListCommand implements Command {
 				
 		//String mId = request.getParameter("mId");
 		// session에서 로그인 정보를 받아온다. 
-		HttpSession session = request.getSession();
-		MemberDTO loginDTO = (MemberDTO)session.getAttribute("loginDTO");  // loginDTO 로그인 정보가 저장되어 있을 경우 session에서 해당 정보 불러옴
 		// loginDTO 로그인 정보가 저장되어 있을 경우 session에서 해당 정보 불러옴
 		String mId = request.getParameter("mId");
 		String mName = request.getParameter("mName");

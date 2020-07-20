@@ -29,13 +29,17 @@ public class SubmitOrderFromCartCommand {
 		// session에서 로그인 정보를 받아온다. 
 		 // loginDTO 로그인 정보가 저장되어 있을 경우 session에서 해당 정보 불러옴
 		// session에서 로그인 정보를 받아온다. 
-		HttpSession session = request.getSession();
-		MemberDTO loginDTO = (MemberDTO)session.getAttribute("loginDTO");  // loginDTO 로그인 정보가 저장되어 있을 경우 session에서 해당 정보 불러옴
-		// loginDTO 로그인 정보가 저장되어 있을 경우 session에서 해당 정보 불러옴
-		String mId = loginDTO.getmId();
+		/*
+		 * HttpSession session = request.getSession(); MemberDTO loginDTO =
+		 * (MemberDTO)session.getAttribute("loginDTO"); // loginDTO 로그인 정보가 저장되어 있을 경우
+		 * session에서 해당 정보 불러옴 // loginDTO 로그인 정보가 저장되어 있을 경우 session에서 해당 정보 불러옴 String
+		 * mId = loginDTO.getmId();
+		 */
 		//String mId = request.getParameter("mId");
 		//String totalPrice = request.getParameter("total");
 		// 주문자 정보 저장하기
+		String mId = request.getParameter("mId");
+		String mName = request.getParameter("mName");
 		String oName = request.getParameter("oName");
 		String oMobile1 = request.getParameter("oMobile1");
 		String oMobile2 = request.getParameter("oMobile2");
@@ -48,7 +52,6 @@ public class SubmitOrderFromCartCommand {
 		
 		
 		ArrayList<CartListDTO> pInfoList = oDAO.selectCartListBymId(mId);
-		model.addAttribute("pInfoList", pInfoList);
 		
 		CartListDTO cDTO = new CartListDTO();
 		int result = 0;
@@ -68,7 +71,7 @@ public class SubmitOrderFromCartCommand {
 			PrintWriter out = response.getWriter();
 			out.println("<script type='text/javascript'>");
 			out.println("alert('결제가 완료되었습니다.');");
-			out.println("location.href='selectMyOrderList'");
+			out.println("location.href='selectMyOrderList?mId="+mId+"&mName="+mName+"'");
 			out.println("</script>");
 			out.close();
 		} else {

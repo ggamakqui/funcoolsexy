@@ -72,18 +72,63 @@ jQuery(document).ready(function () {
 		padding: 10px;
 	}
 	.review-list-table {
-		border: 1px solid gray;
+		border-top: 1px solid lightgray;
+		border-bottom: 1px solid lightgray;
 		width: 100%;
 		margin: auto;
 		border-collapse: collapse;
 	}
 	.review-list-table td {
-		padding: 10px 0 0 10px;
+		padding: 10px;
 	}
-	.review-list-table td:nth-of-type(1) { width: 25%; }
-	.review-list-table td:nth-of-type(2) { width: 55%; }
-	.review-list-table td:nth-of-type(3) { width: 20%; }
+	.review-list-table tbody td:nth-of-type(1) { width: 25%; border-right: 1px solid lightgray;}
+	.review-list-table tbody td:nth-of-type(2) { width: 55%; border-right: 1px solid lightgray;}
+	.review-list-table tbody td:nth-of-type(3) { width: 20%; }
 	tfoot td { text-align: center; }
+	
+	#smallSize {
+		font-size: 15px;
+	}
+	
+	#button-row {
+		text-align: center;
+		padding: 10px;
+	}
+	
+	#goMain, #writeReview {
+		padding-left: 10px;
+    	padding-right: 10px;
+		border: 1px solid gray;
+    	height: 40px;
+    	width: auto;
+    	font-size: 17px;
+	}
+	
+	#goMain {
+		 background-color: white;
+    	border: 1px solid gray;
+    	width: auto;
+	}
+	#writeReview {
+		background-color: black;
+		color: white;
+		font-weight: bold;
+    	border: 1px solid gray;
+   	 	width: auto;
+	}
+	#normalReview {
+		width: 75%;
+		text-align: left;
+		border-bottom: 1px solid lightgray;
+	}
+	#normalContent {
+		text-align: center;
+		border-right: 1px solid white;
+		border-bottom: 1px solid lightgray;
+	}
+	
+	
+	
 </style>
 
 <div class="visual"><img src="https://ifh.cc/g/aFF3mM.jpg" alt=""></div>
@@ -93,27 +138,27 @@ jQuery(document).ready(function () {
 	<div class="wrap">
 		<!-- 댓글 목록 창 -->
 		<div class="review-list">
-			<input type="button" value="메인으로 이동" onclick="location.href='index'" />
+			
 			<form method="POST">
-				<h1>프리미엄 상품평</h1>
+				<div style="padding-top: 10px; padding-bottom: 10px;"><h2>프리미엄 상품평</h2></div>
 				<table class="review-list-table">
 					<tbody>
 						<c:if test="${empty list2 }">
-							<tr>
-								<td class="centered" colspan="3">상세리뷰가 없습니다.</td>
+							<tr style="border-bottom: 1px solid lightgray;">
+								<td id="smallSize" class="centered" colspan="3">상세리뷰가 없습니다.</td>
 							</tr>
 						</c:if>
 						<c:if test="${not empty list2 }">
 							<c:forEach var="rDTO" items="${list2 }">
-								<tr>
+								<tr style="border-bottom: 1px solid lightgray;">
 									<td><img alt="${rDTO.rFilename }" src="${pageContext.request.contextPath }/resources/storage/${rDTO.rFilename }"></td>
 									<td>
-										${rDTO.rTitle }<br><br>
-										${rDTO.rContent }
+										<span id="smallSize" style="font-weight: bold;">${rDTO.rTitle }</span><br><br/>
+										<span id="smallSize">${rDTO.rContent }</span>
 									</td>
 									<td>
-										작성자:${rDTO.mId }<br>
-										작성일<fmt:formatDate value="${rDTO.rRegdate }" pattern="yy/M/dd" /><br>
+										<span id="smallSize">작성자:&nbsp;${rDTO.mId }</span><br/>
+										<span id="smallSize">작성일:&nbsp;<fmt:formatDate value="${rDTO.rRegdate }" pattern="yy/MM/dd" /></span><br/>
 										<c:if test="${rDTO.rScore eq '1' }">
 											<img id="star" alt="fcs" src="resources/images/star1.jpg">
 										</c:if>
@@ -130,12 +175,9 @@ jQuery(document).ready(function () {
 											<img id="star" alt="fcs" src="resources/images/star5.jpg">
 										</c:if>
 										<c:if test="${loginDTO.mId == 'admin' or loginDTO.mId == rDTO.mId }">
-												<br><a href="deleteReview?pNo=${pNo }&rNo=${rDTO.rNo}&page2=${page2}&page1=${page1}">리뷰삭제</a>
+												<span id="smallSize"><br><a href="deleteReview?pNo=${pNo }&rNo=${rDTO.rNo}&page2=${page2}&page1=${page1}">리뷰삭제</a></span>
 										</c:if>
 									</td>
-								</tr>
-								<tr>
-									<td colspan="3"><hr></td>
 								</tr>
 							</c:forEach>
 						</c:if>
@@ -146,25 +188,24 @@ jQuery(document).ready(function () {
 					</tfoot>
 				</table>
 				<br><br><br>
-				<h1>일반 상품평</h1>				
+				<div style="padding-top: 10px; padding-bottom: 10px;"><h2>일반 상품평</h2></div>				
 				<table class="review-list-table">
 					<tbody>
 						<c:if test="${empty list1 }">
 							<tr>
-								<td class="centered" colspan="3">일반리뷰가 없습니다.</td>
+								<td id="smallSize" class="centered" colspan="3">일반리뷰가 없습니다.</td>
 							</tr>
 						</c:if>
 						<c:if test="${not empty list1 }">
 							<c:forEach var="rDTO" items="${list1 }">
-								<tr>
-									<td></td>
-									<td>
-										${rDTO.rTitle }<br><br>
-										${rDTO.rContent }
+								<tr id="normalRow">
+									<td id="normalReview">
+										<span id="smallSize" style="font-weight: bold;">${rDTO.rTitle }</span><br><br/>
+										<span id="smallSize">${rDTO.rContent }</span>
 									</td>
-									<td>
-										작성자:${rDTO.mId }<br>
-										작성일<fmt:formatDate value="${rDTO.rRegdate }" pattern="yy/M/dd" /><br>
+									<td id="normalContent">
+										<span id="smallSize">작성자:${rDTO.mId }</span><br>
+										<span id="smallSize">작성일:<fmt:formatDate value="${rDTO.rRegdate }" pattern="yy/MM/dd" /></span><br>
 										<c:if test="${rDTO.rScore eq '1' }">
 											<img id="star" alt="fcs" src="resources/images/star1.jpg">
 										</c:if>
@@ -181,12 +222,9 @@ jQuery(document).ready(function () {
 											<img id="star" alt="fcs" src="resources/images/star5.jpg">
 										</c:if>
 										<c:if test="${loginDTO.mId == 'admin' or loginDTO.mId == rDTO.mId }">
-											<br><a href="deleteReview?pNo=${pNo }&rNo=${rDTO.rNo}&page2=${page2}&page1=${page1}">리뷰삭제</a>
+											<span id="smallSize"><br><a href="deleteReview?pNo=${pNo }&rNo=${rDTO.rNo}&page2=${page2}&page1=${page1}">리뷰삭제</a></span>
 										</c:if>
 									</td>
-								</tr>
-								<tr>
-									<td colspan="3"><hr></td>
 								</tr>
 							</c:forEach>
 						</c:if>
@@ -199,7 +237,10 @@ jQuery(document).ready(function () {
 				</table>
 			</form>
 		</div>
-		<a href="reviewInsertPage?pNo=${pNo }">리뷰 등록하기</a>
+		<div id="button-row">
+			<input id="goMain" type="button" value="메인으로 이동" onclick="location.href='index'" />&nbsp;&nbsp;
+			<input id="writeReview" type="button" value="리뷰 등록하기" onclick="location.href='reviewInsertPage?pNo=${pNo }'">
+		</div>
 	</div>
 	</main>
 <%@ include file="../template/footer.jsp" %>

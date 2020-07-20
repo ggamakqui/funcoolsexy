@@ -24,13 +24,11 @@ public class SubmitOrderCommand{
 		HttpServletRequest request = (HttpServletRequest)map.get("request");
 		OrderDAO oDAO = sqlSession.getMapper(OrderDAO.class);
 		
-		// session에서 로그인 정보를 받아온다. 
-		HttpSession session = request.getSession();
-		MemberDTO loginDTO = (MemberDTO)session.getAttribute("loginDTO");  // loginDTO 로그인 정보가 저장되어 있을 경우 session에서 해당 정보 불러옴
-		 // loginDTO 로그인 정보가 저장되어 있을 경우 session에서 해당 정보 불러옴
-		String mId = loginDTO.getmId();
+	
 		
 		// 주문자 정보 저장하기
+		String mId = request.getParameter("mId");
+		String mName = request.getParameter("mName");
 		String oName = request.getParameter("oName");
 		String oMobile1 = request.getParameter("oMobile1");
 		String oMobile2 = request.getParameter("oMobile2");
@@ -53,13 +51,12 @@ public class SubmitOrderCommand{
 		oDAO.updateCartValidate(cartNo);
 		// pNo과 pSize를 전달해서 상품 재고를 업데이트 한다. 
 		oDAO.updateProductStock(cSize, cartQuantity, pNo);
-		
 		if (result > 0) {
 			response.setContentType("text/html; charset=utf-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script type='text/javascript'>");
 			out.println("alert('결제가 완료되었습니다.');");
-			out.println("location.href='selectMyOrderList'");
+			out.println("location.href='selectMyOrderList?mId="+mId+"&mName="+mName+"'");
 			out.println("</script>");
 			out.close();
 		} else {
