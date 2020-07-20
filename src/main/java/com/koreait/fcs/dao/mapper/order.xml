@@ -59,7 +59,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE P.PNO = C.PNO 
 		AND O.CARTNO = C.CARTNO 
 		AND O.MID = #{param1} AND C.CVALIDATE = 1
-		ORDER BY O.ONO
+		ORDER BY O.ONO DESC
 	</select>
 	
 </mapper>

@@ -14,16 +14,6 @@ import com.koreait.fcs.command.category.CategoryDeleteCommand;
 import com.koreait.fcs.command.category.CategoryInsertCommand;
 import com.koreait.fcs.command.category.CategoryListCommand;
 import com.koreait.fcs.command.category.CategoryUpdateCommand;
-import com.koreait.fcs.command.category.SelectEtcListCommand;
-import com.koreait.fcs.command.category.SelectFemaleBrandListCommand;
-import com.koreait.fcs.command.category.SelectFemaleCategoryListCommand;
-import com.koreait.fcs.command.category.SelectMaleBrandListCommand;
-import com.koreait.fcs.command.category.SelectMaleCategoryListCommand;
-import com.koreait.fcs.command.category.SelectProductByFemaleCategoryCommand;
-import com.koreait.fcs.command.category.SelectProductByMaleCategoryCommand;
-import com.koreait.fcs.command.category.SelectProductEtcCommand;
-import com.koreait.fcs.command.category.SelectProductListByFemaleBrandCommand;
-import com.koreait.fcs.command.category.SelectProductListByMaleBrandCommand;
 import com.koreait.fcs.command.category.SelectProductListCommand;
 import com.koreait.fcs.command.product.SelectNewProductCommand;
 import com.koreait.fcs.command.product.SelectProductDetailCommand;
@@ -97,50 +87,47 @@ public class CategoryController {
 	
 	
 	
-	// 남성 브랜드별 카테고리 가져오기
-	@RequestMapping("selectProductByMaleBrand")
-	public String selectProductByMaleBrand(HttpServletRequest request, Model model) {
-		model.addAttribute("request", request);
-		categoryCommand = new SelectProductListByMaleBrandCommand();
-		categoryCommand.execute(sqlSession, model);
-		return "product/productListPage";
-	}
-	
-	// 여성 브랜드별 카테고리 가져오기
-	@RequestMapping("selectProductByFemaleBrand")
-	public String selectProductByFemaleBrand(HttpServletRequest request, Model model) {
-		model.addAttribute("request", request);
-		categoryCommand = new SelectProductListByFemaleBrandCommand();
-		categoryCommand.execute(sqlSession, model);
-		return "product/productListPage";
-	}
-	
-	// 남성 의류 카테고리 가져오기
-	@RequestMapping("selectProductByMaleCategory")
-	public String selectProductByMaleCategory(HttpServletRequest request, Model model) {
-		model.addAttribute("request", request);
-		categoryCommand = new SelectProductByMaleCategoryCommand();
-		categoryCommand.execute(sqlSession, model);
-		return "product/productListPage";
-	}
-	
-	// 여성 의류 카테고리 가져오기
-	@RequestMapping("selectProductByFemaleCategory")
-	public String selectProductByFemaleCategory(HttpServletRequest request, Model model) {
-		model.addAttribute("request", request);
-		categoryCommand = new SelectProductByFemaleCategoryCommand();
-		categoryCommand.execute(sqlSession, model);
-		return "product/productListPage";
-	}
-	
-	// 잡화 카테고리 가져오기
-	@RequestMapping("selectProductEtc")
-	public String selectProductEtc(HttpServletRequest request, Model model) {
-		model.addAttribute("request", request);
-		categoryCommand = new SelectProductEtcCommand();
-		categoryCommand.execute(sqlSession, model);
-		return "product/productListPage";
-	}
+	/*
+	 * // 남성 브랜드별 카테고리 가져오기
+	 * 
+	 * @RequestMapping("selectProductByMaleBrand") public String
+	 * selectProductByMaleBrand(HttpServletRequest request, Model model) {
+	 * model.addAttribute("request", request); categoryCommand = new
+	 * SelectProductListByMaleBrandCommand(); categoryCommand.execute(sqlSession,
+	 * model); return "product/productListPage"; }
+	 * 
+	 * // 여성 브랜드별 카테고리 가져오기
+	 * 
+	 * @RequestMapping("selectProductByFemaleBrand") public String
+	 * selectProductByFemaleBrand(HttpServletRequest request, Model model) {
+	 * model.addAttribute("request", request); categoryCommand = new
+	 * SelectProductListByFemaleBrandCommand(); categoryCommand.execute(sqlSession,
+	 * model); return "product/productListPage"; }
+	 * 
+	 * // 남성 의류 카테고리 가져오기
+	 * 
+	 * @RequestMapping("selectProductByMaleCategory") public String
+	 * selectProductByMaleCategory(HttpServletRequest request, Model model) {
+	 * model.addAttribute("request", request); categoryCommand = new
+	 * SelectProductByMaleCategoryCommand(); categoryCommand.execute(sqlSession,
+	 * model); return "product/productListPage"; }
+	 * 
+	 * // 여성 의류 카테고리 가져오기
+	 * 
+	 * @RequestMapping("selectProductByFemaleCategory") public String
+	 * selectProductByFemaleCategory(HttpServletRequest request, Model model) {
+	 * model.addAttribute("request", request); categoryCommand = new
+	 * SelectProductByFemaleCategoryCommand(); categoryCommand.execute(sqlSession,
+	 * model); return "product/productListPage"; }
+	 * 
+	 * // 잡화 카테고리 가져오기
+	 * 
+	 * @RequestMapping("selectProductEtc") public String
+	 * selectProductEtc(HttpServletRequest request, Model model) {
+	 * model.addAttribute("request", request); categoryCommand = new
+	 * SelectProductEtcCommand(); categoryCommand.execute(sqlSession, model); return
+	 * "product/productListPage"; }
+	 */
 	
 	// 상세 페이지 가져오기
 	@RequestMapping("selectProductDetail")
