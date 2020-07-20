@@ -33,6 +33,7 @@
 							<th>재고(L)</th>
 							<th>상품등록일</th>
 							<th>재고수정</th>
+							<th>상품수정</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -47,6 +48,7 @@
 								<td>${prodList.pStock3}ea</td>
 								<td>${prodList.pRegdate}</td>
 								<td><button onclick="location.href='goUpdateProductQuantityPage?pNo=${prodList.pNo}'">수정</button></td>
+								<td><button onclick="location.href='productUpdatePage?pNo=${prodList.pNo }'">수정</button></td>
 							</tr>
 						</c:forEach>
 					</tbody>

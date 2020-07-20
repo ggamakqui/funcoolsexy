@@ -60,9 +60,9 @@
 			pThumbnail(썸네일이미지) : ${pDTO.pThumbnail }<input type="file" name="pThumbnail"/><br/>
 			pFilename(제품상세이미지) : ${pDTO.pFilename }<input type="file" name="pFilename"/><br/>
 			pDescription <textarea name="pDescription" rows="5" cols="10" >${pDTO.pDescription }</textarea><br/>
-			pStock(S사이즈) <input type="text" name="pStock1" value="${pDTO.pStock1 }"/><br/>
-			pStock(M사이즈) <input type="text" name="pStock2" value="${pDTO.pStock2 }"/><br/>
-			pStock(L사이즈) <input type="text" name="pStock3" value="${pDTO.pStock3 }"/><br/>
+			<input type="hidden" name="pStock1" value="${pDTO.pStock1 }"/><br/>
+			<input type="hidden" name="pStock2" value="${pDTO.pStock2 }"/><br/>
+			<input type="hidden" name="pStock3" value="${pDTO.pStock3 }"/><br/>
 			
 			<br/>
 			<input type="button" value="수정하기" onclick="fn_productUpdate(this.form)"/>

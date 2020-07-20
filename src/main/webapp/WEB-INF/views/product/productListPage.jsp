@@ -35,9 +35,6 @@
 		<ul class="clear">
 	        <c:forEach var="pDTO" items="${list}">
 			<li>
-				<c:if test="${loginDTO.mId eq 'admin' }">
-					<a href="productUpdatePage?pNo=${pDTO.pNo }">수정하기</a>
-				</c:if>
 				<a href="productDetailViewPage?pNo=${pDTO.pNo }&var=${var}&pGender=${pDTO.pGender}">
 					<em><img src="${pageContext.request.contextPath}/resources/storage/${pDTO.pThumbnail}" alt="${pDTO.pThumbnail}"></em>
 					<div>
