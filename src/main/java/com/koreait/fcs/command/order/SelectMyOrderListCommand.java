@@ -28,8 +28,8 @@ public class SelectMyOrderListCommand implements Command {
 		HttpSession session = request.getSession();
 		MemberDTO loginDTO = (MemberDTO)session.getAttribute("loginDTO");  // loginDTO 로그인 정보가 저장되어 있을 경우 session에서 해당 정보 불러옴
 		// loginDTO 로그인 정보가 저장되어 있을 경우 session에서 해당 정보 불러옴
-		String mId = loginDTO.getmId();
-		String mName = loginDTO.getmName();
+		String mId = request.getParameter("mId");
+		String mName = request.getParameter("mName");
 		OrderDAO oDAO = sqlSession.getMapper(OrderDAO.class);
 		ArrayList<OrderListDTO> oList =  oDAO.selectMyOrderList(mId);
 		model.addAttribute("oList", oList);

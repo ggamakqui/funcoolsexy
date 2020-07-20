@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.koreait.fcs.command.Command;
 import com.koreait.fcs.command.review.ReviewDeleteCommand;
+import com.koreait.fcs.command.review.ReviewInsertCheckCommand;
 import com.koreait.fcs.command.review.ReviewInsertCommand;
 import com.koreait.fcs.command.review.ReviewInsertWithImageCommand;
 import com.koreait.fcs.command.review.ReviewListCommand;
@@ -58,8 +59,11 @@ public class ReviewController {
 	}
 	
 	@RequestMapping("reviewInsertPage")
-	public String reviewInsertPage(HttpServletRequest request, Model model) {
-		model.addAttribute("pNo",request.getParameter("pNo"));
+	public String reviewInsertPage(HttpServletRequest request, HttpServletResponse response, Model model) {
+		model.addAttribute("request", request);
+		model.addAttribute("response", response);
+		reviewCommand = new ReviewInsertCheckCommand();
+		reviewCommand.execute(sqlSession, model);
 		return "review/reviewInsertPage";
 	}
 }

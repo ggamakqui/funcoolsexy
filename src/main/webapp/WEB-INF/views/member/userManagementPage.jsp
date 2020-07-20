@@ -19,6 +19,7 @@
 	<div class="contents" >
 	 <h2 class="h2">FCS 관리자 페이지</h2>
      <p style="font-size: 35px;">사이트 관리</p>
+     <p style="font-size: 20px; text-align:center;"><a href="memberViewPage?mNo=${loginDTO.mNo }">관리자 정보 변경</a></p>
 		<div class="content">
 			<table border="1">
 				<tr>

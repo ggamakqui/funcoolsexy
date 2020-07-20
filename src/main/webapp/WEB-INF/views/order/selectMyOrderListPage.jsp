@@ -110,7 +110,9 @@
 							<div class="tcell">상품정보</div>
 							<div class="tcell">수량</div>
 							<div class="tcell">결제금액</div>
-							<div class="tcell" style="width:15%;">리뷰 작성</div>
+							<c:if test="${loginDTO.mId ne 'admin' }">
+								<div class="tcell" style="width:15%;">리뷰 작성</div>
+							</c:if>
 						</div>
 					</div>
 						<div class="table">
@@ -122,7 +124,9 @@
 								<div class="tbcell">${olist.pName }(사이즈:${olist.cSize })</div> 
 								<div class="tbcell">${olist.cartQuantity }</div> 
 								<div class="tbcell"><fmt:formatNumber value="${olist.pPrice * olist.cartQuantity }" pattern="#,##0" />원</div>
-								<div class="tbcell"><button onclick="location.href='reviewInsertPage?pNo=${olist.pNo}'"><i class="fas fa-edit"></i></button></div>
+								<c:if test="${loginDTO.mId ne 'admin' }">
+									<div class="tbcell"><button onclick="location.href='reviewInsertPage?pNo=${olist.pNo}&mId=${loginDTO.mId }'"><i class="fas fa-edit"></i></button></div>
+								</c:if>
 							</div>
 						</c:if>
 					</c:forEach>

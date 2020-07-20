@@ -22,4 +22,7 @@ public interface ReviewDAO {
 	
 	//리뷰 삭제
 	public int reviewDelete(int rNo);
+	
+	//리뷰 작성 유무 확인
+	public int InsertCheck(int pNo, String mId);
 }
