@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
-<html>
-<head>
+<jsp:include page="../template/header.jsp" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
@@ -36,58 +34,67 @@
 	
 	
 </script>
-</head>
-<body>
-<div class="board-view-box">
+<style>
 
+	td:nth-last-child(4) {
+		background: black;
+}
+
+	
+</style>
+<div class="visual"><img src="resources/images/qna.jpg" alt=""></div>
+</header>
+<body>
+<div class="contents">
+	
+	<h2 class="h2">${qDTO.qNo }번 게시물</h2>
+<div class="content">
 	<form method="POST">
-		<table>
-			<thead>
-				<tr>
-					<td colspan="2">${qDTO.qNo }번 게시물</td>
-				</tr>
-			</thead>
+		<table style="border:1px solid black; ">
 			<tbody>
-				<tr>
+				<tr style="border-bottom: 1px solid black;">
 					<td>작성자</td>
 					<td>${qDTO.mId}</td>
 				</tr>
-				<tr>
+				<tr style="border-bottom: 1px solid black;">
 					<td>제목</td>
 					<td>${qDTO.qTitle }</td>
 				</tr>
-				<tr>
+				<tr >
 					<td>작성일</td>
 					<td>${qDTO.qRegdate }</td>
 				</tr>
-				<tr>
-					<td colspan="2">
+				<tr >
+					<td colspan="2"  style="width: 500px; height: 300px; border: 1px solid black; text-align: left;">
 						<pre>${qDTO.qContent }</pre>
 					</td>
 				</tr>
-			</tbody>
-			<tfoot>
-				<tr>
+			
+			
+				<tr >
 					<td colspan="2">
-						<!-- 로그인을 해야만 글을 쓸 수 있다. 원글에만 댓글을 달 수 있다. -->
+						
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	<div class="btn_center" style="margin-top: 50px;">
+	<!-- 로그인을 해야만 글을 쓸 수 있다. 원글에만 댓글을 달 수 있다. -->
 						<c:if test="${loginDTO.mId eq 'admin' and qDTO.qDepth eq 0 }">
-							<input type="button" value="답글달기" onclick="fn_replyInsertPage(this.form)">
+							<input type="button" class="btn4" value="답글달기" onclick="fn_replyInsertPage(this.form)">
 						</c:if>
-						<input type="button" value="목록으로이동하기" onclick="location.href='qnaList?pNo=${qDTO.pNo}&page=${page}'" />
+						<input type="button" class="btn4" value="목록으로이동하기" onclick="location.href='qnaList?pNo=${qDTO.pNo}&page=${page}'" />
 						<!-- 로그인을 해야만 글을 삭제할 수 있다. -->
 						<c:if test="${loginDTO ne null }">
-							<input type="button" value="삭제하기" onclick="fn_boardDelete(this.form)">
+							<input type="button" class="btn4" value="삭제하기" onclick="fn_boardDelete(this.form)">
 							삭제비밀번호 <input type="password" name="qPw" size="5">
 						</c:if>
 						<input type="hidden" name="pNo" value="${qDTO.pNo }">
 						<input type="hidden" name="page" value="${page}" />
 						<input type="hidden" name="qNo" value="${param.qNo }">
-					</td>
-				</tr>
-			</tfoot>
-		</table>
+	 </div>
 	</form>
 </div>
+</div>
 
-</body>
-</html>
+<%@ include file="../template/footer.jsp" %>

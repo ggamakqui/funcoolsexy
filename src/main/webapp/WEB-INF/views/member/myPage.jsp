@@ -87,13 +87,88 @@
         }).open();
     }
 </script>
+<style>
+	
+
+    tr{
+        height: 50px;
+    }
+    
+    td{
+        font-size: 20px;
+         border-bottom: 1px solid #444444;
+       
+    }
+
+    .inputbox1{
+        height: 25px; 
+        width: 200px;
+    }
+    .inputbox2{
+        height: 25px; 
+        width: 70px;
+    }
+    
+     .inputbox3{
+        height: 25px; 
+        width: 200px;
+    }
+    .inputbox4{
+        height: 25px; 
+        width: 300px;
+    }
+.upload{
+        height: 25px; 
+        width: 250px;
+    }
+    td:nth-of-type(1){
+        width: 400px;
+        text-align: center;
+    }
+    
+    table{
+        margin: auto;
+        border-collapse: collapse; 
+           border-top: 1px solid #444444;
+    }
+
+    .h22 { position: relative; padding: 55px 0 53px; font-size: 36px; color:#222; line-height: 100%; text-align: center; } 
+    
+    .adrbtn{
+    background:white;
+         border-radius:3px;
+        border: 1px solid black;
+        height: 25px;
+    }
+    
+    .changebtn1{
+         background:black;
+        color: white;
+         border-radius:3px;
+        border: 1px solid black;
+        height: 30px;
+    }
+    
+    .changebtn2{
+         background:white;
+         border-radius:3px;
+        border: 1px solid black;
+        height: 30px;
+    }
+    
+
+
+</style>
 <div class="visual"><img src="https://ifh.cc/g/aFF3mM.jpg" alt=""></div>
 </header>
 
-   <main>
-   
+  <main>
+         <div class="contents">
+            <h2 class="h22">FCS 마이 페이지</h2>
+          
+           
 <div class="my-box">
-	<h1>마이페이지</h1>
+	
 	<form id='f'  method="POST">
 		<table>
 			<tbody>
@@ -130,7 +205,8 @@
 				</tr>
 				<tr>
 					<td>우편번호</td>
-					<td><input class="inputbox1" type="text" id="mPost" name="mPost" value="${loginDTO.mPost }"><input type="button" onclick="execDaumPostcode()" value="우편번호 찾기"><br></td>
+					<td><input class="inputbox1" type="text" id="mPost" name="mPost" value="${loginDTO.mPost }">&nbsp;
+                        <input type="button" class="adrbtn"  onclick="execDaumPostcode()" value="우편번호 찾기"><br></td>
 				</tr>
 				<tr>
 					<td>도로명주소</td>
@@ -156,15 +232,17 @@
 				<tr>
 					<td colspan="2">
 						<input type="hidden" name="mNo" value="${loginDTO.mNo }" >
-						<input type="button" value="구매내역 보기" onclick="fn_selectMyOrderList(this.form)"/>
-						<input id="updateBtn" type="button" value="회원정보 수정하기" />
-						<input type="button" value="비밀번호 수정하기" onclick="fn_changePw(this.form)" />
-						<input type="button" value="탈퇴하기" onclick="fn_deleteMember(this.form)" />
-						<input type="button" value="메인으로 이동" onclick="location.href='index'" />
+						<input id="updateBtn" type="button" class="changebtn1" value="회원정보 수정하기" />
+						<input type="button" class="changebtn1" value="비밀번호 수정하기" onclick="fn_changePw(this.form)" />
+						<input type="button" class="changebtn2" value="탈퇴하기" onclick="fn_deleteMember(this.form)" />
+						<input type="button" class="changebtn2" value="메인으로 이동" onclick="location.href='index'" />
+						<input type="button" class="changebtn2" value="구매내역 보기" onclick="fn_selectMyOrderList(this.form)"/>
 					</td>
 				</tr>
 			</tfoot>
 		</table>
 	</form>
 </div>
+	</main>
+					
  <%@ include file="../template/footer.jsp" %>

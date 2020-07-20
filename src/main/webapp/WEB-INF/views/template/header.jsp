@@ -7,11 +7,16 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="resources/css/default.css"> 
-<link rel="stylesheet" type="text/css" href="resources/css/style2.css">
 <link rel="stylesheet" type="text/css" href="resources/css/index.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="resources/css/index2.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>FCS</title>
+<style type="text/css">
+/*  
+ .qwer:before{content: ""; display: inline-block; width:23px; height:23px; background: url(https://ifh.cc/g/qlkXBu.jpg) no-repeat; vertical-align: middle;
+ }*/
+</style>
 
 </head>
 <body>
@@ -20,7 +25,7 @@
 		<h1><a href="index"><img src="resources/images/logo.png" alt="FCS"></a></h1>
 		<h2 class="hide">대메뉴</h2>
 		<div id="lnb">
-			<nav>
+			<nav style="margin-top: 40px;">
 				<ul>
 		            <li><a href="">남성 브랜드</a>
 		               <ul>
@@ -73,26 +78,26 @@
 		</div>
 		<h2 class="hide">회원</h2>
 		<c:if test="${empty loginDTO }">
-			<ul>
-				<li>로그인 하기</li>
-				<li><a href="loginPage">LOGIN</a></li>
-				<li><a href="insertPage">JOIN</a></li>
+			<ul style="height: 0px; margin:0px;'">
+				<li style="color: white;">FCS</li>
+				<li ><a href="loginPage" style="color: white;">LOGIN</a></li>
+				<li><a href="insertPage" style="color: white;">JOIN</a></li>
 			</ul>
 		</c:if>
 	<c:if test="${not empty loginDTO }">
 		<c:if test="${loginDTO.mId ne 'admin' }">
-			<ul>
-				<li style="text-align: center;">${loginDTO.mName } 님</li>
-				<li><a href="logout">로그아웃</a></li>
-				<li><a href="myPage">마이 페이지</a></li>
-				<li><a href="cartListPage?mId=${loginDTO.mId }">장바구니</a></li>
+			<ul style="height: 0px; margin:0px;">
+				<li style="text-align: center; color: white;" >${loginDTO.mName } 님</li>
+				<li style="color: white;"><a class="qwer1" href="logout" style="color: white;">로그아웃</a></li>
+				<li style="color: white;"><a class="qwer2" href="myPage" style="color: white;">마이페이지</a></li>
+				<li style="color: white;"><a class="qwer3" href="cartListPage?mId=${loginDTO.mId }" style="color: white;">장바구니</a></li>
 			</ul>
 		</c:if>
 		<c:if test="${loginDTO.mId eq 'admin' }">
-			<ul>
-				<li>${loginDTO.mName } 님</li>
-				<li><a href="logout">로그아웃</a></li>
-				<li><a href="adminPage">관리 페이지</a></li>
+			<ul style="height: 0px; margin:0px;">
+				<li style="color: white;">${loginDTO.mName } 님</li>
+				<li style="color: white;"><a href="logout" style="color: white;">로그아웃</a></li>
+				<li style="color: white;"><a href="adminPage" style="color: white;">관리 페이지</a></li>
 			</ul>
 		</c:if>
 	</c:if>

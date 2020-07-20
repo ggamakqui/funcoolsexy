@@ -4,7 +4,7 @@
 
 <footer class="footer" id="footer">
 		<div class="clear">
-			<a href="#header">TOP</a>
+		
 			<div class="left">
 				<div>
 					<a href="">개인정보처리방침</a>

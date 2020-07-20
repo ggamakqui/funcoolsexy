@@ -43,6 +43,12 @@
    }
 </script>
 </head>
+<style>
+
+	td:nth-of-type(2) {
+		text-align: center;
+}
+</style>
 <body>
 
 

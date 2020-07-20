@@ -33,9 +33,9 @@ td{ border:1px solid black; }
 <main>
 
 
-<div class="content">
+<div class="contents">
 <h2 class="h2">FCS 게시글 작성하기</h2>
-
+<div class="contents">
 	<form method="POST">
 		<table class="qna">
 			<tbody>
@@ -71,6 +71,7 @@ td{ border:1px solid black; }
 			</tfoot>
 		</table>
 	</form>
+</div>	
 </div>
 </main>
 <%@ include file="../template/footer.jsp" %>
