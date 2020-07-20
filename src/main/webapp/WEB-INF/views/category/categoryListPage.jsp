@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
-<html>
-<head>
+<jsp:include page="../template/header.jsp" />
+
+<div class="visual"><img src="resources/images/1.jpg" alt=""></div>
+</header>
+</head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
@@ -22,10 +24,12 @@
 		}
 	}
 </script>
+
 </head>
 <body>
 	<div class="wrap">
-		<table border="1">
+	<h1 style="text-align: center">카테고리 관리</h1>
+		<table class="categoryTable"border="1">
 			<thead>
 				<caption>전체 : ${totalCount }개 카테고리</caption>
 				<tr>
@@ -65,8 +69,8 @@
 				<caption>새 카테고리 입력</caption>
 				<tbody>
 					<tr>
-						<td><input type="text" name="cNo" placeholder="2자리 숫자 입력"></td>
-						<td><input type="text" name="cName" placeholder="ex)남성_shirts"></td>
+						<td>카테고리 번호<input type="text" name="cNo"/></td>
+						<td>카테고리 이름<input type="text" name="cName" placeholder="SHIRTS"/></td>
 					</tr>
 					<tr>
 						<td colspan="2">
@@ -78,5 +82,4 @@
 			</table>
 		</form>
 	</div>
-</body>
-</html>
+<%@ include file="../template/footer.jsp" %>
