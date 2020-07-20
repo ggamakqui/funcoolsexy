@@ -38,13 +38,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE PNO = #{param11}
 	</update>
 	
-	<delete id="deleteProduct">
-		DELETE FROM C_PRODUCT
+	<update id="deleteProduct">
+		UPDATE C_PRODUCT SET PSTOCK1 = 0, PSTOCK2 = 0, PSTOCK3 = 0 
 		WHERE PNO = #{param1}
-	</delete>
+	</update>
 	
 	<select id="selectNewProductList" resultType="com.koreait.fcs.dto.ProductDTO">
 		SELECT * FROM C_PRODUCT
+		WHERE NOT (PSTOCK1 = 0 AND PSTOCK2 = 0 AND PSTOCK3 = 0)
 		ORDER BY PNO DESC
 	</select>
 	
@@ -61,4 +62,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
       SELECT PNO, PNAME, PPRICE, PCATEGORY, PGENDER, PCOMPANY, PTHUMBNAIL, PFILENAME, PDESCRIPTION, PSTOCK1, PSTOCK2, PSTOCK3, PREGDATE 
       FROM C_PRODUCT WHERE PNO = #{pNo}
    </select>
+   
+   <select id="selectTotalProductList" resultType="com.koreait.fcs.dto.ProductDTO">
+	   	SELECT PNO, PNAME, PPRICE, PCATEGORY, PGENDER, PCOMPANY, PTHUMBNAIL, PFILENAME, PDESCRIPTION, PSTOCK1, PSTOCK2, PSTOCK3, PREGDATE
+	   	FROM C_PRODUCT ORDER BY PNO
+   </select>
+   
+   <update id="updateProductQuantity">
+   		UPDATE C_PRODUCT SET PSTOCK1 = #{param1}, PSTOCK2 = #{param2}, PSTOCK3 = #{param3} WHERE PNO = #{param4}
+   </update>
 </mapper>

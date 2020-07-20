@@ -39,6 +39,8 @@
 .pt th {
 	padding: 10px;
 	font-size: 20px;
+	background-color: black;
+	color: white;
 }
 
 .pt tbody td:nth-of-type(1) {

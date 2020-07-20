@@ -38,6 +38,8 @@
 	width: 100%;
 	font-size: 20px;
     font-weight: bold;
+    background-color: black;
+	color: white;
 }
 
 .tcell {

@@ -16,7 +16,7 @@ public class ProductDeleteCommand implements Command {
 	@Override
 	public void execute(SqlSession sqlSession, Model model) {
 		Map<String, Object> map = model.asMap();
-		RedirectAttributes rttr = (RedirectAttributes)map.get("rttr");
+		//RedirectAttributes rttr = (RedirectAttributes)map.get("rttr");
 		HttpServletRequest request = (HttpServletRequest)map.get("request");
 		
 		int pNo = Integer.parseInt(request.getParameter("pNo"));
@@ -28,7 +28,7 @@ public class ProductDeleteCommand implements Command {
 		pDAO.deleteProduct(pNo);
 		// 삭제 결과를 productListPage.jsp에 넘기는데, 삭제 후에만 productListPage.jsp 에서 삭제 결과를 검사할 수 있도록
 		// 삭제 후에 이동한 것이라는 "변수"를 하나 더 넘겨준다.
-		rttr.addFlashAttribute("beDeleted", true);
+		//rttr.addFlashAttribute("beDeleted", true);
 
 	}
 

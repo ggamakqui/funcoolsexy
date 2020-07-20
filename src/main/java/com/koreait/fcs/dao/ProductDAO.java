@@ -30,4 +30,10 @@ public interface ProductDAO {
 	
 	// product 삭제하기
 	public int deleteProduct(int pNo);
+	
+	// 전체 product 불러오기
+	public ArrayList<ProductDTO> selectTotalProductList();
+	
+	// product 수량 수정하기
+	public int updateProductQuantity(int pStock1, int pStock2, int pStock3, int pNo);
 }

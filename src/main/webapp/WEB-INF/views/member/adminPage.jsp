@@ -26,7 +26,9 @@
 		<div class="content">
 			<a class="text" href="categoryListPage">카테고리관리</a><br/><br/>
 			<a class="text" href="productInsertPage">새 상품 등록하기</a><br/><br/>
-			<a class="text" href="userManagementPage">회원관리</a>
+			<a class="text" href="selectTotalProductList">상품 관리하기</a><br/><br/>
+			<a class="text" href="userManagementPage">회원관리</a><br/><br/>
+			<a class="text" href="selectTotalOrderList">주문 내역 확인하기</a><br/><br/>
 	
 		</div>
 	</div>

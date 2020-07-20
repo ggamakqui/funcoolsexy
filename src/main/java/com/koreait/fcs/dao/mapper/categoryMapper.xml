@@ -37,6 +37,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
          </when>
       </choose>
       AND PGENDER = #{param4}
+      AND NOT (PSTOCK1 = 0 AND PSTOCK2 = 0 AND PSTOCK3 = 0)
    </select>
    
    <select id="selectProductList2" resultType="com.koreait.fcs.dto.ProductDTO">

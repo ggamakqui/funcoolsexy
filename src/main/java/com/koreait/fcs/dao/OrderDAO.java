@@ -39,4 +39,6 @@ public interface OrderDAO {
 	// 나의 주문내역(상품정보) 확인
 	public ArrayList<OrderListDTO> selectMyOrderList(String mId);
 	
+	// 관리자용 - 전체 주문내역 확인
+	public ArrayList<OrderListDTO> selectTotalOrderList();
 }

@@ -2,7 +2,10 @@
 
 package com.koreait.fcs.controller;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,10 +24,12 @@ import com.koreait.fcs.command.product.ProductInsertWithNoDetailImageCommand;
 import com.koreait.fcs.command.product.ProductInsertWithNoThumbnailCommand;
 import com.koreait.fcs.command.product.ProductListCommand;
 import com.koreait.fcs.command.product.ProductThumbnailUpdateCommand;
+import com.koreait.fcs.command.product.ProductTotalListCommand;
 import com.koreait.fcs.command.product.ProductUpdateCommand;
 import com.koreait.fcs.command.product.ProductUpdateWithNoImageCommand;
 import com.koreait.fcs.command.product.SelectNewProductCommand;
 import com.koreait.fcs.command.product.SelectProductDetailCommand;
+import com.koreait.fcs.command.product.UpdateProductQuantityCommand;
 
 @Controller
 public class ProductController {
@@ -124,18 +129,41 @@ public class ProductController {
 		return "redirect:productListPage";
 	}
 	
-	@RequestMapping(value="productDelete", method=RequestMethod.POST)
+	@RequestMapping(value="productDelete")
 	public String productDelete(HttpServletRequest request, Model model) {
 		model.addAttribute("request", request);
 		productCommand = new ProductDeleteCommand();
 		productCommand.execute(sqlSession, model);
-		return "redirect:productListPage";
+		return "redirect:selectTotalProductList";
 	}
 	
 	@RequestMapping("prevPage")
 	public String prevPage(HttpServletRequest request) {
 		String prevPage = request.getParameter("prevPage");
 		return "redirect:"+prevPage;
+	}
+	
+	@RequestMapping("selectTotalProductList")
+	public String selectTotalProductList(HttpServletRequest request, Model model) {
+		model.addAttribute("request", request);
+		productCommand = new ProductTotalListCommand();
+		productCommand.execute(sqlSession, model);
+		return "product/totalProductListPage";
+	}
+	
+	@RequestMapping("goUpdateProductQuantityPage")
+	public String goUpdateProductQuantityPage(HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
+		model.addAttribute("request", request);
+		productCommand = new SelectProductDetailCommand();
+		productCommand.execute(sqlSession, model);
+		return "product/updateProductQuantityPage";
+	}
+	
+	@RequestMapping("updateProductQuantity")
+	public void updateProductQuantity(HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
+		model.addAttribute("request", request);
+		UpdateProductQuantityCommand command = new UpdateProductQuantityCommand();
+		command.execute(sqlSession, response, model);
 	}
 }
 

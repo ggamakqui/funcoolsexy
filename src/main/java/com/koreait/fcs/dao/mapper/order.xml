@@ -62,4 +62,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		ORDER BY O.ONO DESC
 	</select>
 	
+	<select id="selectTotalOrderList" resultType="com.koreait.fcs.dto.OrderListDTO">
+		SELECT C.*, P.*, O.*
+		FROM C_CART C, C_PRODUCT P, C_ORDER O 
+		WHERE P.PNO = C.PNO 
+		AND O.CARTNO = C.CARTNO 
+		AND C.CVALIDATE = 1
+		ORDER BY O.ONO DESC
+	</select>
+	
 </mapper>

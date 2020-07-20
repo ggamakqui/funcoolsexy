@@ -16,6 +16,7 @@ import com.koreait.fcs.command.Command;
 import com.koreait.fcs.command.order.SelectMyOrderListCommand;
 import com.koreait.fcs.command.order.SelectOrderProductCommand;
 import com.koreait.fcs.command.order.SelectOrderProductFromCartCommand;
+import com.koreait.fcs.command.order.SelectTotalOrderListCommand;
 import com.koreait.fcs.command.order.SubmitOrderCommand;
 import com.koreait.fcs.command.order.SubmitOrderFromCartCommand;
 
@@ -64,6 +65,14 @@ public class OrderController {
 		command = new SelectMyOrderListCommand();
 		command.execute(sqlSession, model);
 		return "order/selectMyOrderListPage";
+	}
+	
+	@RequestMapping("selectTotalOrderList")
+	public String selectTotalOrderList(HttpServletRequest request, Model model) {
+		model.addAttribute("request", request);
+		command = new SelectTotalOrderListCommand();
+		command.execute(sqlSession, model);
+		return "order/totalOrderListPage";
 	}
 
 }
