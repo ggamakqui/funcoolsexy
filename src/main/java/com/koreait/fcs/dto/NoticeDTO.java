@@ -5,12 +5,12 @@ import java.sql.Date;
 public class NoticeDTO {
 
 	private int nNo, nHit;
-	private String mId, nTitle, nContent;
+	private String mId, nTitle, nContent, mName;
 	private Date nRegdate;
 	public NoticeDTO() {
 		// TODO Auto-generated constructor stub
 	}
-	public NoticeDTO(int nNo, String mId, int nHit, String nTitle, String nContent, Date nRegdate) {
+	public NoticeDTO(int nNo, String mId, int nHit, String nTitle, String nContent, Date nRegdate, String mName) {
 		super();
 		this.nNo = nNo;
 		this.mId = mId;
@@ -18,6 +18,7 @@ public class NoticeDTO {
 		this.nTitle = nTitle;
 		this.nContent = nContent;
 		this.nRegdate = nRegdate;
+		this.mName = mName;
 	}
 	public int getnNo() {
 		return nNo;
@@ -54,6 +55,12 @@ public class NoticeDTO {
 	}
 	public void setnRegdate(Date nRegdate) {
 		this.nRegdate = nRegdate;
+	}
+	public String getmName() {
+		return mName;
+	}
+	public void setmName(String mName) {
+		this.mName = mName;
 	}
 	
 }

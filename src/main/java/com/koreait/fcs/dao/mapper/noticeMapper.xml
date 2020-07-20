@@ -5,7 +5,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.koreait.fcs.dao.NoticeDAO">
 	<select id="noticeList" resultType="com.koreait.fcs.dto.NoticeDTO">
-		SELECT * FROM (SELECT ROWNUM RN, A.* FROM (SELECT * FROM C_NOTICE ORDER BY NNO DESC) A)
+		SELECT * FROM (SELECT ROWNUM RN, A.* FROM (
+		SELECT C.*, M.MNAME 
+		FROM C_NOTICE C, C_MEMBER M
+		WHERE C.MID = M.MID
+		ORDER BY C.NNO DESC) A)
 		WHERE RN BETWEEN #{param1} AND #{param2}
 	</select>
 	
@@ -20,8 +24,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 	<select id="noticeView" resultType="com.koreait.fcs.dto.NoticeDTO">
-		SELECT * FROM C_NOTICE
-		WHERE NNO = #{param1}
+		SELECT C.*, M.MNAME 
+		FROM C_NOTICE C, C_MEMBER M
+		WHERE C.MID = M.MID 
+		AND NNO = #{param1}
 	</select>
 	
 	<update id="updatenHit">

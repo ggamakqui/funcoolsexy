@@ -66,7 +66,7 @@ td:nth-of-type(3){width: 150px;}
 						<td>
 							<a href="noticeViewPage?nNo=${nDTO.nNo}&page=${page}">${nDTO.nTitle}</a>
 						</td>
-						<td>${nDTO.mId}</td>
+						<td>${nDTO.mName}</td>
 						<td>${nDTO.nRegdate}</td>
 						<td>${nDTO.nHit}</td>
 					</tr>

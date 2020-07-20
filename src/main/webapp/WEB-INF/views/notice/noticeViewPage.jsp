@@ -29,7 +29,7 @@
 			<tbody>
 				<tr>
 					<td>작성자</td>
-					<td>${nDTO.mId}</td>
+					<td>${nDTO.mName}</td>
 				</tr>
 				<tr>
 					<td>제목</td>
