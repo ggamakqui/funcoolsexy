@@ -148,11 +148,15 @@ td:nth-of-type(1){
          function fn_totalPrice(f){
             var price = '${pDTO.pPrice}';
             var total = document.querySelector('#total');
+            if(f.cartQuantity.value <= 0){
+            	alert('숫자는 0보다 큰 숫자를 입력해 주세요.');
+            	f.cartQuantity.value = 1;
+            }
             if(f.cartQuantity.value > 0){
                total.innerHTML = (f.cartQuantity.value * price);
             }
          }
-         function fn_countUp(f){
+         /* function fn_countUp(f){
             f.cartQuantity.value = f.cartQuantity.value - 1 + 2;
             fn_totalPrice(f);
          }
@@ -161,7 +165,7 @@ td:nth-of-type(1){
                f.cartQuantity.value = f.cartQuantity.value - 1;
                fn_totalPrice(f);
             }
-         }
+         } */
          function fn_directOrder(f){
             var stock = 0;
             if(confirm('주문하시겠습니까?')){
@@ -279,8 +283,8 @@ td:nth-of-type(1){
                         
                         <td>구매 수량</td>
                         <td><input type="text" name="cartQuantity" value="1" onkeyup="fn_totalPrice(this.form)"/>
-                        <input type="button" value="+" onclick="fn_countUp(this.form)"/>
-                        <input type="button" value="-" onclick="fn_countDown(this.form)"/>
+                        <!-- <input type="button" value="+" onclick="fn_countUp(this.form)"/>
+                        <input type="button" value="-" onclick="fn_countDown(this.form)"/> -->
                         <input type="hidden" name="pNo" value="${pDTO.pNo }"/>
                         <input type="hidden" name="mId" value="${loginDTO.mId }"/>
 
