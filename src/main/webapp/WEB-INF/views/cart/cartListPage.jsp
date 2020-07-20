@@ -153,17 +153,17 @@ $(document).ready(function(){
 			<div class="yui-b">
 				<div id="secondary">
 					<form action="orderPageFromCart" method="POST">		
-				<div class="showTotalPrice">
-					<div class="total">상품합계(${count} 품목):&nbsp;<fmt:formatNumber value="${total}" />원</div>
-				</div>
-				<div class="sendOrder">
-					<input type="hidden" name="list" value="${list}">
-					<input type="hidden" name="total" value="${total}" />
-					<input type="hidden" name="mId" value="${mId}" />
-					<input type="submit" value="주문하기"/>
-					<input type="button" value="계속 쇼핑하기" onclick="history.back()"/>
-				</div>		
-			</form>	
+						<div class="showTotalPrice">
+							<div class="total">상품합계(${count} 품목):&nbsp;<fmt:formatNumber value="${total}" />원</div>
+						</div>
+						<div class="sendOrder">
+							<input type="hidden" name="list" value="${list}">
+							<input type="hidden" name="total" value="${total}" />
+							<input type="hidden" name="mId" value="${mId}" />
+							<input type="submit" value="주문하기"/>
+							<input type="button" value="계속 쇼핑하기" onclick="history.back()"/>
+						</div>		
+					</form>	
 				</div>
 			</div>
 		</div>

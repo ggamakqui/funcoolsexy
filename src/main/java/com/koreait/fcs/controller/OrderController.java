@@ -43,19 +43,19 @@ public class OrderController {
 	}
 	
 	@RequestMapping(value="submitOrder", method=RequestMethod.POST)
-	public String submitOrder(HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
+	public void submitOrder(HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
 		model.addAttribute("request", request);
 		SubmitOrderCommand command = new SubmitOrderCommand();
 		command.execute(sqlSession, response, model);
-		return "order/orderFinishPage"; // 결제 완료 페이지로 이동, 마이페이지에서 보는 주문내역과는 별도로 생성
+		//return "order/orderFinishPage"; // 결제 완료 페이지로 이동, 마이페이지에서 보는 주문내역과는 별도로 생성
 	}
 	
 	@RequestMapping(value="submitOrderFromCart", method=RequestMethod.POST)
-	public String submitOrderFromCart(HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
+	public void submitOrderFromCart(HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
 		model.addAttribute("request", request);
 		SubmitOrderFromCartCommand command = new SubmitOrderFromCartCommand();
 		command.execute(sqlSession, response, model);
-		return "order/orderFinishPage"; // 결제 완료 페이지로 이동, 마이페이지에서 보는 주문내역과는 별도로 생성
+		//return "order/orderFinishPage"; // 결제 완료 페이지로 이동, 마이페이지에서 보는 주문내역과는 별도로 생성
 	}
 	
 	@RequestMapping("selectMyOrderList")

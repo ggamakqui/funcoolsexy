@@ -47,7 +47,6 @@ public class SelectOrderProductCommand {
 			oDAO.updateCartQuantity(cartQuantity, cartNo);
 			cDTO = oDAO.checkCartProduct(mId, cSize, pNo);
 			model.addAttribute("cDTO", cDTO);
-			//total = (pPrice * cartQuantity);
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
@@ -58,7 +57,6 @@ public class SelectOrderProductCommand {
 			cDAO.cartInsert(mId, pNo, cSize, cartQuantity);
 			cDTO = oDAO.checkCartProduct(mId, cSize, pNo);
 			model.addAttribute("cDTO", cDTO);
-			//model.addAttribute("cartQuantity", cartQuantity);  // 수량 담기
 		}
 		
 		total = (pPrice * cDTO.getCartQuantity());
@@ -69,9 +67,6 @@ public class SelectOrderProductCommand {
 		
 		model.addAttribute("pDTO", pDAO.selectProductBypNo(pNo));
 		model.addAttribute("total", total);
-		//model.addAttribute("cSize", cSize); // 선택한 size 담기
-		//model.addAttribute("total", total); // 총금액 담기
-		//model.addAttribute("cartQuantity", cartQuantity);
 		
 	}
 
