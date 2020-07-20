@@ -128,7 +128,7 @@ td:nth-of-type(1){
       
    }
    #thumbnail{
-   	height: 500px;
+   	width: 350px;
    	margin: auto;
    }
 	
