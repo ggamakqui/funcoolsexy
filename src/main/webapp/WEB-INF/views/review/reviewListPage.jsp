@@ -5,7 +5,7 @@
 <jsp:include page="../template/header.jsp">
    <jsp:param value="회원가입" name="title" />
 </jsp:include>
-<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+<!-- <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet"> -->
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <link href="resources/css/star-rating.css" media="all" rel="stylesheet" type="text/css"/>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -140,7 +140,7 @@ jQuery(document).ready(function () {
 		<div class="review-list">
 			
 			<form method="POST">
-				<div style="padding-top: 10px; padding-bottom: 10px;"><h2>프리미엄 상품평</h2></div>
+				<div style="padding-top: 10px; padding-bottom: 10px; font-size: 20px;"><h2>프리미엄 상품평</h2></div>
 				<table class="review-list-table">
 					<tbody>
 						<c:if test="${empty list2 }">
@@ -188,7 +188,7 @@ jQuery(document).ready(function () {
 					</tfoot>
 				</table>
 				<br><br><br>
-				<div style="padding-top: 10px; padding-bottom: 10px;"><h2>일반 상품평</h2></div>				
+				<div style="padding-top: 10px; padding-bottom: 10px; font-size: 20px;"><h2>일반 상품평</h2></div>				
 				<table class="review-list-table">
 					<tbody>
 						<c:if test="${empty list1 }">

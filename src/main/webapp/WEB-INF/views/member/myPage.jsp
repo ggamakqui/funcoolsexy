@@ -43,7 +43,6 @@
 					}else{
 						alert('회원 정보가 수정되지 않았습니다.');
 					}
-					location.href = 'myPage';
 				},
 				error: function(){
 					alert('AJAX 통신에 실패했습니다.');
