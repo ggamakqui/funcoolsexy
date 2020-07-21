@@ -239,7 +239,6 @@ jQuery(document).ready(function () {
 		</div>
 		<div id="button-row">
 			<input id="goMain" type="button" value="메인으로 이동" onclick="location.href='index'" />&nbsp;&nbsp;
-			<input id="writeReview" type="button" value="리뷰 등록하기" onclick="location.href='reviewInsertPage?pNo=${pNo }'">
 		</div>
 	</div>
 	</main>

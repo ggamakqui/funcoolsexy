@@ -39,7 +39,7 @@ public class CategoryController {
 		new SelectNewProductCommand().execute(sqlSession, model);
 		return "index";
 	}
-	
+/*	
 	// 관리자 - 카테고리 리스트 페이지로 이동
 	@RequestMapping("categoryListPage")
 	public String categoryListPage(Model model) {
@@ -83,7 +83,7 @@ public class CategoryController {
 		categoryCommand = new CategoryDeleteCommand();
 		categoryCommand.execute(sqlSession, model);
 		return "redirect:categoryListPage";
-	}
+	}*/
 	
 	
 	

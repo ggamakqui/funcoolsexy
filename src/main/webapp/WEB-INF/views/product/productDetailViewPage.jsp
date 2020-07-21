@@ -130,6 +130,10 @@ td:nth-of-type(1){
    	width: 350px;
    	margin: auto;
    }
+   #filename{
+   	width: 600px;
+   	margin-top: 50px;
+   }
 	
 	#prod_info{
 		margin: auto;
@@ -329,7 +333,7 @@ td:nth-of-type(1){
                   </tr>
                   <tr>
                   	<td colspan="2">
-                  		총 금액 : <span id="total">${pDTO.pPrice }</span>원
+                  		<br>총 금액 : <span id="total">${pDTO.pPrice }</span>원<br>
                   	</td>
                   </tr>
                   <tr>
@@ -350,7 +354,7 @@ td:nth-of-type(1){
                   </tr>
 		<tr>
 			<td colspan="3">
-				<img alt="제품 상세 이미지" src="${pageContext.request.contextPath}/resources/storage/${pDTO.pFilename}" style="">
+				<img id="filename" style="width: 800px"alt="제품 상세 이미지" src="${pageContext.request.contextPath}/resources/storage/${pDTO.pFilename}">
 			</td>
 		</tr>
 	</table>
