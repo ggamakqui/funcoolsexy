@@ -151,7 +151,7 @@ td:nth-of-type(1){
          function fn_totalPrice(f){
             var price = '${pDTO.pPrice}';
             var total = document.querySelector('#total');
-            if(f.cartQuantity.value <= 0){
+            if(f.cartQuantity.value < 0){
             	alert('숫자는 0보다 큰 숫자를 입력해 주세요.');
             	f.cartQuantity.value = 1;
             }
