@@ -156,7 +156,10 @@ td:nth-of-type(1){
             	f.cartQuantity.value = 1;
             }
             if(f.cartQuantity.value > 0){
-               total.innerHTML = (f.cartQuantity.value * price);
+               total.innerHTML = (f.cartQuantity.value * price) + '원';
+            }
+            else if(f.cartQuantity.value == 0){
+               total.innerHTML = '숫자는 0보다 큰 숫자를 입력해 주세요.';
             }
          }
          /* function fn_countUp(f){
@@ -337,7 +340,7 @@ td:nth-of-type(1){
                   </tr>
                   <tr>
                   	<td colspan="2">
-                  		<br>총 금액 : <span id="total">${pDTO.pPrice }</span>원<br>
+                  		<br>총 금액 : <span id="total">${pDTO.pPrice }원</span><br>
                   	</td>
                   </tr>
                   <tr>
