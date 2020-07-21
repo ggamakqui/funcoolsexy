@@ -7,55 +7,59 @@
 </header>
 
 <body>
+<div class="contents">
+  <h2 class="h2">FCS </h2>
 
-	<section class="info_box">
-		<br/>
-		
-		
-		
-		<c:if test="${empty cName }">
-			<c:if test="${pGender == 1 }">
-				<h2>남성 ${value }</h2>
+	<div class="content">
+		<section class="info_box">
+			<br/>
+			
+			
+			
+			<c:if test="${empty cName }">
+				<c:if test="${pGender == 1 }">
+					<h2>남성 ${value }</h2>
+				</c:if>
+				<c:if test="${pGender == 2 }">
+					<h2>여성 ${value }</h2>
+				</c:if>
 			</c:if>
-			<c:if test="${pGender == 2 }">
-				<h2>여성 ${value }</h2>
+			<c:if test="${not empty cName }">
+				<c:if test="${pGender == 1 }">
+					<h2>남성 ${cName }</h2>
+				</c:if>
+				<c:if test="${pGender == 2 }">
+					<h2>여성 ${cName }</h2>
+				</c:if>
+				<c:if test="${pGender == 3 }">
+					<h2>ETC ${cName }</h2>
+				</c:if>
 			</c:if>
-		</c:if>
-		<c:if test="${not empty cName }">
-			<c:if test="${pGender == 1 }">
-				<h2>남성 ${cName }</h2>
-			</c:if>
-			<c:if test="${pGender == 2 }">
-				<h2>여성 ${cName }</h2>
-			</c:if>
-			<c:if test="${pGender == 3 }">
-				<h2>ETC ${cName }</h2>
-			</c:if>
-		</c:if>
-		<ul class="clear">
-	        <c:forEach var="pDTO" items="${list}">
-			<li>
-				<a href="productDetailViewPage?pNo=${pDTO.pNo }&var=${var}&pGender=${pDTO.pGender}">
-					<em><img src="${pageContext.request.contextPath}/resources/storage/${pDTO.pThumbnail}" alt="${pDTO.pThumbnail}"></em>
-					<div>
-						<h3>${pDTO.pName}</h3>
-						<p>
-							${pDTO.pDescription}
+			<ul class="clear">
+		        <c:forEach var="pDTO" items="${list}">
+				<li>
+					<a href="productDetailViewPage?pNo=${pDTO.pNo }&var=${var}&pGender=${pDTO.pGender}">
+						<em><img src="${pageContext.request.contextPath}/resources/storage/${pDTO.pThumbnail}" alt="${pDTO.pThumbnail}"></em>
+						<div>
+							<h3>${pDTO.pName}</h3>
+							<p>
+								${pDTO.pDescription}
+								
+							</p>
 							
-						</p>
-						
-						<div>${pDTO.pPrice}원</div>
-					</div>
-				</a>
-			</li>
-			
-			</c:forEach>    
-			
-                
-		</ul>
-					            
-	</section>
-	
+							<div>${pDTO.pPrice}원</div>
+						</div>
+					</a>
+				</li>
+				
+				</c:forEach>    
+				
+	                
+			</ul>
+						            
+		</section>
+	</div>	
+</div>	
 	<!-- 페이지 구역 -->
    <div class="page" style="text-align:center">
       <!-- 1. 이전 페이지 버튼 -->

@@ -24,10 +24,10 @@
 </head>
 <body>
 	
-	<div class="wrap">
+	<div class="contents">
 		<div class="h-title"><h2>상품 관리(재고 수정)</h2></div>
 		<div class="main">
-			<div class="productTable">
+			<div class="content">
 				<form>
 					<table class="pt" border="1">
 						<thead>

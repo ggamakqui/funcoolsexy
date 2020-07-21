@@ -10,6 +10,14 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 <div class="visual"><img src="resources/images/1.jpg" alt=""></div>
 </header>
+<style>
+	.btn7{
+		background: white;
+		border: 1px solid black;
+		border-radius: 3px;
+		width: 50px;
+	}
+</style>
 
 <body>
 <script type="text/javascript">
@@ -18,9 +26,9 @@
 </head>
 <body>
 	
-	<div class="wrap">
+	<div class=" contents">
 		<div class="h-title"><h3>FCS 전체 상품 리스트</h3></div>
-		<div class="productList">
+		<div class="content">
 			<div class="productTable">
 				<table class="pt" border="1">
 					<thead>
@@ -48,8 +56,8 @@
 								<td>${prodList.pStock2}ea</td>
 								<td>${prodList.pStock3}ea</td>
 								<td>${prodList.pRegdate}</td>
-								<td><button onclick="location.href='goUpdateProductQuantityPage?pNo=${prodList.pNo}'">수정</button></td>
-								<td><button onclick="location.href='productUpdatePage?pNo=${prodList.pNo }'">수정</button></td>
+								<td><button class="btn7" onclick="location.href='goUpdateProductQuantityPage?pNo=${prodList.pNo}'">수정</button></td>
+								<td><button class="btn7" onclick="location.href='productUpdatePage?pNo=${prodList.pNo }'">수정</button></td>
 							</tr>
 						</c:forEach>
 					</tbody>

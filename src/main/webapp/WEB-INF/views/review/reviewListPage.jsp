@@ -53,7 +53,7 @@ jQuery(document).ready(function () {
 		box-sizing: border-box;
 	}
 	
-	img{
+	table >img{
 		width:150px;
 		height:100px;
 	}

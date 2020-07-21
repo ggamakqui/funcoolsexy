@@ -65,8 +65,8 @@
 					<td>${qDTO.qRegdate }</td>
 				</tr>
 				<tr >
-					<td colspan="2"  style="width: 500px; height: 300px; border: 1px solid black; text-align: left;">
-						<pre>${qDTO.qContent }</pre>
+					<td colspan="2" style="font-size: 19px;" >
+						<pre style="width: 900px; height: 300px; font-size:18px; border: 1px solid black; margin: auto;">${qDTO.qContent }</pre>
 					</td>
 				</tr>
 			

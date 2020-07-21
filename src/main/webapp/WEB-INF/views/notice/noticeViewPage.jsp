@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!Doctype html>
 <jsp:include page="../template/header.jsp" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
@@ -16,17 +17,24 @@
 <style>
 
 
-	
-
 	tr , td{
-		font-size: 18px;
+		font-size: 22px;
 	
 	}
 
+	pre{
+		font-size:50px;
+		text-align: left;
+		white-space: normal;
+		
+		display: inherit;
+	}
+	
 </style>
 
 <div class="visual"><img src="resources/images/qna.jpg" alt=""></div>
 </header>
+
 <body>
 
 <div class="contents">
@@ -54,8 +62,8 @@
 						<td>${nDTO.nHit }</td>
 					</tr>
 					<tr >
-						<td colspan="2" style="width: 500px; height: 300px; border: 1px solid black;">
-							<pre>${nDTO.nContent }</pre>
+						<td colspan="2" >
+							<pre style="width: 900px; height: 300px; font-size:25px; border: 1px solid black; margin: auto; ">${nDTO.nContent }</pre>
 						</td>
 					</tr>
 				</tbody>

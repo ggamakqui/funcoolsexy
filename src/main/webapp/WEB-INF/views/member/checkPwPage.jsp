@@ -32,11 +32,16 @@
 </header>
 
    <main>
-   <br><br><br>
-   <div class="input_group">
-	<form method="POST">
-		<span >현재 비밀번호를 입력해주세요 : </span><input class="inputbox1" type="password" name="pw"/><br><br>
-		<input type="button" class="input-btn" value="비밀번호 확인하기" onclick="fn_changePw(this.form)">
-	</form>
+  
+   <div class="contents">
+   <h2 class="h2">FCS 비밀번호 수정</h2>
+    <p> 변경하실 비밀번호를 작성해 주세요.</p>
+   
+	   <div class="input_group">
+		<form method="POST">
+			<span >현재 비밀번호를 입력해주세요 : </span><input class="inputbox1" type="password" name="pw"/><br><br>
+			<input type="button" class="input-btn" value="비밀번호 확인하기" onclick="fn_changePw(this.form)">
+		</form>
+		</div>
 	</div>
  <%@ include file="../template/footer.jsp" %>

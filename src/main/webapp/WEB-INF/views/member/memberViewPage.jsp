@@ -60,8 +60,8 @@
 					<td>이메일</td>
 					<td> <input type="text" class="user-input" value="${mDTO.mEmail }" name="mEmail" readonly></td>
 				</tr>
-					<tr>
-						<td colspan="2"><a href="selectMyOrderList?mId=${mDTO.mId }&mName=${mDTO.mName }">구매내역보기</a></td>
+					<tr style="height: 100px;">
+						<td colspan="2"><a href="selectMyOrderList?mId=${mDTO.mId }&mName=${mDTO.mName }" style="font-size: 35px;">구매내역보기</a></td>
 					</tr>
 				</c:if>
 				<c:if test="${mDTO.mId eq 'admin' }">
