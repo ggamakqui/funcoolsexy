@@ -350,7 +350,7 @@ td:nth-of-type(1){
                   </tr>
 		<tr>
 			<td colspan="3">
-				<img alt="제품 상세 이미지" src="${pageContext.request.contextPath}/resources/storage/${pDTO.pFilename}" style="">
+				<img style="width: 800px"alt="제품 상세 이미지" src="${pageContext.request.contextPath}/resources/storage/${pDTO.pFilename}">
 			</td>
 		</tr>
 	</table>

@@ -113,6 +113,9 @@
 									<input id="updateButton" type="button" value="수정하기" onclick="fn_productUpdate(this.form)"/>
 									<input id="cancelButton" type="button" value="돌아가기" onclick="history.back()"/>
 									<input id="deleteButton" type="button" value="제품 삭제하기" onclick="fn_productDelete(this.form)"/>
+									<input type="hidden" type="text" name="pStock1" value="${pDTO.pStock1 }"/>
+									<input type="hidden" type="text" name="pStock2" value="${pDTO.pStock2 }"/>
+									<input type="hidden" type="text" name="pStock3" value="${pDTO.pStock3 }"/>
 								</td>
 							</tr>
 						</tfoot>
