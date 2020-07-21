@@ -24,7 +24,7 @@
      <p style="font-size: 35px;">사이트 관리</p>
                 
 		<div class="content">
-			<a class="text" href="categoryListPage">카테고리관리</a><br/><br/>
+			<!-- <a class="text" href="categoryListPage">카테고리관리</a><br/><br/> -->
 			<a class="text" href="productInsertPage">새 상품 등록하기</a><br/><br/>
 			<a class="text" href="selectTotalProductList">상품 관리하기</a><br/><br/>
 			<a class="text" href="userManagementPage">회원관리</a><br/><br/>
