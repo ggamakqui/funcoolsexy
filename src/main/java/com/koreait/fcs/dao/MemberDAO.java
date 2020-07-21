@@ -38,7 +38,7 @@ public interface MemberDAO {
 	public int deleteMember(int mNo);
 	
 	//회원 정보 수정 (관리자)
-	public int updateByAdmin(String mName, String mPw, String mId);
+	public int updateByAdmin(String mName, String mId);
 }
 
 

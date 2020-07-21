@@ -61,8 +61,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<update id="updateByAdmin">
 		UPDATE C_MEMBER
-		SET MNAME = #{param1}, MPW = #{param2}
-		WHERE MID = #{param3}
+		SET MNAME = #{param1}
+		WHERE MID = #{param2}
 	</update>
 </mapper>
 

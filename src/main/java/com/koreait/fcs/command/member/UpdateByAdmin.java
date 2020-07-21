@@ -19,8 +19,7 @@ public class UpdateByAdmin implements Command {
 		HttpServletRequest request = (HttpServletRequest)map.get("request");
 		String mId = request.getParameter("mId");
 		String mName = request.getParameter("mName");
-		String mPw = request.getParameter("mPw");
 		MemberDAO mDAO = sqlSession.getMapper(MemberDAO.class);
-		mDAO.updateByAdmin(mName, mPw, mId);		
+		mDAO.updateByAdmin(mName, mId);		
 	}
 }
