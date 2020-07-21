@@ -260,14 +260,18 @@ td:nth-of-type(1){
 </script>
    
    <!-- 전체페이지박스 -->
+<div class="contents" style=" height: 1500px;">
+   
+   
+<div class="content" style=" height: 1000px;">
 <form>
-	<table id="prod_info">
+	<table id="prod_info" >
 		<tr>
 			<td rowspan="11">
 				<img id="thumbnail" style="display: block"src="${pageContext.request.contextPath}/resources/storage/${pDTO.pThumbnail}" alt="Thumbnail">
 			</td>
 			<td colspan="2">
-				<h2 style="text-align: center;">${pDTO.pName }</h2>
+				<h2 class="h2" style="text-align: center; ">${pDTO.pName }</h2>
 			</td>
 		</tr>
 			<tr>
@@ -364,9 +368,9 @@ td:nth-of-type(1){
                 <tr>
                     <td ><a class="asdf" href="#header">TOP</a></td>
                 </tr>
-                <tr>
-                    <td><br><a href='productListPage?pCategory=${pDTO.pCategory}'>목록으로 이동</a></td>                  
-                </tr>
+                <%-- <tr>
+                    <td><br><a href='productListPage?pCategory=${pDTO.pCategory}&page=${page}'>목록으로 이동</a></td>                  
+                </tr> --%>
                  <tr>
                     <td><br><a class="asdf" href='reviewList?pNo=${pDTO.pNo }'>리뷰 보기</a></td>                  
                 </tr>
@@ -378,8 +382,8 @@ td:nth-of-type(1){
          
        </div>         
 </form>
-
-    
+</div>
+  </div>  
  
     
 	<%@ include file="../template/footer.jsp" %>

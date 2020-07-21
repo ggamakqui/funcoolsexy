@@ -7,11 +7,11 @@
 </header>
 
 <body>
-<div class="contents">
+<div class="contents" style=" height: 1200px; width: 1500px;">
   <h2 class="h2">FCS </h2>
 
-	<div class="content">
-		<section class="info_box">
+	<div class="content" style=" height: 1000px;">
+		<section class="info_box" style=" height: 1000px;">
 			<br/>
 			
 			
@@ -58,8 +58,7 @@
 			</ul>
 						            
 		</section>
-	</div>	
-</div>	
+
 	<!-- 페이지 구역 -->
    <div class="page" style="text-align:center">
       <!-- 1. 이전 페이지 버튼 -->
@@ -86,5 +85,6 @@
          <a href="selectProductList?page=${pVO.beginBlock + pVO.pagePerBlock }&var=${var}&pGender=${pGender}"><i class="fas fa-chevron-circle-right"></i></a>
       </c:if>
    </div>
-   
+   	</div>	
+</div>	
 <%@ include file="../template/footer.jsp" %>

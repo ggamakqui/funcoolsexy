@@ -11,7 +11,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -27,7 +26,6 @@ import com.koreait.fcs.command.product.ProductThumbnailUpdateCommand;
 import com.koreait.fcs.command.product.ProductTotalListCommand;
 import com.koreait.fcs.command.product.ProductUpdateCommand;
 import com.koreait.fcs.command.product.ProductUpdateWithNoImageCommand;
-import com.koreait.fcs.command.product.SelectNewProductCommand;
 import com.koreait.fcs.command.product.SelectProductDetailCommand;
 import com.koreait.fcs.command.product.UpdateProductQuantityCommand;
 

@@ -10,10 +10,10 @@
 <!-- 헤더영역 끝 -->
 <!-- 본문영역 -->
 <main>
-	<div class="content">
-		<h2	>FCS 이달의 신상</h2>
-	  <div class="content">
-			<section class="info_box">
+	<div class="contents" style=" height: 1500px; width: 1500px;" >
+		<h2	class="h2">FCS 이달의 신상</h2>
+	   <div class="content" style=" height: 1200px;" > 
+			<section class="info_box" style=" height: 1000px;" >
 				<ul class="clear">
 				<c:forEach var="pDTO" items="${list}" begin="0" end="7" step="1">
 				<li>
@@ -34,7 +34,7 @@
 	                
 				</ul>
 			</section>
-			<section class="guide_box clear">
+			<section class="guide_box clear"  >
 				<article class="guide">
 					<h2>고객<br>가이드</h2>
 					<ul>
@@ -56,7 +56,7 @@
 					</div>
 				</article>
 			</section>
-		</div>
+		<!-- </div> -->
 	</div>
 </main>
 		
