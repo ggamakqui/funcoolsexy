@@ -26,9 +26,9 @@
 </head>
 <body>
 	
-	<div class=" contents">
+	<div class="contents" style="height:auto;">
 		<div class="h-title"><h3>FCS 전체 상품 리스트</h3></div>
-		<div class="content">
+		<div class="content" style="height:auto;">
 			<div class="productTable">
 				<table class="pt" border="1">
 					<thead>

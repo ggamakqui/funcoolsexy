@@ -7,7 +7,7 @@
 </jsp:include>
 <link href="resources/css/cartList.css" media="all" rel="stylesheet" type="text/css"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<div class="visual"><img src="resources/images/1.jpg" alt=""></div>
+<div class="visual"><img src="resources/images/beads.jpg" alt=""></div>
 </header>
 
 	<body>
@@ -27,7 +27,7 @@
 	}
 </script>
 
-<div class="wrap">
+<div class="wrap" style="height:auto;">
 	<div class="head"><h2>${mId}님의 장바구니</h2></div>
 	<div id="main">
 			<div id="table">
@@ -53,7 +53,7 @@
 										<form id="f${pDTO.cartNo}">
 											<c:if test="${pDTO.cValidate eq 0}">
 												<tr>
-													<td><img id="thumbnail" src="${pageContext.request.contextPath}/resources/storage/${pDTO.pThumbnail}" alt="Thumbnail"></td>
+													<td><img style="width: 100px; height: 70px;"id="thumbnail" src="${pageContext.request.contextPath}/resources/storage/${pDTO.pThumbnail}" alt="Thumbnail"></td>
 													<td>
 														(상품번호: ${pDTO.pNo})<br/>[${pDTO.pCompany}]${pDTO.pName }(사이즈:${pDTO.cSize})
 													</td>

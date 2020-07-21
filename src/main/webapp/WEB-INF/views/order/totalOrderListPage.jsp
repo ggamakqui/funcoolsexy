@@ -17,9 +17,9 @@
 </head>
 <body>
 	
-	<div class="contents">
+	<div class="contents" style="height:auto;">
 		<div class="h-title"><h3>FCS 전체 구매 리스트(전체 매출액: <fmt:formatNumber value="${total }" pattern="#,##0" />원)</h3></div>
-		<div class="content">
+		<div class="content" style="height:auto;">
 			<div class="productTable">
 				<table class="pt" border="1">
 					<thead>

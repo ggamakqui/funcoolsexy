@@ -143,7 +143,7 @@ td:nth-of-type(1){
 	
 </style>
 
-<div class="visual"><img src="resources/images/1.jpg" alt=""></div>
+<div class="visual"><img src="resources/images/beads.jpg" alt=""></div>
 </header>
 
    
@@ -263,10 +263,10 @@ td:nth-of-type(1){
 </script>
    
    <!-- 전체페이지박스 -->
-<div class="contents" style=" height: 1500px;">
+<div class="contents" style=" height: auto;">
    
    
-<div class="content" style=" height: 1000px;">
+<div class="content" style=" height: auto;">
 <form>
 	<table id="prod_info" >
 		<tr>
@@ -339,12 +339,12 @@ td:nth-of-type(1){
                      </td>
                   </tr>
                   <tr>
-                  	<td colspan="2">
+                  	<td colspan="2" style="font-size: 20px;">
                   		<br>총 금액 : <span id="total">${pDTO.pPrice }원</span><br>
                   	</td>
                   </tr>
                   <tr>
-                     <td colspan="3">
+                     <td colspan="3" style="padding-top: 20px;">
                         <c:if test="${not empty loginDTO }">
                            <input type="button" class="btn3" style="width: 200px;" value="주문하기" onclick="fn_directOrder(this.form)"/>
                         </c:if>

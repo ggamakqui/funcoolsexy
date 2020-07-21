@@ -12,7 +12,7 @@
     
     td{
         font-size: 20px;
-         border-bottom: 1px solid black;
+         border-bottom: 1px solid lightgray;
        
     }
     
@@ -35,13 +35,13 @@
     table{
         margin: auto;
         border-collapse: collapse; 
-           border-top: 1px solid #444444;
+           border-top: 1px solid lightgray;
     }
 
     .h22 { position: relative; padding: 55px 0 53px; font-size: 36px; color:#222; line-height: 100%; text-align: center; } 
 
 </style>
-<div class="visual"><img src="resources/images/1.jpg" alt=""></div>
+<div class="visual"><img src="resources/images/beads.jpg" alt=""></div>
 </header>
 <body>
 <script type="text/javascript">
@@ -93,68 +93,68 @@
                            </colgroup>
                            <tbody>
                               <tr>
-               <td>pName</td>
+               <td>상품이름</td>
                <td>
                  <input type="text" class="input-box" name="pName"/>
                  
                </td>
             </tr>
             <tr>
-               <td>pPrice</td>
+               <td>상품가격</td>
                <td>
                   <input type="text" class="input-box" name="pPrice"/>
                </td>
             </tr>
             <tr>
-               <td>pCategory</td>
+               <td>제품카테고리</td>
                <td>
                 <input type="text" class="input-box" name="pCategory"/>
                   
                </td>
             </tr> 
             <tr>
-               <td>pGender</td>
+               <td>상품성별</td>
                <td>남<input type="radio" name="pGender" value="1"/>
                     여<input type="radio" name="pGender" value="2"/>
                    공용<input type="radio" name="pGender" value="3" checked/>
                 </td>
             </tr>
             <tr>
-               <td>pCompany</td>
+               <td>상품제조회사</td>
                <td><input type="text" class="input-box" name="pCompany"/></td>
             </tr>
            <tr>
-               <td>pThumbnail(썸네일이미지)</td>
+               <td>썸네일이미지</td>
                <td>
                   <input type="file" class="upload"  name="pThumbnail"/>            
                </td>
             </tr>
             <tr>
-               <td>pFilename(제품상세이미지)</td>
+               <td>제품상세이미지</td>
                <td>
                   <input type="file" class="upload" name="pFilename"/>              
                </td>
             </tr>
             <tr>
-               <td>pStock1(S사이즈 재고)</td>
+               <td>S사이즈 재고</td>
                <td>
                     <input type="text" class="input-box" name="pStock1"/> 
                </td>
             </tr>
               <tr>
-               <td>pStock2(M사이즈 재고)</td>
+               <td>M사이즈 재고</td>
                <td>
                     <input type="text" class="input-box" name="pStock2"/> 
                </td>
             </tr>
               <tr>
-               <td>pStock3(L사이즈 재고)</td>
+               <td>L사이즈 재고</td>
                <td>
                     <input type="text" class="input-box" name="pStock3"/> 
                </td>
             </tr>
               <tr>
-               <td>pDescription</td>
+               <td>상품설명</td>
                <td>
                      <textarea rows="10" cols="50" name="pDescription"></textarea>
                </td>

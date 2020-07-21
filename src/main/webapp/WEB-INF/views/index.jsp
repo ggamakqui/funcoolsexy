@@ -5,7 +5,7 @@
 
 <jsp:include page="./template/header.jsp" />
 
-<div class="visual"><img src="resources/images/1.jpg" alt=""></div>
+<div class="visual"><img src="resources/images/bbwhite.jpg" alt=""></div>
 </header>
 <!-- 헤더영역 끝 -->
 <!-- 본문영역 -->

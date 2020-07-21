@@ -47,29 +47,27 @@
 		            </li>
 		            <li><a href="">남성</a>
 		               <ul>
-			               <li><a href="selectProductList?value=11&var=pCategory&pGender=1&cName=JACKET">JACKET</a></li>
-			               <li><a href="selectProductList?value=12&var=pCategory&pGender=1&cName=SHIRT">SHIRT</a></li>
-			               <li><a href="selectProductList?value=13&var=pCategory&pGender=1&cName=SUIT">SUIT</a></li>
-			               <li><a href="selectProductList?value=14&var=pCategory&pGender=1&cName=PANTS">PANTS</a></li>
-		                   <li><a href="selectProductList?value=15&var=pCategory&pGender=1&cName=KNIT/T-SHIRT">KNIT/T-SHIRT</a></li>
+			               <li><a href="selectProductList?value=12&var=pCategory&pGender=1&cName=CARDIGAN">CARDIGAN</a></li>
+			               <li><a href="selectProductList?value=13&var=pCategory&pGender=1&cName=KNIT">KNIT</a></li>
+			               <li><a href="selectProductList?value=14&var=pCategory&pGender=1&cName=SHIRTS">SHIRTS</a></li>
+		                   <li><a href="selectProductList?value=15&var=pCategory&pGender=1&cName=JUMPER">JUMPER</a></li>
+		                   <li><a href="selectProductList?value=16&var=pCategory&pGender=1&cName=PANTS">PANTS</a></li>
 		               </ul>
 		            </li>
 		            <li><a href="">여성</a>
 		               <ul>
-		                    <li><a href="selectProductList?value=21&var=pCategory&pGender=2&cName=JACKET">JACKET</a></li>
-		               <li><a href="selectProductList?value=22&var=pCategory&pGender=2&cName=DRESS">DRESS</a></li>
+		                    <li><a href="selectProductList?value=21&var=pCategory&pGender=2&cName=KNIT">KNIT</a></li>
+		               <li><a href="selectProductList?value=22&var=pCategory&pGender=2&cName=PANTS">PANTS</a></li>
 		               <li><a href="selectProductList?value=23&var=pCategory&pGender=2&cName=BLOUSE">BLOUSE</a></li>
-		                    <li><a href="selectProductList?value=24&var=pCategory&pGender=2&cName=SKIRT">SKIRT</a></li>
-		                    <li><a href="selectProductList?value=25&var=pCategory&pGender=2&cName=PANTS">PANTS</a></li>
-		                    <li><a href="selectProductList?value=26&var=pCategory&pGender=2&cName=KNIT/T-SHIRT">KNIT/T-SHIRT</a></li>
+		                    <li><a href="selectProductList?value=24&var=pCategory&pGender=2&cName=DRESS">DRESS</a></li>
+		                    <li><a href="selectProductList?value=26&var=pCategory&pGender=2&cName=PANTS">SKIRTS</a></li>
 		               </ul>
 		            </li>
 		            <li><a href="">etc</a>
 		               <ul>
-			               <li><a href="selectProductList?value=32&var=pCategory&pGender=3&cName=Bag(Backpack)">Bag(Backpack)</a></li>
-			               <li><a href="selectProductList?value=32&var=pCategory&pGender=3&cName=Bag(Shoulder)">Bag(Shoulder)</a></li>
-			               <li><a href="selectProductList?value=31&var=pCategory&pGender=3&cName=Belt">Belt</a></li>
-			               <li><a href="selectProductList?value=33&var=pCategory&pGender=3&cName=Shoes">Shoes</a></li>
+			               <li><a href="selectProductList?value=31&var=pCategory&pGender=3&cName=BELT">BELT</a></li>
+			               <li><a href="selectProductList?value=32&var=pCategory&pGender=3&cName=BAG">BAG</a></li>
+			               <li><a href="selectProductList?value=33&var=pCategory&pGender=3&cName=Shoes">SHOES</a></li>
 		               </ul>
 		            </li>
 		         </ul>
