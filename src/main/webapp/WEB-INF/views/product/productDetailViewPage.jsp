@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:include page="../template/header.jsp" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <style>
     @charset "utf-8";
 
@@ -85,13 +86,11 @@ input[type="radio"] { vertical-align:text-bottom;}
 .side-menu {
          
       position: fixed;
-      top: 550px;
-      right: 200px;
+      right: 20px;
       width: 150px;
       height: 250px;
       text-align: center;
         border: 1px solid black;
-        
    
    }
 
@@ -232,6 +231,28 @@ td:nth-of-type(1){
          }
          
          
+         $(document).ready(function(){
+        	 $(window).resize(function(){
+        		 var w = $(window).innerWidth()/2;
+	             if($(window).innerWidth() <= 1150) {
+	                 $('.side-menu').css('right',(w-550)+'px');
+	             }else{
+	                 $('.side-menu').css('right','20px');            	 
+	             }
+        	 });
+         });
+         $(window).scroll(function(){
+        	 var h = 450;
+		     let top = $(window).scrollTop();
+           	 if($(window).scrollTop()<400){
+            	 $('.side-menu').css('top',(h-top)+'px'); 
+             }else{
+            	 $('.side-menu').css('top','10%');
+             }
+         });
+
+
+         
 </script>
    
    <!-- 전체페이지박스 -->
@@ -329,24 +350,24 @@ td:nth-of-type(1){
                   </tr>
 		<tr>
 			<td colspan="3">
-				<img alt="제품 상세 이미지" src="${pageContext.request.contextPath}/resources/storage/${pDTO.pFilename}">
+				<img alt="제품 상세 이미지" src="${pageContext.request.contextPath}/resources/storage/${pDTO.pFilename}" style="">
 			</td>
 		</tr>
 	</table>
             
-       <div>
-            <table class="side-menu">
+       <div class="side-menu">
+            <table>
                 <tr>
                     <td ><a class="asdf" href="#header">TOP</a></td>
                 </tr>
                 <tr>
-                    <td><input type="button"  class="asd" value="목록으로 이동" onclick="location.href='productListPage?pCategory=${pDTO.pCategory}'"/></td>                  
+                    <td><br><a href='productListPage?pCategory=${pDTO.pCategory}'>목록으로 이동</a></td>                  
                 </tr>
                  <tr>
-                    <td><a class="asdf" href='reviewList?pNo=${pDTO.pNo }'>리뷰 보기</a></td>                  
+                    <td><br><a class="asdf" href='reviewList?pNo=${pDTO.pNo }'>리뷰 보기</a></td>                  
                 </tr>
                  <tr>
-                    <td><a class="asdf" href='qnaList?pNo=${pDTO.pNo }'>상품문의 보기</a></td>                  
+                    <td><br><a class="asdf" href='qnaList?pNo=${pDTO.pNo }'>상품문의 보기</a></td>                  
                 </tr>
             
             </table>
