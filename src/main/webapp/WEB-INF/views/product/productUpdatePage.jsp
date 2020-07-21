@@ -100,12 +100,6 @@
 						<tfoot>
 							<tr>
 								<td class="button-row" colspan="2">
-									<input type="hidden" name="pName" value="${pName }"/><br/>
-									<input type="hidden" name="pPrice" value="${pPrice }"/><br/>
-									<input type="hidden" name="pCategory" value="${pCategory }"/><br/>
-									<input type="hidden" name="pGender" value="${pGender }"/><br/>
-									<input type="hidden" name="pCompany" value="${pCompany }"/>
-									<input type="hidden" name="pDescription" value="${pDescription }"/>
 									<input type="hidden" name="pNo" value="${pDTO.pNo }"/>
 									<input type="hidden" name="pStock1" value="${pDTO.pStock1}"/>
 									<input type="hidden" name="pStock2" value="${pDTO.pStock2}"/>

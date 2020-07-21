@@ -24,17 +24,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 	<update id="productUpdateWithNoImage">
 		UPDATE C_PRODUCT
-		SET PNAME = #{param1}, PPRICE = #{param2}, PCATEGORY = #{param3}, PGENDER = #{param4}, PCOMPANY = #{param5}, PDESCRIPTION = #{param6}, PSTOCK1 = #{param7}, PSTOCK2 = #{param8}, PSTOCK3 = #{param9}
+		SET PNAME = #{param1}, PPRICE = #{param2}, PCATEGORY = #{param3}, PGENDER = #{param4}, PCOMPANY = #{param5}, PTHUMBNAIL = '', PFILENAME = '', PDESCRIPTION = #{param6}, PSTOCK1 = #{param7}, PSTOCK2 = #{param8}, PSTOCK3 = #{param9}
 		WHERE PNO = #{param10}
 	</update>
 	<update id="productDetailImageUpdate">
 		UPDATE C_PRODUCT
-		SET PNAME = #{param1}, PPRICE = #{param2}, PCATEGORY = #{param3}, PGENDER = #{param4}, PCOMPANY = #{param5}, PFILENAME = #{param6}, PDESCRIPTION = #{param7}, PSTOCK1 = #{param8}, PSTOCK2 = #{param9}, PSTOCK3 = #{param10}
+		SET PNAME = #{param1}, PPRICE = #{param2}, PCATEGORY = #{param3}, PGENDER = #{param4}, PCOMPANY = #{param5}, PTHUMBNAIL = '', PFILENAME = #{param6}, PDESCRIPTION = #{param7}, PSTOCK1 = #{param8}, PSTOCK2 = #{param9}, PSTOCK3 = #{param10}
 		WHERE PNO = #{param11}
 	</update>
 	<update id="productThumbnailUpdate">
 		UPDATE C_PRODUCT
-		SET PNAME = #{param1}, PPRICE = #{param2}, PCATEGORY = #{param3}, PGENDER = #{param4}, PCOMPANY = #{param5}, PTHUMBNAIL = #{param6}, PDESCRIPTION = #{param7}, PSTOCK1 = #{param8}, PSTOCK2 = #{param9}, PSTOCK3 = #{param10}
+		SET PNAME = #{param1}, PPRICE = #{param2}, PCATEGORY = #{param3}, PGENDER = #{param4}, PCOMPANY = #{param5}, PTHUMBNAIL = #{param6}, PFILENAME = '', PDESCRIPTION = #{param7}, PSTOCK1 = #{param8}, PSTOCK2 = #{param9}, PSTOCK3 = #{param10}
 		WHERE PNO = #{param11}
 	</update>
 	

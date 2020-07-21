@@ -112,7 +112,6 @@ public class ProductController {
 		model.addAttribute("mr", mr);
 		productCommand = new ProductUpdateWithNoImageCommand();
 		productCommand.execute(sqlSession, model);
-		model.addAttribute("pCategory", mr.getAttribute("pCategory"));
 		return "redirect:productListPage";
 	}
 	@RequestMapping(value="productDetailImageUpdate", method=RequestMethod.POST)
@@ -120,7 +119,6 @@ public class ProductController {
 		model.addAttribute("mr", mr);
 		productCommand = new ProductDetailImageUpdateCommand();
 		productCommand.execute(sqlSession, model);
-		model.addAttribute("pCategory", mr.getAttribute("pCategory"));
 		return "redirect:productListPage";
 	}
 	@RequestMapping(value="productThumbnailUpdate", method=RequestMethod.POST)
@@ -128,7 +126,6 @@ public class ProductController {
 		model.addAttribute("mr", mr);
 		productCommand = new ProductThumbnailUpdateCommand();
 		productCommand.execute(sqlSession, model);
-		model.addAttribute("pCategory", mr.getAttribute("pCategory"));
 		return "redirect:productListPage";
 	}
 	
